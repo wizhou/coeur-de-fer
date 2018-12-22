@@ -1,0 +1,381 @@
+/*                _                                _              _                 */
+/*    /\/\   __ _(_)_ __  ___  ___ ___  _   _ _ __| |_ ___  ___  | | ___  ___ ___   */
+/*   /    \ / _` | | '_ \/ __|/ __/ _ \| | | | '__| __/ _ \/ __| | |/ _ \/ __/ __|  */
+/*  / /\/\ \ (_| | | | | \__ \ (_| (_) | |_| | |  | ||  __/\__ \_| |  __/\__ \__ \  */
+/*  \/    \/\__,_|_|_| |_|___/\___\___/ \__,_|_|   \__\___||___(_)_|\___||___/___/  */
+/*                                                                                  */
+
+/**
+ * Description: Mainscourtes ! La feuille magique qui regroupe tous les déclinaisons vendeurs de navigateurs ! 
+ *
+ * Version : 3.1
+ * Last update: 2018/12/22
+ * Author: Wizhou
+ */
+
+
+
+ /* ==========================================================================
+    LESS
+    ========================================================================== */
+
+
+
+
+
+/* ==========================================================================
+   X. Flexing
+   ========================================================================== */
+
+.fullSize() {
+   	height: 100%;
+   	width: 100%;
+}
+
+.flex(@wrap:wrap, @stretch:stretch) {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-flex-wrap: @wrap;
+	    -ms-flex-wrap: @wrap;
+	        flex-wrap: @wrap;
+	-webkit-align-content: @stretch;
+	    -ms-flex-line-pack: @stretch;
+	        align-content: @stretch;
+}
+
+.displayFlex () {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+}
+
+   .flexWrap (@wrap: wrap){
+	-webkit-flex-wrap: @wrap;
+	    -ms-flex-wrap: @wrap;
+	        flex-wrap: @wrap;
+   }
+
+.align-content (@center: center) {
+	-webkit-align-content: 		@center;
+	    -ms-flex-line-pack: 	@center;
+	        align-content: 		@center;
+}
+
+.justify-content (@center: center) {
+	-webkit-box-pack: 			@center;
+	-webkit-justify-content: 	@center;
+	    -ms-flex-pack: 			@center;
+	        justify-content: 	@center;
+}
+
+.justify-self (@center: center) {
+   -ms-grid-column-align:  @center;
+       justify-self:       @center;
+}
+
+.align-items (@align: center) {
+	-webkit-box-align: 		@align;
+	-webkit-align-items: 	@align;
+	    -ms-flex-align: 	@align;
+	        align-items: 	@align;
+}
+
+.align-self (@align: center) {
+	-webkit-align-self: 		@align;
+	    -ms-flex-item-align: 	@align;
+	    -ms-grid-row-align: 	@align;
+	        align-self: 		@align;
+}
+
+.flex-direction (@direction: column) {
+	-webkit-box-orient: 	vertical;
+	-webkit-box-direction: 	normal;
+	-webkit-flex-direction: 	@direction;
+	    -ms-flex-direction: 	@direction;
+	        flex-direction: 	@direction;
+}
+
+.flex-grow (@number) {
+   -webkit-box-flex:       @number;
+   -webkit-flex-grow:      @number;
+       -ms-flex-positive:  @number;
+           flex-grow:      @number;
+}
+   .centre() {
+   	.flex;
+   	.align-items(center);
+   	.justify-content(center);
+   }
+
+
+
+
+
+/* ==========================================================================
+   X. Typographies - ExpÃ©rimentale
+   ========================================================================== */
+
+.column (@number, @gap) {
+	-webkit-column-count: @number;
+	   -moz-column-count: @number;
+	        column-count: @number;
+	-webkit-column-gap: @gap;
+	   -moz-column-gap: @gap;
+	        column-gap: @gap;
+}
+
+.break-after(@avoid) {
+	-webkit-column-break-after: @avoid;
+	        break-after: @avoid;
+}
+
+.text-shadow (@string: 10px 10px 0px turquoise) {
+   	text-shadow: @string;
+}
+
+.font-smoothing (@smooth , @mosSmooth){
+   	-webkit-font-smoothing: @smooth;
+   	-moz-font-smoothing: @smooth;
+   	-ms-font-smoothing: @smooth;
+   	-o-font-smoothing: @smooth;
+   	font-smoothing: @smooth;
+   	moz-osx-font-smoothing : @mosSmooth;
+}
+
+.hyphens(@auto : auto) {
+   -webkit-hyphens:@auto;
+      -moz-hyphens:@auto;
+       -ms-hyphens:@auto;
+           hyphens:@auto
+}
+
+.orphan(@orphan) {
+   	-webkit-orphans: @orphan;
+   	-moz-orphans: @orphan;
+   	-ms-orphans: @orphan;
+   	-o-orphans: @orphan;
+   	orphans: @orphan;
+}
+
+.widows(@widows) {
+   	-webkit-widows: @widows;
+   	-moz-widows: @widows;
+   	-ms-widows: @widows;
+   	-o-widows: @widows;
+   	widows: @widows;
+}
+
+.font-variant-ligatures(@liga) {
+   	-webkit-font-variant-ligatures: @liga;
+   	-moz-font-variant-ligatures: @liga;
+   	-ms-font-variant-ligatures: @liga;
+   	-o-font-variant-ligatures: @liga;
+   	font-variant-ligatures: @liga;
+}
+
+.font-feature-settings(@ffs) {
+   	-webkit-font-feature-settings: @ffs;
+   	-moz-font-feature-settings: @ffs;
+   	-ms-font-feature-settings: @ffs;
+   	-o-font-feature-settings: @ffs;
+   	font-feature-settings: @ffs;
+}
+
+
+
+
+
+/* ==========================================================================
+   X. CSS Effects
+   ========================================================================== */
+
+
+.rotate (@deg) {
+    -webkit-transform:  rotate(@deg);
+   	   -moz-transform:  rotate(@deg);
+   	    -ms-transform:  rotate(@deg);
+   	     -o-transform:  rotate(@deg);
+   	        transform:  rotate(@deg);
+}
+
+
+ .transform (@trans) {
+ 	  -webkit-transform:   (@trans);
+ 	     -moz-transform:   (@trans);
+ 	      -ms-transform:   (@trans);
+ 	       -o-transform:   (@trans);
+ 	          transform:   (@trans);
+ }
+
+.transform-origin (@org) {
+    -webkit-transform-origin:  (@org);
+       -moz-transform-origin:  (@org);
+        -ms-transform-origin:  (@org);
+         -o-transform-origin:  (@org);
+            transform-origin:  (@org);
+}
+
+   .rotate3D (@x, @y, @z, @deg) {
+   	-webkit-transform:   rotate3d(@x, @y, @z, @deg);
+   	-moz-transform:      rotate3d(@x, @y, @z, @deg);
+   	-ms-transform:       rotate3d(@x, @y, @z, @deg);
+   	-o-transform:        rotate3d(@x, @y, @z, @deg);
+   	transform:           rotate3d(@x, @y, @z, @deg);
+   }
+
+   .translate (@x, @y:0) {
+   	-webkit-transform:   translate(@x, @y);
+   	-moz-transform:      translate(@x, @y);
+   	-ms-transform:       translate(@x, @y);
+   	-o-transform:        translate(@x, @y);
+   	transform:           translate(@x, @y);
+   }
+
+   .skewX (@deg) {
+   	-webkit-transform:   skewX(@deg);
+   	-moz-transform:      skewX(@deg);
+   	-ms-transform:       skewX(@deg);
+   	-o-transform:        skewX(@deg);
+   	transform:           skewX(@deg);
+   }
+
+   .transform(@array) {
+      -webkit-transform:   @array;
+      -moz-transform:      @array;
+      -ms-transform:       @array;
+      -o-transform:        @array;
+      transform:           @array;
+   }
+
+
+
+
+/* ==========================================================================
+   X. Handy
+   ========================================================================== */
+
+
+   .transition (@transition) {
+   	-webkit-transition: @transition;  
+   	-moz-transition:    @transition;
+   	-ms-transition:     @transition; 
+   	-o-transition:      @transition;
+   	transition:         @transition;  
+   }
+
+   .opacity (@opacity: 0.5) {
+   	-webkit-opacity:    @opacity;
+   	-moz-opacity:       @opacity;
+   	-ms-opacity:        @opacity;
+   	-o-opacity:         @opacity;
+   	opacity:            @opacity;
+   }
+
+   .placeholder(@rules) {
+
+       &::-webkit-input-placeholder {
+           @rules();
+       }
+       &:-moz-placeholder {
+           @rules();
+       }
+       &::-moz-placeholder {
+           @rules();
+       }
+       &:-ms-input-placeholder {
+           @rules();
+       }
+   }
+
+/* ==========================================================================
+   X. Box Styling
+   ========================================================================== */
+
+
+   .gradient (@startColor: #eee, @endColor: white) {
+   	background-color: @startColor;
+   	background: -webkit-gradient(linear, left top, left bottom, from(@startColor), to(@endColor));
+   	background: -webkit-linear-gradient(top, @startColor, @endColor);
+   	background: -moz-linear-gradient(top, @startColor, @endColor);
+   	background: -ms-linear-gradient(top, @startColor, @endColor);
+   	background: -o-linear-gradient(top, @startColor, @endColor);
+   }
+
+   .drop-shadow(@1: 1) {
+   	filter: drop-shadow(@1);
+   	-o-filter: drop-shadow(@1);;
+   	-ms-filter: drop-shadow(@1);;
+   	-moz-filter: drop-shadow(@1);;
+   	-webkit-filter: drop-shadow(@1);;
+   }
+
+   .box-shadow (@string) {
+      -webkit-box-shadow: @string;
+      -moz-box-shadow:    @string;
+      box-shadow:         @string;
+   }
+
+
+
+
+
+/* ==========================================================================
+   X. CSS Filter
+   ========================================================================== */
+
+
+   .filter(@filter) {
+   	filter: (@filter);
+   	-o-filter: (@filter);
+   	-ms-filter: (@filter);
+   	-moz-filter: (@filter);
+   	-webkit-filter: (@filter);
+   }
+
+.grayscale(@1: 1) {
+   	filter: grayscale(@1);
+   	-o-filter: grayscale(@1);
+   	-ms-filter: grayscale(@1);
+   	-moz-filter: grayscale(@1);
+   	-webkit-filter: grayscale(@1);
+}
+
+
+
+
+
+/* ==========================================================================
+   X. CSS Animation
+   ========================================================================== */
+
+
+.animation (@name, @duration: 300ms, @delay: 0, @ease: ease) {
+   	-webkit-animation: @name @duration @delay @ease;
+   	-moz-animation:    @name @duration @delay @ease;
+   	-ms-animation:     @name @duration @delay @ease;
+   	-o-animation:      @name @duration @delay @ease;
+   	animation:         @name @duration @delay @ease;
+}
+
+/* ==========================================================================
+   DEPRECIATED - Ã€ retirer bientÃ´t
+   ========================================================================== */
+
+/*.flexWrap() {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-wrap: wrap;
+	    flex-wrap: wrap;
+}
+
+.flexNoWrap() {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-wrap: nowrap;
+	    flex-wrap: nowrap;
+}*/
