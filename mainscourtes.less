@@ -322,7 +322,7 @@ utilisée. Le wrap permet d'employer le flex.
 	column-span: @span;
 }
 
-.column( @number, @width: false, @gap : false, @rules : false, @rulesoptions) {
+.column( @number, @width: false, @gap : false, @rules : false, @rulesoptions : null) {
 	.column-count( @number );
 	& when ( isnumber( @width ) ) { .column-width( @width ); }
 	& when ( isnumber( @gap ) ) { .column-gap( @gap ); }
