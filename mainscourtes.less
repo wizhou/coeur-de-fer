@@ -312,6 +312,23 @@ utilisée. Le wrap permet d'employer le flex.
 	}
 }
 
+.position(@width, @left, @right, @total) {
+	margin-left: @left * 100% / @total;
+	margin-right: @right * 100% / @total;
+	width: @width * 100% / @total;
+}
+
+.positionWidth(@width, @total) {
+	width: @width * 100% / @total;
+}
+
+.positionLeft(@left, @total) {
+	margin-left: @left * 100% / @total;
+}
+
+.positionRight(@right, @total) {
+	margin-right: @right * 100% / @total;
+}
 
 /*=============================================>>>>>
 = Gestion typographique =
