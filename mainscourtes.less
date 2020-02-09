@@ -451,33 +451,35 @@ utilisée. Le wrap permet d'employer le flex.
 = CSS Effects =
 ===============================================>>>>>*/
 
-.transition(@transition) {
-	-webkit-transition: @transition;
-	-moz-transition: @transition;
-	-ms-transition: @transition;
-	-o-transition: @transition;
-	transition: @transition;
+.transition(@arguments...) {
+	-moz-transition: @arguments;
+	-ms-transition: @arguments;
+	-o-transition: @arguments;
+	-webkit-transition: @arguments;
+	transition: @arguments;
 }
 
-.opacity(@opacity: 0.5 )
-	when ( isnumber(@opacity )) {
-
-	-webkit-opacity: @opacity;
+.opacity(@opacity: 0.5)
+	when (isnumber(@opacity)) {
 	-moz-opacity: @opacity;
 	-ms-opacity: @opacity;
 	-o-opacity: @opacity;
+	-webkit-opacity: @opacity;
 	opacity: @opacity;
 }
 
 .transform(@transform) {
-	-webkit-transform:(@transform );
-	-moz-transform:(@transform );
-	-ms-transform:(@transform );
-	-o-transform:(@transform );
-	transform:(@transform );
+	-webkit-transform:(@transform);
+	-moz-transform:(@transform);
+	-ms-transform:(@transform);
+	-o-transform:(@transform);
+	transform:(@transform);
 }
 
-.matrix(@numbers) { .transform( matrix(@numbers ) ); }
+.matrix(@numbers) {
+	.transform(matrix(@numbers));
+}
+
 .matrix3d(@numbers) { .transform( matrix3d(@numbers ) ); }
 
 .translate(@x, @y) { .transform( translate(@x, @y ) ); }
@@ -591,10 +593,10 @@ CF: https://css-tricks.com/styling-cross-browser-compatible-range-inputs-css/ */
 	background: repeating-radial-gradient(@arguments);
 }
 
-.box-shadow (@string) {
-	-webkit-box-shadow: @string;
-	-moz-box-shadow:    @string;
-	box-shadow:         @string;
+.box-shadow (@arguments...) {
+	-webkit-box-shadow: @arguments;
+	-moz-box-shadow: @arguments;
+	box-shadow: @arguments;
 }
 
 /*=============================================>>>>>
