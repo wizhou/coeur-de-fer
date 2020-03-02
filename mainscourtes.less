@@ -4,9 +4,8 @@
  * toutes les déclinaisons vendeurs de navigateurs !
  *
  * Version : 3.1.0
- * Author: Romain Goetz <coucou@romaingoetz.fr>
+ * Author: Wizhou <wizard@romaingoetz.fr>
  */
-
 
 .fullSize() {
 	height: 100%;
@@ -20,7 +19,6 @@
 	display: -ms-flexbox;
 	display: flex;
 }
-
 //DEPRECIATED
 .displayFlex() {
 	.display-flex();
@@ -37,7 +35,7 @@
 .flex-wrap(@wrap: wrap) {
 	-ms-flex-wrap: @wrap;
 	-webkit-flex-wrap: @wrap;
-	flex-wrap: @wrap
+	flex-wrap: @wrap;
 }
 
 //DEPRECIATED
@@ -71,7 +69,7 @@
 	-ms-flex-align: @align;
 	-webkit-align-items: @align;
 	-webkit-box-align: @align;
-	align-items: @align
+	align-items: @align;
 }
 
 .justify-content(@justify: center) {
@@ -81,7 +79,6 @@
 	-webkit-justify-content: @justify;
 	justify-content: @justify;
 }
-
 
 .order(@number) {
 	-moz-box-ordinal-group: @number;
@@ -136,13 +133,7 @@
  * Pour laisser null : 0.
  */
 
-.flex(
-	@wrap : 0,
-	@direction : 0,
-	@align-items : 0,
-	@justify : 0,
-	@align-content : 0
-) {
+.flex(@wrap : 0, @direction : 0, @align-items : 0, @justify : 0, @align-content : 0) {
 	.display-flex();
 
 	& when(iskeyword(@wrap)) {
@@ -166,62 +157,25 @@
 	}
 }
 
-.centered(
-	@wrap : 0,
-	@direction : 0,
-	@align-content : 0
-) {
-	.flex(
-		@wrap,
-		@direction,
-		center,
-		center,
-		@align-content
-	);
+.centered(@wrap : 0, @direction : 0, @align-content : 0) {
+	.flex(@wrap, @direction, center, center, @align-content);
 }
 
-.baselined(
-	@wrap : 0,
-	@direction : 0,
-	@align-content : 0
-) {
-	.flex(
-		@wrap,
-		@direction,
-		center,
-		baseline,
-		@align-content
-	);
+.baselined(@wrap : 0, @direction : 0, @align-content : 0) {
+	.flex(@wrap, @direction, center, baseline, @align-content);
 }
 
-.fluid(
-	@wrap : 0,
-	@direction : 0
-) {
-	.flex(
-		@wrap,
-		@direction,
-		normal,
-		normal,
-		normal
-	);
+.fluid(@wrap : 0, @direction : 0) {
+	.flex(@wrap, @direction, normal, normal, normal);
 }
 
-/*=============================================>>>>>
-= GRID =
-===============================================>>>>>*/
+/*----------- Grid -----------*/
 
 /* Utilisé pour générer un ensemble de colonnes
 Ajoute des gap si ajoutés. */
 
-.generate-columns(
-	@name,
-	@total,
-	@halfgap: false,
-	@i: 1
-) when (@i =< @total) {
-
-	.@{name}@{i} {
+.generate-columns(@name, @total, @halfgap: false, @i: 1) when (@i =< @total) {
+	.@{name} @{i} {
 		width: (@i * 100% / @total);
 
 		& when (isnumber(@halfgap)) {
@@ -229,13 +183,7 @@ Ajoute des gap si ajoutés. */
 			padding-right: @halfgap;
 		}
 	}
-
-	.generate-columns(
-		@name,
-		@total,
-		@halfgap,
-		(@i + 1)
-	);
+	.generate-columns(@name, @total, @halfgap, (@i + 1));
 }
 
 /* Permet de positionner un élément indépendant comme une colonne.
@@ -253,20 +201,18 @@ Ajoute des gap si ajoutés. */
 
 ;*/
 
-.column-self(@total, @base, @left: false, @right: false, @halfgap: false )
-	when(@base <= @total) {
+.column-self(@total, @base, @left: false, @right: false, @halfgap: false) when(@base <= @total) {
+	width: (@base * 100% / @total);
 
-	width:(@base * 100% / @total );
-
-	& when ( isnumber(@left )) {
-		margin-left:(@left * 100% / @total );
+	& when (isnumber(@left)) {
+		margin-left: (@left * 100% / @total);
 	}
 
-	& when ( isnumber(@right )) {
-		margin-right:(@right * 100% / @total );
+	& when (isnumber(@right)) {
+		margin-right: (@right * 100% / @total);
 	}
 
-	& when ( isnumber(@halfgap )) {
+	& when (isnumber(@halfgap)) {
 		padding-left: @halfgap;
 		padding-right: @halfgap;
 	}
@@ -280,15 +226,15 @@ Ajoute des gap si ajoutés. */
 .section(@base-pading, @media : desktop) {
 	.section {
 		& when(@media = desktop) {
-			padding:(@base-pading ) 0;
+			padding: (@base-pading) 0;
 		}
 
 		& when(@media = tablet) {
-			padding:(@base-pading / 1.5 ) 0;
+			padding: (@base-pading / 1.5) 0;
 		}
 
 		& when(@media = mobile) {
-			padding:(@base-pading / 2 ) 0;
+			padding: (@base-pading / 2) 0;
 		}
 	}
 }
@@ -306,9 +252,13 @@ utilisée. Le wrap permet d'employer le flex.
 		max-width: @max-width;
 		margin: auto;
 
-		.wrap { .flex( wrap, row, center, center ); }
+		.wrap {
+			.flex(wrap, row, center, center);
+		}
 
-		* { box-sizing: border-box; }
+		* {
+			box-sizing: border-box;
+		}
 	}
 }
 
@@ -330,21 +280,15 @@ utilisée. Le wrap permet d'employer le flex.
 	margin-right: @right * 100% / @total;
 }
 
-/*=============================================>>>>>
-= Gestion typographique =
-===============================================>>>>>*/
+/*----------- Colonnes -----------*/
 
-/*=============================================>>>>>
-= 1 . Colonnes =
-===============================================>>>>>*/
-
-.column-count(@number ) when ( isnumber(@number )) {
+.column-count(@number) when (isnumber(@number)) {
 	-webkit-column-count: @number;
 	-moz-column-count: @number;
 	column-count: @number;
 }
 
-.column-gap(@gap ) when ( isnumber(@gap )) {
+.column-gap(@gap) when (isnumber(@gap)) {
 	-webkit-column-gap: @gap;
 	-moz-column-gap: @gap;
 	column-gap: @gap;
@@ -356,7 +300,7 @@ utilisée. Le wrap permet d'employer le flex.
 	column-rule: @arguments;
 }
 
-.column-width(@width ) when ( isnumber(@width )) {
+.column-width(@width) when (isnumber(@width)) {
 	-webkit-column-width: @width;
 	-moz-column-width: @width;
 	column-width: @width;
@@ -368,30 +312,37 @@ utilisée. Le wrap permet d'employer le flex.
 }
 
 .column(@number, @width: false, @gap : false, @rules : false, @rulesoptions : null) {
-	.column-count(@number );
-	& when ( isnumber(@width )) { .column-width(@width ); }
-	& when ( isnumber(@gap )) { .column-gap(@gap ); }
-	& when(@rules) { .column-rules(@rulesoptions ); }
+	.column-count(@number);
+
+	& when (isnumber(@width)) {
+		.column-width(@width);
+	}
+
+	& when (isnumber(@gap)) {
+		.column-gap(@gap);
+	}
+
+	& when(@rules) {
+		.column-rules(@rulesoptions);
+	}
 }
 
 .break-after(@avoid) {
-	 -webkit-column-break-after: @avoid;
+	-webkit-column-break-after: @avoid;
 	break-after: @avoid;
 }
 
-/*= End of 1 . Colonnes =*/
-/*=============================================<<<<<*/
-
+/*----------- Typography -----------*/
 
 .text-shadow (@string: 10px 10px 0px turquoise) {
-   	text-shadow: @string;
+	text-shadow: @string;
 }
 
 .hyphens(@auto : auto) {
-	-webkit-hyphens:@auto;
-	-moz-hyphens:@auto;
-	-ms-hyphens:@auto;
-	hyphens:@auto
+	-webkit-hyphens: @auto;
+	-moz-hyphens: @auto;
+	-ms-hyphens: @auto;
+	hyphens: @auto;
 }
 
 .orphan(@orphan) {
@@ -419,7 +370,7 @@ utilisée. Le wrap permet d'employer le flex.
 }
 
 .font-variant-ligatures(@key) {
-	.font-variant( ligatures, @key );
+	.font-variant(ligatures, @key);
 }
 
 .font-feature-settings(@ffs) {
@@ -439,17 +390,7 @@ utilisée. Le wrap permet d'employer le flex.
 	-moz-osx-font-smoothing: grayscale;
 }
 
-
-/*= End of Gestion typographique =*/
-/*=============================================<<<<<*/
-
-
-
-
-
-/*=============================================>>>>>
-= CSS Effects =
-===============================================>>>>>*/
+/*----------- Effects -----------*/
 
 .transition(@arguments...) {
 	-moz-transition: @arguments;
@@ -459,8 +400,7 @@ utilisée. Le wrap permet d'employer le flex.
 	transition: @arguments;
 }
 
-.opacity(@opacity: 0.5)
-	when (isnumber(@opacity)) {
+.opacity(@opacity: 0.5) when (isnumber(@opacity)) {
 	-moz-opacity: @opacity;
 	-ms-opacity: @opacity;
 	-o-opacity: @opacity;
@@ -469,119 +409,193 @@ utilisée. Le wrap permet d'employer le flex.
 }
 
 .transform(@transform) {
-	-webkit-transform:(@transform);
-	-moz-transform:(@transform);
-	-ms-transform:(@transform);
-	-o-transform:(@transform);
-	transform:(@transform);
+	-webkit-transform: (@transform);
+	-moz-transform: (@transform);
+	-ms-transform: (@transform);
+	-o-transform: (@transform);
+	transform: (@transform);
 }
 
 .matrix(@numbers) {
 	.transform(matrix(@numbers));
 }
 
-.matrix3d(@numbers) { .transform( matrix3d(@numbers ) ); }
+.matrix3d(@numbers) {
+	.transform(matrix3d(@numbers));
+}
 
-.translate(@x, @y) { .transform( translate(@x, @y ) ); }
-.translateX(@x) { .transform( translateX(@x ) ); }
-.translateY(@y) { .transform( translateY(@y ) ); }
-.translateZ(@z) { .transform( translateZ(@z ) ); }
-.translate3d(@x, @y, @z) { .transform( translate3d(@arguments ) ); }
+.translate(@x, @y) {
+	.transform(translate(@x, @y));
+}
 
-.scale(@x, @y) { .transform( scale(@x, @y ) ); }
-.scaleX(@x) { .transform( scaleX(@x ) ); }
-.scaleY(@y) { .transform( scaleY(@y ) ); }
-.scaleZ(@z) { .transform( scaleZ(@z ) ); }
-.scale3d(@x, @y, @z) { .transform( scaleZ(@arguments ) ); }
+.translateX(@x) {
+	.transform(translateX(@x));
+}
 
-.rotate (@deg) { .transform( rotate(@deg ) ); }
-.rotateX(@x) { .transform( rotateX(@x ) ); }
-.rotateY(@y) { .transform( rotateY(@y ) ); }
-.rotateZ(@z) { .transform( rotateZ(@z ) ); }
-.rotate3d(@x, @y, @z, @deg) { .transform( rotate3d(@arguments ) ); }
+.translateY(@y) {
+	.transform(translateY(@y));
+}
 
-.skew(@x, @y) { .transform( skew(@x, @y ) ); }
-.skewX(@x) { .transform( skewX(@x ) ); }
-.skewY(@y) { .transform( skewY(@y ) ); }
+.translateZ(@z) {
+	.transform(translateZ(@z));
+}
 
-.perspective(@num) { .transform( perspective(@num ) ); }
+.translate3d(@x, @y, @z) {
+	.transform(translate3d(@arguments));
+}
+
+.scale(@x, @y) {
+	.transform(scale(@x, @y));
+}
+
+.scaleX(@x) {
+	.transform(scaleX(@x));
+}
+
+.scaleY(@y) {
+	.transform(scaleY(@y));
+}
+
+.scaleZ(@z) {
+	.transform(scaleZ(@z));
+}
+
+.scale3d(@x, @y, @z) {
+	.transform(scaleZ(@arguments));
+}
+
+.rotate (@deg) {
+	.transform(rotate(@deg));
+}
+
+.rotateX(@x) {
+	.transform(rotateX(@x));
+}
+
+.rotateY(@y) {
+	.transform(rotateY(@y));
+}
+
+.rotateZ(@z) {
+	.transform(rotateZ(@z));
+}
+
+.rotate3d(@x, @y, @z, @deg) {
+	.transform(rotate3d(@arguments));
+}
+
+.skew(@x, @y) {
+	.transform(skew(@x, @y));
+}
+
+.skewX(@x) {
+	.transform(skewX(@x));
+}
+
+.skewY(@y) {
+	.transform(skewY(@y));
+}
+
+.perspective(@num) {
+	.transform(perspective(@num));
+}
 
 .transform-origin (@org) {
 	/* x-offset | y-offset | z-offset */
-	-webkit-transform-origin:  (@org);
-	   -moz-transform-origin:  (@org);
-		-ms-transform-origin:  (@org);
-		 -o-transform-origin:  (@org);
-			transform-origin:  (@org);
+	-webkit-transform-origin: (@org);
+	-moz-transform-origin: (@org);
+	-ms-transform-origin: (@org);
+	-o-transform-origin: (@org);
+	transform-origin: (@org);
 }
 
-
-
-
-/*= End of CSS Effects =*/
-/*=============================================<<<<<*/
-
-/*=============================================>>>>>
-= Forms =
-===============================================>>>>>*/
+/*----------- Forms -----------*/
 
 .placeholder(@rules) {
-
 	&::-webkit-input-placeholder {
 		@rules();
 	}
+
 	&:-moz-placeholder {
 		@rules();
 	}
+
 	&::-moz-placeholder {
 		@rules();
 	}
+
 	&:-ms-input-placeholder {
 		@rules();
 	}
 }
-
 /*----------- Range -----------*/
-
 /* Basé sur le travail de  Daniel Stern
 CF: https://css-tricks.com/styling-cross-browser-compatible-range-inputs-css/ */
-
-
 .range(@class, @main, @mainFocus, @thumb, @track, @trackFocus) {
-	input[type=range].@{class} { -webkit-appearance: none; @main(); }
-	input[type=range].@{class}:focus { outline: none; @mainFocus(); }
+	input[type=range].@{class} {
+		-webkit-appearance: none;
+		@main();
+	}
+
+	input[type=range].@{class}:focus {
+		outline: none;
+		@mainFocus();
+	}
 
 	input[type=range].@{class}::-webkit-slider-thumb {
-		-webkit-appearance: none; @thumb(); }
-	input[type=range].@{class}::-moz-range-thumb { @thumb(); }
-	input[type=range].@{class}::-ms-thumb { @thumb(); }
+		-webkit-appearance: none;
+		@thumb();
+	}
 
-	input[type=range].@{class}::-webkit-slider-runnable-track { @track(); }
-	input[type=range].@{class}::-moz-range-track { @track(); }
-	input[type=range].@{class}::-ms-track { @track(); }
-	input[type=range].@{class}::-ms-fill-lower { @track(); }
-	input[type=range].@{class}::-ms-fill-upper { @track(); }
+	input[type=range].@{class}::-moz-range-thumb {
+		@thumb();
+	}
 
-	input[type=range].@{class}:focus::-webkit-slider-runnable-track { @trackFocus(); }
-	input[type=range].@{class}:focus::-ms-fill-lower { @trackFocus(); }
-	input[type=range].@{class}:focus::-ms-fill-upper { @trackFocus(); }
+	input[type=range].@{class}::-ms-thumb {
+		@thumb();
+	}
+
+	input[type=range].@{class}::-webkit-slider-runnable-track {
+		@track();
+	}
+
+	input[type=range].@{class}::-moz-range-track {
+		@track();
+	}
+
+	input[type=range].@{class}::-ms-track {
+		@track();
+	}
+
+	input[type=range].@{class}::-ms-fill-lower {
+		@track();
+	}
+
+	input[type=range].@{class}::-ms-fill-upper {
+		@track();
+	}
+
+	input[type=range].@{class}:focus::-webkit-slider-runnable-track {
+		@trackFocus();
+	}
+
+	input[type=range].@{class}:focus::-ms-fill-lower {
+		@trackFocus();
+	}
+
+	input[type=range].@{class}:focus::-ms-fill-upper {
+		@trackFocus();
+	}
 }
 
-
-/*= End of Forms =*/
-/*=============================================<<<<<*/
-
-
-/* ==========================================================================
-   X. Box Styling
-   ========================================================================== */
+/*----------- Box Styling -----------*/
 
 .gradient(@type; @colors; @dir) {
 	background: ~'-webkit-@{type}-gradient(@{dir}, @{colors})';
-	background:    ~'-moz-@{type}-gradient(@{dir}, @{colors})';
-	background:     ~'-ms-@{type}-gradient(@{dir}, @{colors})';
-	background:      ~'-o-@{type}-gradient(@{dir}, @{colors})';
-	background:        ~' @{type}-gradient(@{dir}, @{colors})';
+	background: ~'-moz-@{type}-gradient(@{dir}, @{colors})';
+	background: ~'-ms-@{type}-gradient(@{dir}, @{colors})';
+	background: ~'-o-@{type}-gradient(@{dir}, @{colors})';
+	background: ~' @{type}-gradient(@{dir}, @{colors})';
 }
 
 // DEPRECIATED
@@ -593,15 +607,57 @@ CF: https://css-tricks.com/styling-cross-browser-compatible-range-inputs-css/ */
 	background: repeating-radial-gradient(@arguments);
 }
 
-.box-shadow (@arguments...) {
+.box-shadow(@arguments...) {
 	-webkit-box-shadow: @arguments;
 	-moz-box-shadow: @arguments;
 	box-shadow: @arguments;
 }
 
-/*=============================================>>>>>
-= CSS Filter =
-===============================================>>>>>*/
+.border-radius(@unit...) {
+	-moz-border-radius: @arguments;
+	-webkit-border-radius: @arguments;
+	border-radius: @arguments;
+}
+
+.border-radius-corner(@corner, @unit) {
+	& when (@corner = 'top-left') {
+		.border-radius(@unit, @unit * 0, @unit * 0, @unit * 0);
+	}
+
+	& when (@corner = 'top-right') {
+		.border-radius(@unit * 0, @unit, @unit * 0, @unit * 0);
+	}
+
+	& when (@corner = 'bottom-right') {
+		.border-radius(@unit * 0, @unit * 0, @unit, @unit * 0);
+	}
+
+	& when (@corner = 'bottom-left') {
+		.border-radius(@unit * 0, @unit * 0, @unit * 0, @unit);
+	}
+}
+
+.border-radius-top-box(@unit) {
+	/* Multiply by 0 to keep the param unit */
+	.border-radius(@unit, @unit, @unit * 0, @unit * 0)
+}
+
+.border-radius-right-box(@unit) {
+	/* Multiply by 0 to keep the param unit */
+	.border-radius(@unit * 0, @unit, @unit, @unit * 0)
+}
+
+.border-radius-bottom-box(@unit) {
+	/* Multiply by 0 to keep the param unit */
+	.border-radius(@unit * 0, @unit * 0, @unit, @unit)
+}
+
+.border-radius-left-box(@unit) {
+	/* Multiply by 0 to keep the param unit */
+	.border-radius(@unit, @unit * 0, @unit * 0, @unit)
+}
+
+/*----------- Filter -----------*/
 
 .filter(@filter) {
 	-webkit-filter: (@filter);
@@ -611,24 +667,51 @@ CF: https://css-tricks.com/styling-cross-browser-compatible-range-inputs-css/ */
 	filter: (@filter);
 }
 
-.grayscale(@num: 1px) { .filter( grayscale(@num ) ); }
-.blur(@num: 1) { .filter( blur(@num ) ); }
-.brightness(@num: 1) { .filter( brightness(@num ) ); }
-.contrast(@num: 100%) { .filter( contrast(@num ) ); }
-.drop-shadow(@x, @y, @z, @color) { .filter( drop-shadow(@arguments ) ); }
-.grayscale(@num: 100%) { .filter( grayscale(@num ) ); }
-.hue-rotate(@num: 1) { .filter( hue-rotate(@num ) ); }
-.invert(@num: 100%) { .filter( invert(@num ) ); }
-.opacityFilter(@num: 100%) { .filter( opacity(@num ) ); }
-.saturate(@num: 100%) { .filter( saturate(@num ) ); }
-.sepia(@num: 100%) { .filter( sepia(@num ) ); }
+.grayscale(@num: 1px) {
+	.filter(grayscale(@num));
+}
 
-/*= End of CSS Filter =*/
-/*=============================================<<<<<*/
+.blur(@num: 1) {
+	.filter(blur(@num));
+}
 
-/*=============================================>>>>>
-= CSS Animation =
-===============================================>>>>>*/
+.brightness(@num: 1) {
+	.filter(brightness(@num));
+}
+
+.contrast(@num: 100%) {
+	.filter(contrast(@num));
+}
+
+.drop-shadow(@x, @y, @z, @color) {
+	.filter(drop-shadow(@arguments));
+}
+
+.grayscale(@num: 100%) {
+	.filter(grayscale(@num));
+}
+
+.hue-rotate(@num: 1) {
+	.filter(hue-rotate(@num));
+}
+
+.invert(@num: 100%) {
+	.filter(invert(@num));
+}
+
+.opacityFilter(@num: 100%) {
+	.filter(opacity(@num));
+}
+
+.saturate(@num: 100%) {
+	.filter(saturate(@num));
+}
+
+.sepia(@num: 100%) {
+	.filter(sepia(@num));
+}
+
+/*----------- Animation -----------*/
 
 .animation (@name, @duration: 300ms, @delay: 0, @ease: ease) {
 	-webkit-animation: @arguments;
@@ -637,6 +720,3 @@ CF: https://css-tricks.com/styling-cross-browser-compatible-range-inputs-css/ */
 	-o-animation: @arguments;
 	animation: @arguments;
 }
-
-/*= End of CSS Animation =*/
-/*=============================================<<<<<*/
