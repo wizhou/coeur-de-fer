@@ -115,6 +115,7 @@ a {
 	background: transparent;
 	font-size: 100%;
 	margin: 0em;
+	outline: 0px;
 	padding: 0em;
 	vertical-align: baseline;
 }
@@ -159,4 +160,21 @@ hr {
 input,
 select {
 	vertical-align: middle;
+}
+
+select {
+	-webkit-appearance: caret;
+}
+
+input,
+button {
+	outline: 0px;
+	/* Disable webkit default */
+	-webkit-appearance:none;
+
+	/* Disable firefox styling */
+	&::-moz-focus-inner {
+		border: 0px;
+		outline: 0px;
+	}
 }
