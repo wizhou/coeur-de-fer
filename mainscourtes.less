@@ -175,7 +175,7 @@
 Ajoute des gap si ajoutés. */
 
 .generate-columns(@name, @total, @halfgap: false, @i: 1) when (@i =< @total) {
-	.@{name} @{i} {
+	.@{name}@{i} {
 		width: (@i * 100% / @total);
 
 		& when (isnumber(@halfgap)) {
@@ -709,6 +709,13 @@ CF: https://css-tricks.com/styling-cross-browser-compatible-range-inputs-css/ */
 
 .sepia(@num: 100%) {
 	.filter(sepia(@num));
+}
+
+/*----------- Image rendering -----------*/
+
+.object-fit(@keyword) {
+	-o-object-fit: @keyword;
+	object-fit: @keyword;
 }
 
 /*----------- Animation -----------*/
