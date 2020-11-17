@@ -1,7 +1,17 @@
-
 /*=============================================>>>>>
-= FLEXBOX =
+= Flex container =
 ===============================================>>>>>*/
+
+/**
+ * The Flexible Box Module is designed as
+ * a one-dimensional layout model, and as a
+ * method that could offer space distribution
+ * between items in an interface and powerful
+ * alignment capabilities.
+ *
+ * The following applies flex to an element
+ * and make it a flex container.
+ */
 
 .display-flex() {
 	display: -webkit-box;
@@ -11,7 +21,10 @@
 	display: flex;
 }
 
-/*----------- Direction & Wrapping -----------*/
+
+/*=============================================>>>>>
+= Direction & Wrapping =
+===============================================>>>>>*/
 
 /**
  * Sets how flex items are placed in the flex
@@ -32,7 +45,6 @@
 /* ----------------------------------------------- */
 
 /**
- *
  * Sets whether flex items are forced onto one line
  * or can wrap onto multiple lines. If wrapping is allowed,
  * it sets the direction that lines are stacked.
@@ -49,7 +61,6 @@
 /* ----------------------------------------------- */
 
 /**
- *
  * Specifies the direction of a flex container,
  * as well as its wrapping behavior.
  * This property is a shorthand for the following
@@ -68,43 +79,11 @@
 	flex-flow: @arguments;
 }
 
-/* ----------------------------------------------- */
-
-
-.align-content(@center: center) {
-	-webkit-align-content: @center;
-	-ms-flex-line-pack: @center;
-	align-content: @center;
-}
-
-.align-items(@align: center) {
-	-moz-box-align: @align;
-	-ms-flex-align: @align;
-	-webkit-align-items: @align;
-	-webkit-box-align: @align;
-	align-items: @align;
-}
-
-.justify-content(@justify: center) {
-	-moz-box-pack: @justify;
-	-ms-flex-pack: @justify;
-	-webkit-box-pack: @justify;
-	-webkit-justify-content: @justify;
-	justify-content: @justify;
-}
-
-.order(@number) {
-	-moz-box-ordinal-group: @number;
-	-ms-flex-order: @number;
-	-webkit-box-ordinal-group: @number;
-	-webkit-order: @number;
-	order: @number;
-}
-
-/*----------- Positions and placements -----------*/
+/*=============================================>>>>>
+= Positions and placements =
+===============================================>>>>>*/
 
 /**
- *
  * Sets the initial main size of a flex item.
  * It sets the size of the content box unless
  * otherwise set with box-sizing.
@@ -124,7 +103,6 @@
 /* ----------------------------------------------- */
 
 /**
- *
  * Sets the flex grow factor of a flex item main size.
  * The flex-grow property is specified as a single <number>.
  * This property specifies how much of the remaining space
@@ -143,7 +121,6 @@
 /* ----------------------------------------------- */
 
 /**
- *
  * Sets the flex shrink factor of a flex item.
  * If the size of all flex items is larger than
  * the flex container, items shrink to fit according
@@ -160,17 +137,20 @@
 
 /* ----------------------------------------------- */
 
+/**
+ *
+ * Sets the order to lay out an item in a flex
+ * or grid container. Items in a container
+ * are sorted by ascending order value and then
+ * by their source code order.
+ */
 
-.align-self(@align: center) {
-	-ms-flex-item-align: @align;
-	-ms-grid-row-align: @align;
-	-webkit-align-self: @align;
-	align-self: @align;
-}
-
-.justify-self(@center: center) {
-	-ms-grid-column-align: @center;
-	justify-self: @center;
+.order(@number) {
+	-moz-box-ordinal-group: @number;
+	-ms-flex-order: @number;
+	-webkit-box-ordinal-group: @number;
+	-webkit-order: @number;
+	order: @number;
 }
 
 /**
@@ -244,7 +224,3 @@
 }
 
 //DEPRECIATED>
-
-
-/*= End of FLEXBOX =*/
-/*=============================================<<<<<*/
