@@ -5,11 +5,11 @@ Cette feuille less regroupe quelques *mixins* less pour les vendors de navigateu
 
 ## Installation
 
-Dans un projet less, importer mainscourtes.less avec le code suivant : 
+Dans un projet less, importer mainscourtes.less avec le code suivant :
 `@import (reference) './mainscourtes.less';`
 
 Il permet d'accéder à tous les *mixins* listés, sans les *compiler* directement au sein du projet.
 
-## WIP 
+## WIP
 
 Cette feuille peut encore être nettement améliorée, quelques *mixins* désuets sont conservés pour une compatibilité avec d'anciens projets.

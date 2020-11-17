@@ -1,0 +1,32 @@
+{
+  "name": "coeur-de-fer",
+  "version": "1.0.0",
+  "description": "Less framework for building website with an iron heart",
+  "main": "index.less",
+  "directories": {
+    "example": "example"
+  },
+  "scripts": {
+    "dev": "parcel watch index.js",
+    "build": "parcel build index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wizhou/coeur-de-fer.git"
+  },
+  "keywords": [
+    "framework",
+    "less",
+    "website"
+  ],
+  "author": "Wizhou <wizhou@protonmail.com>",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/wizhou/coeur-de-fer/issues"
+  },
+  "homepage": "https://github.com/wizhou/coeur-de-fer#readme",
+  "devDependencies": {
+    "cssnano": "^4.1.10",
+    "less": "^3.12.2"
+  }
+}
