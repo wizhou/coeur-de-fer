@@ -6,9 +6,9 @@ blockquote {
   margin-top: -@typography[base-margin];
   margin-bottom: @typography[base-margin];
 
-  color: .color-lighten(@colors[@light][text-normal])[6];
+  color: .color-lighten(@colors[@light][text-normal])[@mediante];
   @media screen and (prefers-color-scheme: dark) {
-    color: .color-darken(@colors[@dark][text-normal])[8];
+    color: .color-darken(@colors[@dark][text-normal])[@mediante];
   }
 
   &::before {
