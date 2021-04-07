@@ -1,0 +1,167 @@
+/**
+* Description: Reset ! Ending navigator default styling.
+*
+* Version : 2.1
+* Last update: 2020/01/06
+* Author: Wizhou
+*/
+
+i,
+b,
+p,
+q,
+dl,
+li,
+h6,
+h5,
+h4,
+h3,
+h2,
+h1,
+ol,
+em,
+dt,
+ul,
+dd,
+tr,
+th,
+td,
+dfn,
+div,
+kbd,
+var,
+sup,
+nav,
+sub,
+pre,
+del,
+img,
+ins,
+span,
+time,
+menu,
+mark,
+samp,
+abbr,
+code,
+html,
+body,
+form,
+cite,
+small,
+aside,
+audio,
+thead,
+tfoot,
+tbody,
+table,
+video,
+label,
+iframe,
+canvas,
+legend,
+hgroup,
+header,
+object,
+footer,
+figure,
+strong,
+section,
+caption,
+summary,
+address,
+article,
+details,
+fieldset,
+figcaption,
+blockquote {
+  background: transparent;
+  border: 0em;
+  font-size: 100%;
+  margin: 0em;
+  outline: 0em;
+  padding: 0em;
+  vertical-align: baseline;
+}
+
+nav,
+menu,
+aside,
+figure,
+footer,
+header,
+hgroup,
+section,
+article,
+details,
+figcaption, {
+  display:block;
+}
+
+ul {
+  list-style: none;
+}
+
+q,
+blockquote {
+  quotes: none;
+
+  &::before {
+    content: none;
+  }
+}
+
+a {
+  background: transparent;
+  font-size: 100%;
+  margin: 0em;
+  outline: 0px;
+  padding: 0em;
+  vertical-align: baseline;
+  text-decoration: none;
+  color: unset;
+  cursor: default;
+
+  &:not(:disabled),
+  &[href="*"] {
+    cursor: pointer;
+  }
+}
+
+abbr[title],
+dfn[title] {
+  cursor: help;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0em;
+}
+
+hr {
+  display: block;
+  height: 1px;
+  padding: 0em;
+}
+
+input,
+select {
+  vertical-align: middle;
+}
+
+select {
+  -webkit-appearance: caret;
+}
+
+input,
+button {
+  outline: 0px;
+  /* Disable webkit default */
+  -webkit-appearance:none;
+
+  /* Disable firefox styling */
+  &::-moz-focus-inner {
+    border: 0px;
+    outline: 0px;
+  }
+}

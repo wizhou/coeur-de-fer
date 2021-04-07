@@ -1,14 +1,11 @@
 {
   "name": "coeur-de-fer",
-  "version": "1.0.0",
+  "version": "0.2.0",
   "description": "Less framework for building website with an iron heart",
-  "main": "index.less",
-  "directories": {
-    "example": "example"
-  },
   "scripts": {
-    "dev": "parcel watch index.js",
-    "build": "parcel build index.js"
+    "dev": "parcel watch index.less --dist-dir example --out-file example.css ",
+    "build": "bash shell/build.sh",
+    "test": "bash shell/test.sh"
   },
   "repository": {
     "type": "git",
@@ -25,8 +22,18 @@
     "url": "https://github.com/wizhou/coeur-de-fer/issues"
   },
   "homepage": "https://github.com/wizhou/coeur-de-fer#readme",
+  "browserslist": "> 0.4%, last 10 versions, Firefox ESR, not dead",
+  "targets": {
+    "main": false,
+    "src": {
+      "distDir": "dist"
+    }
+  },
   "devDependencies": {
+    "autoprefixer": "^8.6.5",
     "cssnano": "^4.1.10",
-    "less": "^3.12.2"
+    "less": "^3.12.2",
+    "parcel": "^2.0.0-beta.1",
+    "postcss": "^8.2.4"
   }
 }

@@ -1,0 +1,34 @@
+ins {
+  background-color: @colors[@light][primary];
+  color: @colors[@light][background];
+  text-decoration: none;
+  padding: 0.2em;
+
+  @media screen and (prefers-color-scheme: dark) {
+    background-color: @colors[@dark][primary];
+    color: @colors[@dark][background];
+  }
+}
+
+mark {
+  background-color: @colors[@light][primary];
+  color: @colors[@light][background];
+  padding: 0.2em;
+
+  @media screen and (prefers-color-scheme: dark) {
+    background-color: @colors[@dark][primary];
+    color: @colors[@dark][background];
+  }
+}
+
+del {
+  text-decoration: line-through;
+}
+
+u {
+  text-decoration: underline;
+}
+
+dfn {
+  font-style: italic;
+}

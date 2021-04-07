@@ -1,0 +1,24 @@
+ul,
+ol {
+  padding-left: 1em;
+
+  ul,
+  ol {
+    padding-left: 1em;
+    margin-top: @typography[base-margin];
+  }
+}
+
+.list {
+  &-unstyled {
+    // padding-left: 0;
+    list-style: none;
+  }
+
+  &-inline {
+      padding: 0em;
+    &-item {
+      display: inline-block;
+    }
+  }
+}

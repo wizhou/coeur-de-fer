@@ -1,0 +1,78 @@
+/*=============================================>>>>>
+= Colors Functions =
+===============================================>>>>>*/
+
+
+
+.color-lighten(@color) {
+  @ratio: @type-ratios[goldenRatio];
+  /* Calculates the luma (perceptual brightness) of a color object. 0% = black 100% = white */
+  @luma: luma(@color);
+
+  @number: unit(@luma);
+  @range: 100 - @number;
+  @steps: @range / @ratio;
+  @floor: floor(@steps);
+
+  each(range(@floor), {
+    @{value}: lighten(@color, pow(@ratio, @value));
+  });
+}
+
+.color-darken(@color) {
+  @ratio: @type-ratios[goldenRatio];
+  /* Calculates the luma (perceptual brightness) of a color object.  0% = black 100% = white */
+  @luma: luma(@color);
+
+  @number: unit(@luma);
+  @steps: @number / @ratio;
+  @floor: floor(@steps);
+
+  each(range(@floor), {
+    @{value}: darken(@color, pow(@ratio, @value));
+  });
+
+  @mediante: darken(@color, 10%);
+  @sensible: darken(@color, 20%);
+  @mineure: darken(@color, 40%);
+}
+
+.color-spin(@color) {
+  @ratio: @type-ratios[goldenRatio];
+  /* Calculates the luma (perceptual brightness) of a color object.  0% = black 100% = white */
+  @hue: hue(@color);
+  @range: 360 - @hue;
+  @steps: @range / @ratio;
+  @floor: floor(@steps);
+
+  each(range(@floor), {
+    @{value}: spin(@color, pow(@ratio, @value));
+  });
+}
+
+.color-tint(@color) {
+  @mediante: tint(@color, 20%);
+  @sensible: tint(@color, 40%);
+  @mineure: tint(@color, 60%);
+}
+
+.color-lum(@switch: light, @color) {
+
+  & when (@switch = light) {
+    @mediante: lighten(@color, 10%);
+    @sensible: lighten(@color, 20%);
+    @mineure: lighten(@color, 40%);
+  }
+
+  & when (@switch = dark) {
+    @mediante: darken(@color, 10%);
+    @sensible: darken(@color, 20%);
+    @mineure: darken(@color, 40%);
+  }
+}
+
+.color-fadeout(@color) {
+  @mediante: fadeout(@color, 20%);
+  @sensible: fadeout(@color, 40%);
+  @mineure: fadeout(@color, 60%);
+}

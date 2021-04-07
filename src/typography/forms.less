@@ -1,0 +1,135 @@
+button,
+input,
+optgroup,
+select,
+textarea {
+  margin: 0;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+label {
+  display: inline-block;
+  cursor: default;
+}
+
+input {
+  appearance: none;
+  display: block;
+}
+
+input[type=range],
+progress {
+  cursor: pointer;
+  /* Get rid of borders in FF. */
+  border: 0;
+
+  &:focus {
+    border: 0;
+    outline: none;
+  }
+
+  &::-moz-focus-inner,
+  &::-moz-focus-outer {
+    outline: none !important;
+    border: 0;
+  }
+}
+
+input[type=search] {
+  &:focus {
+    box-shadow: unset;
+    outline: 0;
+  }
+}
+
+select {
+  vertical-align: middle;
+}
+
+textarea {
+	display: block;
+	overflow-x: auto;
+	vertical-align: 0%;
+	word-wrap: break-word;
+	word-break: break-all;
+}
+
+
+/*=============================================>>>>>
+= Helpers =
+===============================================>>>>>*/
+
+/**
+ * Based on the work of Daniel Stern
+ * CF: https://css-tricks.com/styling-cross-browser-compatible-range-inputs-css/
+ *
+ * @class : <string> class to use for the range.
+ * @main :
+ */
+
+.range(
+  @class,
+  @main,
+  @mainFocus,
+  @thumb,
+  @track,
+  @trackFocus
+) {
+
+  input[type=range].@{class} {
+    -webkit-appearance: none;
+    @main();
+  }
+
+  input[type=range].@{class}:focus {
+    outline: none;
+    @mainFocus();
+  }
+
+  input[type=range].@{class}::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    @thumb();
+  }
+
+  input[type=range].@{class}::-moz-range-thumb {
+    @thumb();
+  }
+
+  input[type=range].@{class}::-ms-thumb {
+    @thumb();
+  }
+
+  input[type=range].@{class}::-webkit-slider-runnable-track {
+    @track();
+  }
+
+  input[type=range].@{class}::-moz-range-track {
+    @track();
+  }
+
+  input[type=range].@{class}::-ms-track {
+    @track();
+  }
+
+  input[type=range].@{class}::-ms-fill-lower {
+    @track();
+  }
+
+  input[type=range].@{class}::-ms-fill-upper {
+    @track();
+  }
+
+  input[type=range].@{class}:focus::-webkit-slider-runnable-track {
+    @trackFocus();
+  }
+
+  input[type=range].@{class}:focus::-ms-fill-lower {
+    @trackFocus();
+  }
+
+  input[type=range].@{class}:focus::-ms-fill-upper {
+    @trackFocus();
+  }
+}

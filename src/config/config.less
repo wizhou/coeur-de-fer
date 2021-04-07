@@ -1,0 +1,108 @@
+@base: {
+  desktop: 960px;
+  columns-name: col-;
+  columns-total: 12;
+  columns-halfgap: false;
+}
+
+@zindex {
+  dropdown: 1000;
+  sticky: 1020;
+  fixed: 1030;
+  modal-backdrop: 1040;
+  modal: 1050;
+  popover: 1060;
+  tooltip: 1070;
+}
+
+/**
+ * For each font used; set up the different weight
+ * and value. Each font need a new .font-weight
+ * definition.
+ */
+
+@fonts: {
+  @primary: {
+    @thin: 100;
+    @extra-light: 200;
+    @light: 300;
+    @regular: 400;
+    @bold: 500;
+    @extra-bold: 700;
+    @black: 900;
+  }
+
+  @secondary: {
+    @thin: 100;
+    @extra-light: 200;
+    @light: 300;
+    @regular: 400;
+    @bold: 500;
+    @extra-bold: 700;
+    @black: 900;
+  }
+}
+
+@typography: {
+  base-font-size: 1.125rem;
+  /* Calculated line height.
+  Reference : https://kittygiraudel.com/2020/05/18/using-calc-to-figure-out-optimal-line-height/ */
+  base-line-height: calc(4px + 2ex + 4px);
+  /* Margin bottom is 65% of the font size */
+  base-margin: 0.65em;
+}
+
+@type-ratios: {
+  minorSecond: 1.067;
+  majorSecond: 1.125;
+  minorThird: 1.2;
+  majorThird: 1.25;
+  perfectFourth: 1.333;
+  augmentedFourth: 1.414;
+  perfectFifth: 1.5;
+  goldenRatio: 1.618;
+}
+
+@hues: {
+  primary: 0;
+  secondary: 220;
+  success: 103;
+  danger: 358;
+  warning: 127;
+  info: 127;
+}
+
+@colors: {
+  @light: {
+    primary: hsl(@hues[primary]; 81%; 58%);
+    secondary: hsl(@hues[secondary]; 100%; 68%);
+    success: hsl(@hues[success]; 100%; 78%);
+    danger: hsl(@hues[danger]; 100%; 56%);
+
+    border: hsl(@hues[primary]; 0%; 84%);
+    text: #414246;
+
+    text-normal: hsl(@hues[primary]; 4%; 26%);
+    text-light: hsl(var(--hue); 15%; 35%);
+    text-richer: hsl(var(--hue); 50%; 72%);
+    text-highlight: hsl(var(--accent-hue); 70%; 45%);
+
+    link: hsl(var(--hue); 90%; 70%);
+    accent: hsl(var(--accent-hue); 100%; 70%);
+    error: rgb(240; 50; 50);
+
+    button-background: hsl(var(--hue); 63%; 43%);
+    button-text: hsl(@hues[primary]; 4%; 26%);
+
+    background: hsl(@hues[primary]; 0%; 100%);
+  }
+
+  @dark: {
+    primary: hsl(@hues[primary]; 81%; 58%);
+
+    border: hsl(@hues[primary]; 0%; 30%);
+
+    text-normal: hsl(@hues[primary]; 4%; 92%);
+    background: hsl(@hues[primary]; 0%; 15%);
+  }
+}

@@ -1,0 +1,166 @@
+/**
+ * The transform CSS property lets you rotate,
+ * scale, skew, or translate an element.
+ * It modifies the coordinate space of the CSS
+ * visual formatting model.
+ *
+ * If the property has a value different than none,
+ * a stacking context will be created. In that case,
+ * the element will act as a containing block for
+ * any position: fixed; or position: absolute;
+ * elements that it contains.
+ */
+
+.transform(@transform, @rest...) {
+  transform: (@arguments);
+}
+
+
+/*----------- Matrix transformation -----------*/
+
+.matrix(@a, @b, @c, @d, @tx, @ty) {
+  .transform(matrix(@arguments));
+}
+
+.matrix3d(
+  @a1, @b1, @c1, @d1,
+  @a2, @b2, @c2, @d2,
+  @a3, @b3, @c3, @d3,
+  @a4, @b4, @c4, @d4
+) {
+  .transform(matrix3d(@arguments));
+}
+
+
+/*----------- Perspective -----------*/
+
+/**
+ * @d : <length> distance from the user
+ * to the z=0 plane.
+ */
+
+.perspective(@d) {
+  .transform(perspective(@d));
+}
+
+
+/*----------- Rotation -----------*/
+
+/**
+ * @a : <angle> angle of the rotation
+ * @x : <number> axis of rotation (0/1) - abscissa
+ * @y : <number> axis of rotation (0/1) - ordinate
+ * @z : <number> axis of rotation (0/1) - z-coordinate
+ */
+
+.rotate(@a) {
+  .transform(rotate(@a));
+}
+
+.rotate3d(@x, @y, @z, @a) {
+  .transform(rotate3d(@arguments));
+}
+
+.rotateX(@a) {
+  .transform(rotateX(@a));
+}
+
+.rotateY(@a) {
+  .transform(rotateY(@a));
+}
+
+.rotateZ(@a) {
+  .transform(rotateZ(@a));
+}
+
+
+/*----------- Scale -----------*/
+
+/**
+ * @sx : <number> scaling vector - abscissa
+ * @sy : <number> scaling factor - ordinate
+ * @sz : <number> scaling factor - z-coordinate
+ */
+
+.scale(@sx, @sy) {
+  .transform(scale(@sx, @sy));
+}
+
+.scale3d(@sx, @sy, @sz) {
+  .transform(scale3d(@arguments));
+}
+
+.scaleX(@sx) {
+  .transform(scaleX(@sx));
+}
+
+.scaleY(@sy) {
+  .transform(scaleY(@sy));
+}
+
+.scaleZ(@sz) {
+  .transform(scaleZ(@sz));
+}
+
+
+/*----------- Skewing (distortion) -----------*/
+
+/**
+ * @ax : <angle> distort the element - abscissa.
+ * @ay  : <angle> distort the element - ordinate.
+ */
+
+.skew(@ax, @ay : null) {
+
+  & when (@ay = null) {
+    .transform(skew(@ax));
+  }
+
+  & when (default()) {
+    .transform(skew(@ax, @ay));
+  }
+}
+
+.skewX(@ax) {
+  .transform(skewX(@ax));
+}
+
+.skewY(@ay) {
+  .transform(skewY(@ay));
+}
+
+
+/*----------- Translation (moving) -----------*/
+
+/**
+ * @tx : <length> | <percentage> abscissa of the translating vector
+ * @ty : <length> | <percentage> ordinate of the translating vector
+ * @tz : <length> z component of the translating vector
+ */
+
+.translate(@tx, @ty : null) {
+
+  & when (@ty = null) {
+    .transform(translate(@tx));
+  }
+
+  & when (default()) {
+    .transform(translate(@tx, @ty));
+  }
+}
+
+.translate3d(@tx, @ty, @tz) {
+  .transform(translate3d(@arguments));
+}
+
+.translateX(@tx) {
+  .transform(translateX(@tx));
+}
+
+.translateY(@ty) {
+  .transform(translateY(@ty));
+}
+
+.translateZ(@tz) {
+  .transform(translateZ(@tz));
+}

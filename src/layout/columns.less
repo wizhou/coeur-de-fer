@@ -1,0 +1,61 @@
+/*----------- Grid -----------*/
+
+/**
+ * Build a colunms system with any given name.
+ * @name : <string> name to give, default to 'col-'
+ * @total : <number> amount of columns to generate
+ * @halfgap : <length> | <percentage> set gap between columns.
+ * @i : Starting colmun.
+ */
+
+.generate-columns(
+  @name: @base[columns-name],
+  @total: @base[columns-total],
+  @halfgap: @base[columns-halfgap],
+  @i: 1
+) when (@i =< @total) {
+	.@{name}@{i} {
+		width: (@i * 100% / @total);
+
+		& when (isnumber(@halfgap)) {
+			padding-left: @halfgap;
+			padding-right: @halfgap;
+		}
+	}
+	.generate-columns(@name, @total, @halfgap, (@i + 1));
+}
+
+/**
+ *
+ * Allows to position an independent element like a column .
+ * @total : <number> total number of columns (same as the number on generate columns).
+ * @base : <number> the amount of column space taken by the element
+ * @left: <number> amount of colomn space to position the element with, on left
+ * @right: <number> amount of colomn space to position the element with, on right
+ * @halfgap : <length> | <percentage> set if there is gap between columns.
+ *
+ */
+
+.column-self(
+  @total,
+  @base,
+  @left: false,
+  @right: false,
+  @halfgap: false
+) when(@base <= @total) {
+
+	width: (@base * 100% / @total);
+
+	& when (isnumber(@left)) {
+		margin-left: (@left * 100% / @total);
+	}
+
+	& when (isnumber(@right)) {
+		margin-right: (@right * 100% / @total);
+	}
+
+	& when (isnumber(@halfgap)) {
+		padding-left: @halfgap;
+		padding-right: @halfgap;
+	}
+}

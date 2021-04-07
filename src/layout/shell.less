@@ -1,0 +1,95 @@
+
+/* Construit les classes shell de .flow et .wrap.
+Le flow centre un contenu selon la taille maximale
+utilisée. Le wrap permet d'employer le flex.
+
+@max-width :	La taille maximale en usage.
+;*/
+
+.layout(
+  @max-width: @base[desktop],
+  @columns-name: @base[columns-name],
+  @columns-total: @base[columns-total],
+  @columns-halfgap: @base[columns-halfgap],
+) {
+  width: 100%;
+  display: block;
+
+  * {
+    box-sizing: border-box;
+
+    &::before,
+    &::after {
+      box-sizing: border-box;
+    }
+  }
+
+  .flow {
+    width: 100%;
+    max-width: @max-width;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .container {
+    padding-right: 1rem;
+    padding-left: 1rem;
+  }
+
+  .block {
+    margin: 1rem 0;
+  }
+
+  .interspace {
+    margin: 0rem 0rem 4rem 0rem;
+  }
+
+  .row {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+    .flex-normal(wrap, row);
+  }
+
+  .generate-columns(
+    @columns-name,
+    @columns-total,
+    @columns-halfgap
+  );
+
+  .rule {
+    border-color: @colors[@light][border];
+    border-width: 0px;
+    border-top-width: 1px;
+    border-style: solid;
+    margin: 2rem 0rem;
+    width: 100%;
+    display: block;
+    height: 1px;
+    padding: 0em;
+  }
+}
+
+
+/* Construit la classe shell de .section.
+@total :	Le padding de base des section.
+@base:		L'élément media actuellement en usage
+;*/
+
+.section(@base-pading, @media : desktop) {
+  .section {
+    & when(@media = desktop) {
+      padding: (@base-pading) 0;
+    }
+
+    & when(@media = tablet) {
+      padding: (@base-pading / 1.5) 0;
+    }
+
+    & when(@media = mobile) {
+      padding: (@base-pading / 2) 0;
+    }
+  }
+}

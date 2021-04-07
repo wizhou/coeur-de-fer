@@ -1,0 +1,17 @@
+blockquote {
+  .deca();
+}
+
+.blockquote-footer {
+  margin-top: -@typography[base-margin];
+  margin-bottom: @typography[base-margin];
+
+  color: .color-lighten(@colors[@light][text-normal])[6];
+  @media screen and (prefers-color-scheme: dark) {
+    color: .color-darken(@colors[@dark][text-normal])[8];
+  }
+
+  &::before {
+    content: "— ";
+  }
+}

@@ -1,0 +1,42 @@
+/* Multiply by 0 to keep the param unit */
+
+/* Alternate syntax for border-top-left-radius, border-top-right-radius
+border-bottom-right-radius, border-bottom-left-radius to  */
+
+.border-radius(@corner : null, @unit) {
+  & when (@corner = 'tl') {
+    border-radius: @unit @unit * 0 @unit * 0 @unit * 0;
+  }
+
+  & when (@corner = 'tr') {
+    border-radius: @unit * 0 @unit @unit * 0 @unit * 0;
+  }
+
+  & when (@corner = 'br') {
+    border-radius: @unit * 0 @unit * 0 @unit @unit * 0;
+  }
+
+  & when (@corner = 'bl') {
+    border-radius: @unit * 0 @unit * 0 @unit * 0 @unit;
+  }
+
+  & when (@corner = null) {
+    border-radius: @unit;
+  }
+}
+
+.border-radius-top-box(@unit) {
+  border-radius: @unit @unit @unit * 0 @unit * 0;
+}
+
+.border-radius-right-box(@unit) {
+  border-radius: @unit * 0 @unit @unit @unit * 0;
+}
+
+.border-radius-bottom-box(@unit) {
+  border-radius: @unit * 0 @unit * 0 @unit @unit;
+}
+
+.border-radius-left-box(@unit) {
+  border-radius: @unit @unit * 0 @unit * 0 @unit;
+}

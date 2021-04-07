@@ -1,0 +1,432 @@
+button:not(:disabled),
+.btn:not(:disabled),
+[type=button]:not(:disabled),
+[type=reset]:not(:disabled),
+[type=submit]:not(:disabled),
+button:not(:disabled) {
+  cursor: pointer;
+}
+
+[type=button],
+button {
+  margin: 0;
+}
+
+.btn {
+  text-decoration: none;
+  vertical-align: middle;
+  user-select: none;
+}
+
+.btn {
+  display: block;
+  background-color: transparent;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 0.2em;
+  font-size: 1rem;
+  white-space: nowrap;
+  margin: 0.25em;
+  padding: 0.3em 0.5em;
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease,
+    color 0.3s ease;
+  line-height: @typography[base-line-height];
+  font-weight: bold;
+
+  /*----------- Layout -----------*/
+
+  &-inline {
+    display: inline-block;
+  }
+
+  &-unmarged {
+    margin: 0px;
+  }
+
+  &-square {
+    border-radius: 0px;
+    padding: 0.4em 0.6em;
+  }
+
+  &-circle {
+    border-radius: 50%;
+    height: 2.3em;
+    width: 2.3em;
+    padding: 0.4em;
+    text-align: center;
+    vertical-align: middle;
+
+    i {
+      margin: 0px;
+      padding: 0px;
+      vertical-align: middle;
+    }
+  }
+
+  &-tag {
+    border-radius: 2px;
+  }
+
+  /*----------- Element states -----------*/
+
+  .btn_state(
+    @primary,
+    @background,
+    @text,
+    @light-text,
+    @border,
+    @disabled-background,
+    @disabled-text
+    ) {
+
+    color: if(
+      luma($background-color) < 50,
+      @colors[@light][background],
+      @colors[@light][text]
+    );
+    border-color: @border;
+    background-color: @background;
+
+    button:not(:disabled) &,
+    &:not(:disabled),
+    [type=button]:not(:disabled) &,
+    [type=reset]:not(:disabled) &,
+    [type=submit]:not(:disabled) &,
+    button:not(:disabled) & {
+
+      &:hover,
+      &:active,
+      &[data-active='true'] {
+        background-color: @primary;
+        border-color: @primary;
+        /* Set text color based on luma of background color */
+        color: if(
+          luma($background-color) < 50,
+          @colors[@light][background],
+          @colors[@light][text]
+        );
+      }
+
+      &:focus {
+        box-shadow: 0 0 0 0.16em .color-tint(@primary)[@mineure];
+      }
+    }
+
+    &:disabled {
+      border-color: .color-fadeout(@border)[@mineure];
+      color: .color-fadeout(@disabled-text)[@mineure];
+      background-color: .color-fadeout(@disabled-background)[@mineure];
+    }
+
+  }
+
+  /* Classic state */
+  .btn_state(
+    @primary: @colors[@light][primary],
+    @background: @colors[@light][background],
+    @text: @colors[@light][text-normal],
+    @light-text: @colors[@light][background],
+    @border: @colors[@light][border],
+    @disabled-background: @colors[@light][background],
+    @disabled-text: @colors[@light][text-normal]
+  );
+
+  /* Dark theme state */
+  @media screen and (prefers-color-scheme: dark) {
+  .btn_state(
+    @primary: @colors[@dark][primary],
+    @background: @colors[@dark][background],
+    @text: @colors[@dark][text-normal],
+    @light-text: @colors[@dark][background],
+    @border: @colors[@dark][border],
+    @disabled-background: @colors[@dark][background],
+    @disabled-text: @colors[@dark][text-normal]
+    );
+  }
+
+  &-primary {
+    .btn_state(
+      @primary: .color-darken(
+        @colors[@light][primary]
+      )[@sensible],
+      @background: @colors[@light][primary],
+      @text: @colors[@light][background],
+      @light-text: @colors[@light][background],
+      @border: @colors[@light][primary],
+      @disabled-background: @colors[@light][primary],
+      @disabled-text: @colors[@light][background]
+    );
+  }
+
+  &-secondary {
+    .btn_state(
+      @primary: .color-darken(
+        @colors[@light][secondary]
+      )[@sensible],
+      @background: @colors[@light][secondary],
+      @text: @colors[@light][text],
+      @light-text: @colors[@light][text],
+      @border: @colors[@light][secondary],
+      @disabled-background: @colors[@light][secondary],
+      @disabled-text: @colors[@light][background]
+    );
+  }
+
+  &-success {
+    .btn_state(
+      @primary: .color-darken(
+        @colors[@light][success]
+      )[@sensible],
+      @background: @colors[@light][success],
+      @text: @colors[@light][text],
+      @light-text: @colors[@light][text],
+      @border: @colors[@light][success],
+      @disabled-background: @colors[@light][success],
+      @disabled-text: @colors[@light][background]
+    );
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &::-moz-focus-inner {
+    border: 0px;
+    outline: none;
+  }
+
+}
+
+//
+//   &_terciary {
+//     background-color: @vert-active;
+//     border-color: @vert-active;
+//     color: @labeur;
+//     font-weight: 900;
+//     letter-spacing: 0.01em;
+//
+//     &:hover,
+//     &:focus,
+//     &.btn_active {
+//       background-color: @vert-mineure;
+//       border-color: @vert-mineure;
+//       color: @labeur;
+//       i {
+//         color: @labeur;;
+//       }
+//     }
+//
+//     &:active {
+//       background-color: @vert-mineure;
+//       border-color: @vert-mineure;
+//     }
+//   }
+//
+//   &_clean {
+//     background-color: transparent;
+//     border: 0px;
+//     border-color: none;
+//     color: @labeur;
+//
+//     &:hover {
+//       background-color: transparent;
+//       border: 0px;
+//       border-color: none;
+//       color: @nuit-mediante;
+//     }
+//
+//     &:focus,
+//     &:active {
+//       background-color: transparent;
+//       border: 0px;
+//       color: @nuit-majeure;
+//       .box-shadow(0 0 0 .125em fade(@filet, 40%));
+//       outline: none;
+//     }
+//
+//     i {
+//       color: inherit !important;
+//     }
+//   }
+//
+//   &_green {
+//     border-color: @vert-mediante;
+//     color: @vert-majeure;
+//
+//     &:hover {
+//       background-color: @rouge-majeure;
+//       border-color: @rouge-majeure;
+//       color: @vert-mineure;
+//     }
+//
+//     &:focus {
+//       .box-shadow(0 0 0 .125em @vert-sensible);
+//     }
+//   }
+//
+//   &_success {
+//     background-color: @vert-mineure;
+//     border-color: @vert-mineure;
+//     color: @labeur;
+//
+//     &:hover,
+//     &:focus {
+//       background-color: @vert-sensible;
+//       border-color: @vert-sensible;
+//       color: @labeur;
+//     }
+//
+//     &:active {
+//       border-color: @vert-majeure;
+//       color: @nuit-majeure;
+//     }
+//   }
+//
+//   &_error {
+//     background-color: @rouge-mineure;
+//     border-color: @rouge-mineure;
+//     color: @labeur;
+//
+//     &:hover,
+//     &:focus {
+//       background-color: @rouge-sensible;
+//       border-color: @rouge-sensible;
+//       color: @labeur;
+//     }
+//
+//     &:active {
+//       border-color: @rouge-majeure;
+//       color: @nuit-majeure;
+//     }
+//   }
+//
+//   i {
+//     font-size: 1.4em;
+//     vertical-align: middle;
+//   }
+//
+//   .icon-mic_none {
+//     font-size: 1.25em;
+//     margin-right: 0.15em;
+//     vertical-align: -14%;
+//   }
+//
+//   &.tournoiement {
+//     color: transparent;
+//     pointer-events: none;
+//     position: relative;
+//   }
+//
+//   i.loading {
+//     display: none;
+//   }
+//
+//   &.loading {
+//     i {
+//       display: none;
+//     }
+//     .loading {
+//       display: block;
+//       animation: loading 1.2s linear infinite;
+//     }
+//   }
+//
+//
+// /* 3.5 Boutons / Tailles
+//    ================================================================== */
+//
+//   &_big {
+//     .mega;
+//   }
+//
+//   &_small {
+//    .milli;
+//   }
+//
+//   &_fullsize {
+//     width: 100%;
+//   }
+//
+//   &_active {
+//     pointer-events: visible;
+//   }
+//
+//   &_desactive,
+//   &[disabled] {
+//     pointer-events: none;
+//     cursor: default;
+//     background-color: white;
+//     border-color: @filet;
+//     color: @filet;
+//   }
+//
+//   &_empty::after {
+//     content: '' !important;
+//   }
+// }
+//
+// i {
+//   .transition(unset) !important;
+// }
+//
+// .btn_assemblee {
+//   display: inline-flex;
+//   margin: 0.5em 0em;
+//
+//   .btn {
+//     margin: 0.2em 0em;
+//
+//     &:first-child:not(:last-child) {
+//       border-bottom-right-radius: 0px;
+//       border-top-right-radius: 0px;
+//     }
+//
+//     &:not(:first-child):not(:last-child) {
+//       border-left: 0px;
+//       border-radius: 0px;
+//       border-right: 0px;
+//     }
+//
+//     &:last-child:not(:first-child) {
+//       border-bottom-left-radius: 0px;
+//       border-top-left-radius: 0px;
+//     }
+//   }
+//
+//   &.btn_assemblee_fullsize {
+//     width: 100%;
+//
+//     .btn {
+//       width: 100%;
+//     }
+//   }
+// }
+//
+// .tooltip() {
+//   border-radius: 2px;
+//   display: inline;
+//   font-size: 0.8em;
+//   padding: 0.2em 0.4em;
+//   position: absolute;
+//   white-space: nowrap;
+//   z-index: 1;
+//   .opacity(0);
+//   .transition(opacity 0.3s ease);
+// }
+//
+//
+// .loading() {
+//   animation: loading 1.2s linear infinite;
+//   border: 2px solid white;
+//   border-color: @labeur @labeur transparent;
+//   border-radius: 50%;
+//   box-sizing: border-box;
+//   content: '';
+//   font-size: 1em;
+//   height: 1em;
+//   margin: 0px;
+//   padding: 0px;
+//   width: 1em;
+// }

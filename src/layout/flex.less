@@ -1,0 +1,93 @@
+
+/**
+ * A flexbox helper mixin.
+ *
+ * @wrap : nowrap | wrap | wrap-reverse | 0
+ * @direction: row | row-reverse | column | column-reverse | 0
+ * @align-items : normal | <baseline-position> | <content-distribution> | <overflow-position> | 0
+ * @justify: <content-distribution> | <overflow-position> | 0.
+ * @align-content : normal | <baseline-position> | <content-distribution> | <overflow-position> | 0
+ */
+
+.flex-container(
+  @wrap : 0,
+  @direction : 0,
+  @align-items : 0,
+  @justify : 0,
+  @align-content : 0
+) {
+  display: flex;
+
+  & when(iskeyword(@wrap)) {
+    flex-wrap: @wrap;
+  }
+
+  & when(iskeyword(@direction)) {
+    flex-direction: @direction;
+  }
+
+  & when(iskeyword(@align-items)) {
+    align-items: @align-items;
+  }
+
+  & when(iskeyword(@justify)) {
+    justify-content: @justify;
+  }
+
+  & when(iskeyword(@align-content)) {
+    align-content: @align-content;
+  }
+}
+
+/**
+ * Helper mixin to make a container centerning
+ * it's content with flexbox.
+ */
+
+.flex-center(
+  @wrap : wrap,
+  @direction : column,
+  @align-content : 0
+) {
+  .flex-container(
+    @wrap,
+    @direction,
+    center,
+    center,
+    @align-content
+  );
+}
+
+/**
+ * Helper mixin to make a container basleining
+ * it's content with flexbox.
+ */
+
+.flex-baseline(
+  @wrap : 0,
+  @direction : 0,
+  @align-content : 0)
+{
+  .flex-container(
+    @wrap,
+    @direction,
+    baseline,
+    center,
+    @align-content
+  );
+}
+
+/* Reset flexbox content positionning */
+
+.flex-normal(
+  @wrap : 0,
+  @direction : 0
+) {
+  .flex-container(
+    @wrap,
+    @direction,
+    normal,
+    normal,
+    normal
+  );
+}

@@ -1,0 +1,128 @@
+body {
+  font-size: @typography[base-font-size];
+  font-weight: normal;
+  text-rendering: geometricPrecision;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  * {
+    /* Apply line height calculation to all descendant */
+    line-height: @typography[base-line-height];
+  }
+}
+
+body {
+  &.rtl {
+    direction: rtl;
+  }
+
+  &.ltr {
+    direction: ltr;
+  }
+}
+
+/**
+ * Get the specified font-weight number of a given font.
+ * @wheight: <string> the font-weight name to look for
+ * @font: the font name to lookup to
+ */
+
+.font-weight(
+  @weight: regular,
+  @font: primary
+) {
+  @selected-font: @fonts[@@font];
+  font-weight: @selected-font[@@weight];
+}
+
+/**
+ *
+ * For each fonts defined if config @fonts,
+ * and for each weights of theses fonts,
+ * build a class whith the name of the font
+ * followed by the name of the weights
+ * for it to by applied.
+ * eg: .primary-bold() class output
+ * the weight value for bold of the primary font.
+ */
+
+/* Call detached ruleset @fonts and call the each
+function on every children. */
+
+each(@fonts, .(@weights, @font) {
+  /* Remove @ from variable name */
+  @font-name: replace(@font, '@', '');
+
+  /* On each weights of the fonts */
+  each(@weights, {
+    /* Remove @ from the varaible name */
+    @weight: replace(@key, '@', '');
+
+    /* Build a class  */
+    .@{font-name}-@{weight} {
+      .font-weight(@weight, @font-name);
+    }
+  });
+});
+
+b,
+strong {
+  font-weight: bold;
+}
+
+em, i {
+  font-style: italic;
+}
+
+/*----------- Base elements -----------*/
+
+p,
+li,
+h1,
+h2,
+h3,
+h4 {
+  /*  Help prevent overflow of long words/names/URLs */
+  word-break: break-word;
+
+  /*  Optional, not supported for all languages */
+  hyphens: auto;
+
+  /* Set base margin-bottom to all basic typo elements */
+  margin-bottom: @typography[base-margin];
+}
+
+/*----------- Lists -----------*/
+
+
+ul {
+  list-style: initial;
+}
+
+.list {
+  display: block;
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+  position: relative;
+
+  &_item {
+    display: inline-block;
+  }
+}
+
+hr {
+  border-color: @colors[@light][border];
+  border-width: 0px;
+  border-top-width: 1px;
+  margin: 2rem 0rem;
+}
+
+details {
+  summary {
+    &::-webkit-details-marker {
+      /* Hide the twisties */
+      display: none
+    }
+  }
+}

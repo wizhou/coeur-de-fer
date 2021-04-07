@@ -1,0 +1,27 @@
+p {
+  /* Set base margin-bottom to all basic typo elements */
+  margin-bottom: @typography[base-margin];
+}
+
+@type-ratio: @type-ratios[perfectFourth];
+
+.deci {
+  font-size: @typography[base-font-size] / @type-ratio;
+}
+
+.deca,
+.lead {
+  font-size: @typography[base-font-size] * @type-ratio;
+}
+
+.hecto,
+.headline {
+  @font-size: @typography[base-font-size] * @type-ratio;
+  font-size: pow(@font-size, 2);
+}
+
+small {
+  .deci();
+  font-weight: normal;
+  text-transform: uppercase;
+}

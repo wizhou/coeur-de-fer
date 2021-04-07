@@ -1,0 +1,26 @@
+.full-size() {
+	height: 100%;
+	width: 100%;
+}
+
+.position(@width, @left, @right, @total) {
+	margin-left: @left * 100% / @total;
+	margin-right: @right * 100% / @total;
+	width: @width * 100% / @total;
+}
+
+.position-width(@width, @total) {
+	width: @width * 100% / @total;
+}
+
+.position-left(@left, @total) {
+	margin-left: @left * 100% / @total;
+}
+
+.position-right(@right, @total) {
+	margin-right: @right * 100% / @total;
+}
+
+.remove-arobase(@string) {
+  @result: replace(@string, '@', '');
+}

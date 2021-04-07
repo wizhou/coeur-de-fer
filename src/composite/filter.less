@@ -1,0 +1,79 @@
+/**
+ * The filter CSS property applies graphical effects
+ * like blur or color shift to an element.
+ * Filters are commonly used to adjust the rendering
+ * of images, backgrounds, and borders.
+ */
+
+.filter(@filter) {
+	filter: (@filter);
+}
+
+/**
+ * @r : <length> The radius of the blur, specified as a <length>
+ * @amount : <number> | <percentage> Amont of the result
+ * @a : <angle>
+ */
+
+.blur(@r) {
+	.filter(blur(@r));
+}
+
+.brightness(@amount) {
+	.filter(brightness(@amount));
+}
+
+.contrast(@amount) {
+	.filter(contrast(@amount));
+}
+
+.grayscale(@amount) {
+	.filter(grayscale(@amount));
+}
+
+.hue-rotate(@a) {
+	.filter(hue-rotate(@a));
+}
+
+.invert(@amount) {
+	.filter(invert(@amount));
+}
+
+.opacity(@amount) {
+	.filter(opacity(@amount));
+}
+
+.saturate(@amount) {
+	.filter(saturate(@amount));
+}
+
+.sepia(@amount) {
+	.filter(sepia(@amount));
+}
+
+/**
+ *
+ * @ox : <lenght> that determine the shadow offset - horizontal distance
+ * @oy : <lenght> that determine the shadow offset - vertical distance
+ * @blur : <length> The shadow's blur radius
+ * @color : <color> The color of the shadow
+ */
+
+.drop-shadow(@ox, @oy, @blur : null, @color : null) {
+
+  & when (@blur = null) {
+    .filter(drop-shadow(@offset-x @offset-y 0 @color));
+  }
+
+  & when (@color = null) {
+    .filter(drop-shadow(@offset-x @offset-y @blur));
+  }
+
+  & when (@blur = null) and (@color = null) {
+    .filter(drop-shadow(@offset-x @offset-y));
+  }
+
+  & when (default()) {
+  	.filter(drop-shadow(@offset-x @offset-y @blur @color));
+  }
+}
