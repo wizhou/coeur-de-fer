@@ -1,3 +1,9 @@
+
+ul {
+  list-style: initial;
+}
+
+
 ul,
 ol {
   padding-left: 1em;
@@ -11,12 +17,14 @@ ol {
 
 .list {
   &-unstyled {
-    // padding-left: 0;
     list-style: none;
   }
 
   &-inline {
       padding: 0em;
+      position: relative;
+      display: block;
+
     &-item {
       display: inline-block;
     }

@@ -3,43 +3,24 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="./dist/test.css" />
+    <link rel="stylesheet" href="./../dist/test.css" />
   </head>
   <body>
     <div class="flow">
-      <h1>Hello, world!</h1>
+      <h1><a href="./index.html">Cœur de fer</a></h1>
       <div class="row">
         <div class="col-5">
-
-          <p>hello world</p>
-          <p>It's me</p>
+          <ul>
+            <li><a href="./typography.html">Typography</a></li>
+            <li><a href="./medias.html">Medias</a></li>
+            <li><a href="./buttons.html">Buttons</a></li>
+          </ul>
         </div>
         <div class="col-5">
-
-          <p>hello world</p>
-          <p>It's me</p>
         </div>
         <div class="col-2">
-
-          <p class="bold">hello world</p>
-          <p>It's me</p>
-          <a href="#">Hey</a>
         </div>
       </div>
-      <div class="row">
-        <a class="btn btn-primary" href="#" role="button">Link</a>
-        <button class="btn" type="submit">Button</button>
-        <input class="btn btn-success" type="button" value="Input">
-        <input class="btn btn-secondary" type="submit" value="Submit">
-        <input class="btn btn-primary" type="reset" value="Reset">
-      </div>
-      <div class="row">
-        <button class="btn btn-success" type="submit" disabled>Button</button>
-        <input class="btn btn-primary" type="button" value="Input" disabled>
-        <input class="btn" type="submit" value="Submit" disabled>
-        <input class="btn btn-primary" type="reset" value="Reset" disabled>
-      </div>
-
     </div>
     <div class="rule"></div>
     <section class="flow">
@@ -52,6 +33,7 @@
         <h3>Headings</h3>
 
         <div class="row">
+          <pre class="code" data-lang="HTML"><code><\h1>Presque sans le savoir, nous avions quitté terre. <\small>Heading 1<\/small><\/h1></code></pre>
           <h1>Presque sans le savoir, nous avions quitté terre. <small>Heading 1</small></h1>
         </div>
         <div class="row">
@@ -83,29 +65,34 @@
 
         <h4>Paragraph sizing</h4>
         <h5>Small print</h5>
+        <p>Small prints are made with the <code>deci</code> class on a paragraph.</p>
         <p class="deci">Le chat se prépare à faire une sieste sous le lit pour le reste de la journée. Les souris, attentives, s'en frottent les mains et bondissent de joie, l'occasion est belle de gambader dans la cuisine. <small>deci</small></p>
 
-        <h5>Base paragraph</h5>
-        <p>Le chat se prépare à faire une sieste sous le lit pour le reste de la journée. Les souris, attentives, s'en frottent les mains et bondissent de joie, l'occasion est belle de gambader dans la cuisine.</p>
-
         <h5>Lead</h5>
+        <p>Lead text are made with the <code>deca</code> class on a paragraph.</p>
         <p class="deca">Le chat se prépare à faire une sieste sous le lit pour le reste de la journée. Les souris, attentives, s'en frottent les mains et bondissent de joie, l'occasion est belle de gambader dans la cuisine. <small>deca</small></p>
 
         <h5>Headline</h5>
+        <p>Headline text are made with the <code>hecto</code> class on a paragraph.</p>
         <p class="hecto">Le chat se prépare à faire une sieste sous le lit pour le reste de la journée. Les souris, attentives, s'en frottent les mains et bondissent de joie, l'occasion est belle de gambader dans la cuisine. <small>hecto</small></p>
       </div>
 
       <div class="rule"></div>
       <div class="block">
         <h3>Inline text elements</h3>
-        <p>You can use the mark tag to <mark>highlight</mark> text.</p>
-        <p><del>This line of text is meant to be treated as deleted text.</del></p>
-        <p><s>This line of text is meant to be treated as no longer accurate.</s></p>
-        <p><ins>This line of text is meant to be treated as an addition to the document.</ins></p>
-        <p><u>This line of text will render as underlined. Le chat se prépare à faire une sieste sous le lit pour le reste de la journée. Les souris, attentives, s'en frottent les mains et bondissent de joie, l'occasion est belle de gambader dans la cuisine.</u></p>
-        <p><small>This line of text is meant to be treated as fine print.</small></p>
-        <p><strong>This line rendered as bold text.</strong></p>
-        <p><em>This line rendered as italicized text.</em></p>
+        <p>You can use the <code>link</code> class to create a <a href="#">primary link</a> to a page.</p>
+        <p>You can use the <code>link-secondary</code> class to create a <a class="link-secondary" href="#">secondary link</a> to a page.</p>
+        <p>You can use the <code>link-clean</code> class to create a <a class="link-clean" href="#">clean link</a> to a page.</p>
+        <p>You can use the <code>link-unbordered</code> class to create a <a class="link-unbordered" href="#">unbordered link</a> to a page.</p>
+        <p>You can use the <code>link-disabled</code> class to create a <a class="link-disabled" href="#">disabled link</a> to a page.</p>
+        <p>You can use the <code>mark</code> tag to <mark>highlight</mark> text.</p>
+        <p>With the <code>del</code> tag you can render <del>deleted text</del>.</p>
+        <p>With the <code>s</code> tag you can mark text as <s>no longer accurate</s>.</p>
+        <p>With the <code>ins</code> tag you can make an <ins>addition to the document</ins>.</p>
+        <p>With the <code>u</code> tag you can render <u>underlined text</u>.</p>
+        <p>With the <code>small</code> tag you can render <small>small text</small>.</p>
+        <p>With the <code>strong</code> tag you can render <strong>bold text</strong>.</p>
+        <p>With the <code>em</code> tag you can render  <em>italicized text</em>.</p>
         <p><abbr title="attribute">attr</abbr></p>
         <p><abbr title="HyperText Markup Language">HTML</abbr></p>
         <p><dfn id="def-validator">validator</dfn></p>

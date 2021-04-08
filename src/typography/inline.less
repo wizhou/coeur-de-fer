@@ -1,3 +1,12 @@
+b,
+strong {
+  font-weight: bold;
+}
+
+em, i {
+  font-style: italic;
+}
+
 ins {
   background-color: @colors[@light][primary];
   color: @colors[@light][background];
@@ -31,4 +40,14 @@ u {
 
 dfn {
   font-style: italic;
+}
+
+code {
+  font-family: monospace;
+  padding: 0.2em;
+  background-color: .color-darken(@colors[@light][background])[@mediante];
+
+  @media screen and (prefers-color-scheme: dark) {
+    background-color: .color-lighten(@colors[@dark][background])[@mediante];
+  }
 }

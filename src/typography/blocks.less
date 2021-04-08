@@ -1,0 +1,38 @@
+
+p,
+li,
+pre,
+h1,
+h2,
+h3,
+h4 {
+  /*  Help prevent overflow of long words/names/URLs */
+  word-break: break-word;
+
+  /*  Optional, not supported for all languages */
+  hyphens: auto;
+
+  /* Set base margin-bottom to all basic typo elements */
+  margin-bottom: @typography[base-margin];
+}
+
+
+hr {
+  border-color: @colors[@light][border];
+  border-width: 0px;
+  border-top-width: 1px;
+  margin: 2rem 0rem;
+}
+
+pre {
+  padding: 1rem;
+  margin-bottom: 2rem;
+
+  &.code {
+    background-color: .color-darken(@colors[@light][background])[@mediante];
+
+    @media screen and (prefers-color-scheme: dark) {
+      background-color: .color-lighten(@colors[@dark][background])[@mediante];
+    }
+  }
+}
