@@ -28,11 +28,9 @@ pre {
   padding: 1rem;
   margin-bottom: 2rem;
 
-  &.code {
-    background-color: .color-darken(@colors[@light][background])[@mediante];
+  background-color: .color-darken(@colors[@light][background])[@mediante];
 
-    @media screen and (prefers-color-scheme: dark) {
-      background-color: .color-lighten(@colors[@dark][background])[@mediante];
-    }
+  @media screen and (prefers-color-scheme: dark) {
+    background-color: .color-lighten(@colors[@dark][background])[@mediante];
   }
 }
