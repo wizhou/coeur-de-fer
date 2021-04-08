@@ -31,6 +31,13 @@ h6 {
   margin-bottom: @typography[base-margin];
 }
 
+each(range(6), {
+  h@{value} {
+    margin-top: @typography[base-margin];
+    font-weight: bold;
+  }
+});
+
 /* Reference :
 - https://moderncss.dev/generating-font-size-css-rules-and-creating-a-fluid-type-scale/
  */
