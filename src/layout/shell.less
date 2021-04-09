@@ -15,6 +15,12 @@ utilisée. Le wrap permet d'employer le flex.
   width: 100%;
   display: block;
 
+  /* Keep footer at the bottom */
+
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+
   * {
     box-sizing: border-box;
 
@@ -93,3 +99,11 @@ utilisée. Le wrap permet d'employer le flex.
     }
   }
 }
+
+footer,
+.footer {
+  margin-top: auto;
+}
+
+/* Ref :
+- https://moderncss.dev/keep-the-footer-at-the-bottom-flexbox-vs-grid/ */
