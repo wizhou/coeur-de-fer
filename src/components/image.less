@@ -64,5 +64,29 @@
       top: 0px;
       left: 0px;
     }
+
+    figcaption,
+    &.figcaption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: auto;
+      padding: 1em;
+      color: @colors[@light][background];
+      background: linear-gradient(
+        0deg,
+        fade(@colors[@light][text-normal], 10%) 0%,
+        fade(@colors[@light][text-normal], 100%) 100%
+      );
+      @media screen and (prefers-color-scheme: dark) {
+        color: @colors[@dark][background];
+        background: linear-gradient(
+          0deg,
+          fade(@colors[@dark][text-normal], 10%) 0%,
+          fade(@colors[@dark][text-normal], 100%) 100%
+        );
+      }
+    }
   }
 }
