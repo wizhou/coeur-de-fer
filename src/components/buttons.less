@@ -1,5 +1,5 @@
 button:not(:disabled),
-.btn:not(:disabled),
+.button:not(:disabled),
 [type=button]:not(:disabled),
 [type=reset]:not(:disabled),
 [type=submit]:not(:disabled),
@@ -12,13 +12,13 @@ button {
   margin: 0;
 }
 
-.btn {
+.button {
   text-decoration: none;
   vertical-align: middle;
   user-select: none;
 }
 
-.btn {
+.button {
   display: block;
   background-color: transparent;
   border-width: 1px;
@@ -71,7 +71,7 @@ button {
 
   /*----------- Element states -----------*/
 
-  .btn_state(
+  .button_state(
     @primary,
     @background,
     @text,
@@ -123,7 +123,7 @@ button {
   }
 
   /* Classic state */
-  .btn_state(
+  .button_state(
     @primary: @colors[@light][primary],
     @background: @colors[@light][background],
     @text: @colors[@light][text-normal],
@@ -135,7 +135,7 @@ button {
 
   /* Dark theme state */
   @media screen and (prefers-color-scheme: dark) {
-  .btn_state(
+  .button_state(
     @primary: @colors[@dark][primary],
     @background: @colors[@dark][background],
     @text: @colors[@dark][text-normal],
@@ -147,7 +147,7 @@ button {
   }
 
   &-primary {
-    .btn_state(
+    .button_state(
       @primary: .color-darken(
         @colors[@light][primary]
       )[@sensible],
@@ -161,7 +161,7 @@ button {
   }
 
   &-secondary {
-    .btn_state(
+    .button_state(
       @primary: .color-darken(
         @colors[@light][secondary]
       )[@sensible],
@@ -175,7 +175,7 @@ button {
   }
 
   &-success {
-    .btn_state(
+    .button_state(
       @primary: .color-darken(
         @colors[@light][success]
       )[@sensible],
@@ -186,6 +186,31 @@ button {
       @disabled-background: @colors[@light][success],
       @disabled-text: @colors[@light][background]
     );
+  }
+
+  &-clean {
+    color: @colors[@light][text-normal];
+    background-color: transparent;
+    border-color: transparent;
+
+    i {
+      color: inherit !important;
+    }
+  }
+
+  /* Dark theme state */
+  @media screen and (prefers-color-scheme: dark) {
+    &-clean {
+      .button_state(
+        @primary: @colors[@light][text-normal],
+        @background: transparent,
+        @text: @colors[@light][text],
+        @light-text: @colors[@light][text],
+        @border: transparent,
+        @disabled-background: transparent,
+        @disabled-text: @colors[@light][text]
+      );
+    }
   }
 
   &:focus {
@@ -209,7 +234,7 @@ button {
 //
 //     &:hover,
 //     &:focus,
-//     &.btn_active {
+//     &.button_active {
 //       background-color: @vert-mineure;
 //       border-color: @vert-mineure;
 //       color: @labeur;
@@ -371,11 +396,11 @@ button {
 //   .transition(unset) !important;
 // }
 //
-// .btn_assemblee {
+// .button_assemblee {
 //   display: inline-flex;
 //   margin: 0.5em 0em;
 //
-//   .btn {
+//   .button {
 //     margin: 0.2em 0em;
 //
 //     &:first-child:not(:last-child) {
@@ -395,10 +420,10 @@ button {
 //     }
 //   }
 //
-//   &.btn_assemblee_fullsize {
+//   &.button_assemblee_fullsize {
 //     width: 100%;
 //
-//     .btn {
+//     .button {
 //       width: 100%;
 //     }
 //   }
