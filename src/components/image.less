@@ -76,17 +76,9 @@
       color: @colors[@light][background];
       background: linear-gradient(
         0deg,
-        fade(@colors[@light][text-normal], 10%) 0%,
-        fade(@colors[@light][text-normal], 100%) 100%
+        fade(@colors[@light][text-normal], 60%) 0%,
+        fade(@colors[@light][text-normal], 0%) 100%
       );
-      @media screen and (prefers-color-scheme: dark) {
-        color: @colors[@dark][background];
-        background: linear-gradient(
-          0deg,
-          fade(@colors[@dark][text-normal], 10%) 0%,
-          fade(@colors[@dark][text-normal], 100%) 100%
-        );
-      }
     }
   }
 }
