@@ -39,14 +39,14 @@ a,
 
   &:disabled,
   &-disabled {
-    color: fade(@colors[@light][text-normal], 45%);
-    border-color: fade(@colors[@light][text-normal], 33%);
+    color: fade(@colors[@light][text-normal], 45%) !important;
+    border-color: fade(@colors[@light][text-normal], 33%) !important;
     cursor: default;
     pointer-events: none;
 
     @media screen and (prefers-color-scheme: dark) {
-      color: fade(@colors[@dark][text-normal], 45%);
-      border-color: fade(@colors[@dark][text-normal], 33%);
+      color: fade(@colors[@dark][text-normal], 45%) !important;
+      border-color: fade(@colors[@dark][text-normal], 33%) !important;
     }
   }
 

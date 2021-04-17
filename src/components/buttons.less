@@ -69,6 +69,10 @@ button {
     border-radius: 2px;
   }
 
+  &-link {
+    display: inline-block;
+  }
+
   /*----------- Element states -----------*/
 
   .button_state(
@@ -216,10 +220,19 @@ button {
     outline: none;
   }
 
+  /* For button with only an icon */
+
   &-icon {
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+
+  /* For icons inside button */
+
+  .icon {
+    margin-right: 0.3em;
+    vertical-align: middle;
   }
 
 }
