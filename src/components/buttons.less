@@ -67,6 +67,15 @@ button {
 
   &-tag {
     border-radius: 2px;
+
+    &-strict {
+      /* Disable all status styles */
+      background-color: inherit;
+      border-color: inherit;
+      box-shadow: unset;
+      color: inherit;
+      outline: none;
+    }
   }
 
   &-link {
@@ -220,21 +229,30 @@ button {
     outline: none;
   }
 
-  /* For button with only an icon */
+  /*----------- Utilitaries -----------*/
 
   &-icon {
+    /* For button with only an icon */
     display: flex;
     align-items: center;
     justify-content: center;
-  }
 
-  /* For icons inside button */
+    .icon {
+      margin-right: 0em;
+    }
+  }
 
   .icon {
+    /* For icons inside button */
     margin-right: 0.3em;
     vertical-align: middle;
-  }
 
+    [direction="rtl"] & {
+      /* Support rtl langages */
+      margin-left: 0.3em;
+      margin-right: unset;
+    }
+  }
 }
 
 //
