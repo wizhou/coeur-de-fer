@@ -1,7 +1,3 @@
-# echo "----------------------------"
-# echo "💻 Checkout develop branch. "
-# echo "----------------------------"
-
 echo "----------------------------"
 echo "🏹 Deleting old dist folder. "
 echo "----------------------------"
@@ -30,8 +26,8 @@ then
   echo "✅ Old Cache folder has been removed"
 fi
 
-echo "--------------------"
-echo "⚙️: Build the website"
-echo "--------------------"
+echo "----------------------"
+echo "👀 Parcel is watching"
+echo "----------------------"
 
-parcel build './src/index.less' 
+parcel watch './src/index.less' 

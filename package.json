@@ -3,7 +3,7 @@
   "version": "0.2.0",
   "description": "Less framework for building website with an iron heart",
   "scripts": {
-    "dev": "parcel watch index.less --dist-dir example --out-file example.css ",
+    "dev": "bash shell/dev.sh",
     "build": "bash shell/build.sh",
     "test": "bash shell/test.sh"
   },
@@ -35,5 +35,6 @@
     "less": "^3.12.2",
     "parcel": "^2.0.0-beta.1",
     "postcss": "^8.2.4"
-  }
+  },
+  "dependencies": {}
 }
