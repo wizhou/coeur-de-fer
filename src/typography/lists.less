@@ -14,6 +14,12 @@ ol {
     padding-left: 1em;
     margin-top: @typography[base-margin];
   }
+
+  [dir="rtl"] & {
+    /* rtl languages support */
+    padding-left: unset;
+    padding-right: 1em;
+  }
 }
 
 .list {
