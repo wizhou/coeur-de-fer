@@ -1,6 +1,6 @@
 {
   "name": "coeur-de-fer",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Less framework for building website with an iron heart",
   "scripts": {
     "dev": "bash shell/dev.sh",
