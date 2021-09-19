@@ -30,27 +30,27 @@ utilisée. Le wrap permet d'employer le flex.
     }
   }
 
+  .flow {
+    width: 100%;
+    max-width: @max-width;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .container {
+    padding-right: 1rem;
+    padding-left: 1rem;
+  }
+
+  .block {
+    margin: 1rem 0;
+  }
+
   .generate-columns(
     @columns-name,
     @columns-total,
     @columns-halfgap
   );
-}
-
-.flow(@max-width: @base[desktop]) {
-  width: 100%;
-  max-width: @max-width;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.container {
-  padding-right: 1rem;
-  padding-left: 1rem;
-}
-
-.block {
-  margin: 1rem 0;
 }
 
 .interspace {
