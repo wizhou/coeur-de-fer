@@ -2,11 +2,12 @@
   "name": "@wizhou/coeur-de-fer",
   "version": "0.2.2",
   "description": "Less framework for building website with an iron heart",
-  "homepage": "https://github.com/wizhou/coeur-de-fer",
+  "homepage": "https://github.com/wizhou/coeur-de-fer#readme",
   "scripts": {
     "dev": "bash shell/dev.sh",
     "build": "bash shell/build.sh",
-    "demo": "bash shell/demo.sh"
+    "demo": "bash shell/demo.sh",
+    "test": "echo \"No test specified\""
   },
   "repository": {
     "type": "git",
@@ -26,14 +27,6 @@
   "bugs": {
     "url": "https://github.com/wizhou/coeur-de-fer/issues"
   },
-  "homepage": "https://github.com/wizhou/coeur-de-fer#readme",
-  "files": [
-    ".md",
-    "demo/*",
-    "dist/*",
-    "shell/*",
-    "src/%"
-  ],
   "main": "index.less",
   "browserslist": "> 0.4%, last 10 versions, Firefox ESR, not dead",
   "targets": {
@@ -45,8 +38,5 @@
     "less": "^3.12.2",
     "parcel": "^2.0.0-beta.1",
     "postcss": "^8.2.4"
-  },
-  "dependencies": {
-    "semver": "^7.3.5"
   }
 }
