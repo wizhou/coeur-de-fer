@@ -1,7 +1,3 @@
-# echo "----------------------------"
-# echo "💻 Checkout develop branch. "
-# echo "----------------------------"
-
 echo "----------------------------"
 echo "🏹 Deleting old dist folder. "
 echo "----------------------------"
@@ -9,7 +5,7 @@ echo "----------------------------"
 # Look for files in a dist folder and remove them.
 # Change the folder location if needed.
 
-DISTFOLDER='dist/*'
+DISTFOLDER='./demo/dist/*'
 
 if rm -rf $DISTFOLDER
 then
@@ -34,4 +30,4 @@ echo "----------------------"
 echo "👀 Parcel is watching"
 echo "----------------------"
 
-parcel watch './test/test.less' 
+parcel watch './demo/_less/index.less' --dist-dir './demo/dist'

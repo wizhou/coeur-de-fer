@@ -1,11 +1,12 @@
 {
-  "name": "coeur-de-fer",
+  "name": "@wizhou/coeur-de-fer",
   "version": "0.2.2",
   "description": "Less framework for building website with an iron heart",
+  "homepage": "https://github.com/wizhou/coeur-de-fer",
   "scripts": {
     "dev": "bash shell/dev.sh",
     "build": "bash shell/build.sh",
-    "test": "bash shell/test.sh"
+    "demo": "bash shell/demo.sh"
   },
   "repository": {
     "type": "git",
@@ -16,18 +17,27 @@
     "less",
     "website"
   ],
-  "author": "Wizhou <wizhou@protonmail.com>",
+  "author": {
+    "name": "Wizhou",
+    "email": "wizard@romaingoetz.fr",
+    "url": "https://romaingoetz.fr"
+  },
   "license": "GPL-3.0-or-later",
   "bugs": {
     "url": "https://github.com/wizhou/coeur-de-fer/issues"
   },
   "homepage": "https://github.com/wizhou/coeur-de-fer#readme",
+  "files": [
+    ".md",
+    "demo/*",
+    "dist/*",
+    "shell/*",
+    "src/%"
+  ],
+  "main": "index.less",
   "browserslist": "> 0.4%, last 10 versions, Firefox ESR, not dead",
   "targets": {
-    "main": false,
-    "src": {
-      "distDir": "dist"
-    }
+    "main": false
   },
   "devDependencies": {
     "autoprefixer": "^8.6.5",
@@ -36,5 +46,7 @@
     "parcel": "^2.0.0-beta.1",
     "postcss": "^8.2.4"
   },
-  "dependencies": {}
+  "dependencies": {
+    "semver": "^7.3.5"
+  }
 }

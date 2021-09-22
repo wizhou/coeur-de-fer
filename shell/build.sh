@@ -30,8 +30,8 @@ then
   echo "✅ Old Cache folder has been removed"
 fi
 
-echo "--------------------"
-echo "⚙️: Build the website"
-echo "--------------------"
+echo "----------------------"
+echo "⚙️: Build coeur-de-fer"
+echo "----------------------"
 
-parcel build './src/index.less' 
+parcel build './src/index.less' --dist-dir './dist'
