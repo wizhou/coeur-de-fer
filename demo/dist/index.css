@@ -1,0 +1,1518 @@
+@zindex {
+  dropdown: 1000;
+  sticky: 1020;
+  fixed: 1030;
+  modal-backdrop: 1040;
+  modal: 1050;
+  popover: 1060;
+  tooltip: 1070;
+}
+/**
+ * For each font used; set up the different weight
+ * and value. Each font need a new .font-weight
+ * definition.
+ */
+/**
+* Description: Reset ! Ending navigator default styling.
+*
+* Version : 2.1
+* Last update: 2020/01/06
+* Author: Wizhou
+*/
+i,
+b,
+p,
+q,
+dl,
+li,
+h6,
+h5,
+h4,
+h3,
+h2,
+h1,
+ol,
+em,
+dt,
+ul,
+dd,
+tr,
+th,
+td,
+dfn,
+div,
+kbd,
+var,
+sup,
+nav,
+sub,
+pre,
+del,
+img,
+ins,
+span,
+time,
+menu,
+mark,
+samp,
+abbr,
+code,
+html,
+body,
+form,
+cite,
+small,
+aside,
+audio,
+thead,
+tfoot,
+tbody,
+table,
+video,
+label,
+iframe,
+canvas,
+legend,
+hgroup,
+header,
+object,
+footer,
+figure,
+strong,
+section,
+caption,
+summary,
+address,
+article,
+details,
+fieldset,
+figcaption,
+blockquote {
+  background: transparent;
+  border: 0em;
+  font-size: 100%;
+  margin: 0em;
+  outline: 0em;
+  padding: 0em;
+  vertical-align: baseline;
+}
+nav,
+menu,
+aside,
+figure,
+footer,
+header,
+hgroup,
+section,
+article,
+details,
+figcaption {
+  display: block;
+}
+ul {
+  list-style: none;
+}
+q,
+blockquote {
+  quotes: none;
+}
+q::before,
+blockquote::before {
+  content: none;
+}
+a {
+  background: transparent;
+  font-size: 100%;
+  margin: 0em;
+  outline: 0px;
+  padding: 0em;
+  vertical-align: baseline;
+  text-decoration: none;
+  color: unset;
+  cursor: default;
+}
+a:not(:disabled),
+a[href="*"] {
+  cursor: pointer;
+}
+abbr[title],
+dfn[title] {
+  cursor: help;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0em;
+}
+hr {
+  display: block;
+  height: 1px;
+  padding: 0em;
+}
+input,
+select {
+  vertical-align: middle;
+}
+select {
+  -webkit-appearance: caret;
+}
+input,
+button {
+  outline: 0px;
+  /* Disable webkit default */
+  -webkit-appearance: none;
+  /* Disable firefox styling */
+}
+input::-moz-focus-inner,
+button::-moz-focus-inner {
+  border: 0px;
+  outline: 0px;
+}
+/*=============================================>>>>>
+= Colors Functions =
+===============================================>>>>>*/
+/* Construit les classes shell de .flow et .wrap.
+Le flow centre un contenu selon la taille maximale
+utilisée. Le wrap permet d'employer le flex.
+
+@max-width :	La taille maximale en usage.
+;*/
+.interspace {
+  margin: 0rem 0rem 4rem 0rem;
+}
+.row {
+  width: 100%;
+  margin-left: 0rem;
+  margin-right: 0rem;
+  padding-left: 0rem;
+  padding-right: 0rem;
+  display: -webkit-box;
+  display: flex;
+  flex-wrap: wrap;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+          flex-direction: row;
+  -webkit-box-align: normal;
+          align-items: normal;
+  -webkit-box-pack: normal;
+          justify-content: normal;
+  align-content: normal;
+}
+.rule {
+  border-color: hsl(0, 0%, 84%);
+  border-width: 0px;
+  border-top-width: 1px;
+  border-style: solid;
+  margin: 2rem 0rem;
+  width: 100%;
+  display: block;
+  height: 1px;
+  padding: 0em;
+}
+/* Construit la classe shell de .section.
+@total :	Le padding de base des section.
+@base:		L'élément media actuellement en usage
+;*/
+footer,
+.footer {
+  margin-top: auto;
+}
+/* Ref :
+- https://moderncss.dev/keep-the-footer-at-the-bottom-flexbox-vs-grid/ */
+/**
+ * A flexbox helper mixin.
+ *
+ * @wrap : nowrap | wrap | wrap-reverse | 0
+ * @direction: row | row-reverse | column | column-reverse | 0
+ * @align-items : normal | <baseline-position> | <content-distribution> | <overflow-position> | 0
+ * @justify: <content-distribution> | <overflow-position> | 0.
+ * @align-content : normal | <baseline-position> | <content-distribution> | <overflow-position> | 0
+ */
+/**
+ * Helper mixin to make a container centerning
+ * it's content with flexbox.
+ */
+/**
+ * Helper mixin to make a container basleining
+ * it's content with flexbox.
+ */
+/* Reset flexbox content positionning */
+/* Flex Utilities - Quickly manage layout and alignement */
+/*----------- Direction -----------*/
+.flex-direction-column {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+}
+.flex-direction-column-reverse {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: reverse;
+          flex-direction: column-reverse;
+}
+.flex-direction-row {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+          flex-direction: row;
+}
+.flex-direction-row-reverse {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+          flex-direction: row-reverse;
+}
+/*----------- Justify content -----------*/
+.justify-content-start {
+  -webkit-box-pack: start;
+          justify-content: flex-start;
+}
+.justify-content-end {
+  -webkit-box-pack: end;
+          justify-content: flex-end;
+}
+.justify-content-center {
+  -webkit-box-pack: center;
+          justify-content: center;
+}
+.justify-content-between {
+  -webkit-box-pack: justify;
+          justify-content: space-between;
+}
+.justify-content-around {
+  justify-content: space-around;
+}
+.justify-content-evenly {
+  -webkit-box-pack: space-envenly;
+          justify-content: space-envenly;
+}
+/*----------- Align items -----------*/
+.align-items-start {
+  -webkit-box-align: start;
+          align-items: flex-start;
+}
+.align-items-end {
+  -webkit-box-align: end;
+          align-items: flex-end;
+}
+.align-items-center {
+  -webkit-box-align: center;
+          align-items: center;
+}
+.align-items-baseline {
+  -webkit-box-align: baseline;
+          align-items: baseline;
+}
+.align-items-stretch {
+  -webkit-box-align: stretch;
+          align-items: stretch;
+}
+/*----------- Align self -----------*/
+.align-self-start {
+  align-self: flex-start;
+}
+.align-self-end {
+  align-self: flex-end;
+}
+.align-self-center {
+  -ms-grid-row-align: center;
+      align-self: center;
+}
+.align-self-baseline {
+  align-self: baseline;
+}
+.align-self-stretch {
+  -ms-grid-row-align: stretch;
+      align-self: stretch;
+}
+/*----------- Grid -----------*/
+/**
+ * Build a colunms system with any given name.
+ * @name : <string> name to give, default to 'col-'
+ * @total : <number> amount of columns to generate
+ * @halfgap : <length> | <percentage> set gap between columns.
+ * @i : Starting colmun.
+ */
+/**
+ *
+ * Allows to position an independent element like a column .
+ * @total : <number> total number of columns (same as the number on generate columns).
+ * @base : <number> the amount of column space taken by the element
+ * @left: <number> amount of colomn space to position the element with, on left
+ * @right: <number> amount of colomn space to position the element with, on right
+ * @halfgap : <length> | <percentage> set if there is gap between columns.
+ *
+ */
+/* Multiply by 0 to keep the param unit */
+/* Alternate syntax for border-top-left-radius, border-top-right-radius
+border-bottom-right-radius, border-bottom-left-radius to  */
+/*----------- Box Styling -----------*/
+button:not(:disabled),
+.button:not(:disabled),
+[type=button]:not(:disabled),
+[type=reset]:not(:disabled),
+[type=submit]:not(:disabled),
+button:not(:disabled) {
+  cursor: pointer;
+}
+[type=button],
+button {
+  margin: 0;
+}
+.button {
+  text-decoration: none;
+  vertical-align: middle;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+.button {
+  display: block;
+  background-color: transparent;
+  border-width: 1px;
+  border-style: solid;
+  -webkit-border-radius: 0.2em;
+          border-radius: 0.2em;
+  font-size: 1rem;
+  white-space: nowrap;
+  margin: 0.25em;
+  padding: 0.3em 0.5em;
+  -webkit-transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+  line-height: calc(4px + 2ex + 4px);
+  font-weight: bold;
+  /*----------- Layout -----------*/
+  /*----------- Element states -----------*/
+  /* Classic state */
+  color: #414246;
+  border-color: hsl(0, 0%, 84%);
+  background-color: hsl(0, 0%, 100%);
+  /* Dark theme state */
+  /* Dark theme state */
+  /*----------- Utilitaries -----------*/
+}
+.button-inline {
+  display: inline-block;
+}
+.button-unmarged {
+  margin: 0px;
+}
+.button-square {
+  -webkit-border-radius: 0px;
+          border-radius: 0px;
+  padding: 0.4em 0.6em;
+}
+.button-circle {
+  -webkit-border-radius: 50%;
+          border-radius: 50%;
+  height: 2.3em;
+  width: 2.3em;
+  padding: 0.4em;
+  text-align: center;
+  vertical-align: middle;
+}
+.button-circle i {
+  margin: 0px;
+  padding: 0px;
+  vertical-align: middle;
+}
+.button-tag {
+  -webkit-border-radius: 2px;
+          border-radius: 2px;
+}
+.button-tag-strict {
+  /* Disable all status styles */
+  pointer-events: none;
+}
+.button-link {
+  display: inline-block;
+}
+button:not(:disabled) .button:hover,
+.button:not(:disabled):hover,
+[type=button]:not(:disabled) .button:hover,
+[type=reset]:not(:disabled) .button:hover,
+[type=submit]:not(:disabled) .button:hover,
+button:not(:disabled) .button:hover,
+button:not(:disabled) .button:active,
+.button:not(:disabled):active,
+[type=button]:not(:disabled) .button:active,
+[type=reset]:not(:disabled) .button:active,
+[type=submit]:not(:disabled) .button:active,
+button:not(:disabled) .button:active,
+button:not(:disabled) .button[data-active='true'],
+.button:not(:disabled)[data-active='true'],
+[type=button]:not(:disabled) .button[data-active='true'],
+[type=reset]:not(:disabled) .button[data-active='true'],
+[type=submit]:not(:disabled) .button[data-active='true'],
+button:not(:disabled) .button[data-active='true'] {
+  background-color: hsl(207, 81%, 58%);
+  border-color: hsl(207, 81%, 58%);
+  /* Set text color based on luma of background color */
+  color: hsl(0, 0%, 100%);
+}
+button:not(:disabled) .button:focus,
+.button:not(:disabled):focus,
+[type=button]:not(:disabled) .button:focus,
+[type=reset]:not(:disabled) .button:focus,
+[type=submit]:not(:disabled) .button:focus,
+button:not(:disabled) .button:focus {
+  -webkit-box-shadow: 0 0 0 0.16em #b1d8f7;
+          box-shadow: 0 0 0 0.16em #b1d8f7;
+}
+.button:disabled {
+  border-color: hsla(0, 0%, 84%, 0.4);
+  color: hsla(207, 4%, 26%, 0.4);
+  background-color: hsla(0, 0%, 100%, 0.4);
+}
+@media screen and (prefers-color-scheme: dark) {
+  .button {
+    color: hsl(0, 0%, 100%);
+    border-color: hsl(0, 0%, 30%);
+    background-color: hsl(0, 0%, 15%);
+  }
+  button:not(:disabled) .button:hover,
+  .button:not(:disabled):hover,
+  [type=button]:not(:disabled) .button:hover,
+  [type=reset]:not(:disabled) .button:hover,
+  [type=submit]:not(:disabled) .button:hover,
+  button:not(:disabled) .button:hover,
+  button:not(:disabled) .button:active,
+  .button:not(:disabled):active,
+  [type=button]:not(:disabled) .button:active,
+  [type=reset]:not(:disabled) .button:active,
+  [type=submit]:not(:disabled) .button:active,
+  button:not(:disabled) .button:active,
+  button:not(:disabled) .button[data-active='true'],
+  .button:not(:disabled)[data-active='true'],
+  [type=button]:not(:disabled) .button[data-active='true'],
+  [type=reset]:not(:disabled) .button[data-active='true'],
+  [type=submit]:not(:disabled) .button[data-active='true'],
+  button:not(:disabled) .button[data-active='true'] {
+    background-color: hsl(207, 81%, 58%);
+    border-color: hsl(207, 81%, 58%);
+    /* Set text color based on luma of background color */
+    color: hsl(0, 0%, 100%);
+  }
+  button:not(:disabled) .button:focus,
+  .button:not(:disabled):focus,
+  [type=button]:not(:disabled) .button:focus,
+  [type=reset]:not(:disabled) .button:focus,
+  [type=submit]:not(:disabled) .button:focus,
+  button:not(:disabled) .button:focus {
+    -webkit-box-shadow: 0 0 0 0.16em #b1d8f7;
+            box-shadow: 0 0 0 0.16em #b1d8f7;
+  }
+  .button:disabled {
+    border-color: hsla(0, 0%, 30%, 0.4);
+    color: hsla(207, 4%, 92%, 0.4);
+    background-color: hsla(0, 0%, 15%, 0.4);
+  }
+}
+.button-primary {
+  color: hsl(0, 0%, 100%);
+  border-color: hsl(207, 81%, 58%);
+  background-color: hsl(207, 81%, 58%);
+}
+button:not(:disabled) .button-primary:hover,
+.button-primary:not(:disabled):hover,
+[type=button]:not(:disabled) .button-primary:hover,
+[type=reset]:not(:disabled) .button-primary:hover,
+[type=submit]:not(:disabled) .button-primary:hover,
+button:not(:disabled) .button-primary:hover,
+button:not(:disabled) .button-primary:active,
+.button-primary:not(:disabled):active,
+[type=button]:not(:disabled) .button-primary:active,
+[type=reset]:not(:disabled) .button-primary:active,
+[type=submit]:not(:disabled) .button-primary:active,
+button:not(:disabled) .button-primary:active,
+button:not(:disabled) .button-primary[data-active='true'],
+.button-primary:not(:disabled)[data-active='true'],
+[type=button]:not(:disabled) .button-primary[data-active='true'],
+[type=reset]:not(:disabled) .button-primary[data-active='true'],
+[type=submit]:not(:disabled) .button-primary[data-active='true'],
+button:not(:disabled) .button-primary[data-active='true'] {
+  background-color: hsl(207, 81%, 38%);
+  border-color: hsl(207, 81%, 38%);
+  /* Set text color based on luma of background color */
+  color: hsl(0, 0%, 100%);
+}
+button:not(:disabled) .button-primary:focus,
+.button-primary:not(:disabled):focus,
+[type=button]:not(:disabled) .button-primary:focus,
+[type=reset]:not(:disabled) .button-primary:focus,
+[type=submit]:not(:disabled) .button-primary:focus,
+button:not(:disabled) .button-primary:focus {
+  -webkit-box-shadow: 0 0 0 0.16em #a0c3df;
+          box-shadow: 0 0 0 0.16em #a0c3df;
+}
+.button-primary:disabled {
+  border-color: hsla(207, 81%, 58%, 0.4);
+  color: hsla(0, 0%, 100%, 0.4);
+  background-color: hsla(207, 81%, 58%, 0.4);
+}
+.button-secondary {
+  color: #414246;
+  border-color: hsl(34, 100%, 68%);
+  background-color: hsl(34, 100%, 68%);
+}
+button:not(:disabled) .button-secondary:hover,
+.button-secondary:not(:disabled):hover,
+[type=button]:not(:disabled) .button-secondary:hover,
+[type=reset]:not(:disabled) .button-secondary:hover,
+[type=submit]:not(:disabled) .button-secondary:hover,
+button:not(:disabled) .button-secondary:hover,
+button:not(:disabled) .button-secondary:active,
+.button-secondary:not(:disabled):active,
+[type=button]:not(:disabled) .button-secondary:active,
+[type=reset]:not(:disabled) .button-secondary:active,
+[type=submit]:not(:disabled) .button-secondary:active,
+button:not(:disabled) .button-secondary:active,
+button:not(:disabled) .button-secondary[data-active='true'],
+.button-secondary:not(:disabled)[data-active='true'],
+[type=button]:not(:disabled) .button-secondary[data-active='true'],
+[type=reset]:not(:disabled) .button-secondary[data-active='true'],
+[type=submit]:not(:disabled) .button-secondary[data-active='true'],
+button:not(:disabled) .button-secondary[data-active='true'] {
+  background-color: hsl(34, 100%, 48%);
+  border-color: hsl(34, 100%, 48%);
+  /* Set text color based on luma of background color */
+  color: hsl(0, 0%, 100%);
+}
+button:not(:disabled) .button-secondary:focus,
+.button-secondary:not(:disabled):focus,
+[type=button]:not(:disabled) .button-secondary:focus,
+[type=reset]:not(:disabled) .button-secondary:focus,
+[type=submit]:not(:disabled) .button-secondary:focus,
+button:not(:disabled) .button-secondary:focus {
+  -webkit-box-shadow: 0 0 0 0.16em #fbd099;
+          box-shadow: 0 0 0 0.16em #fbd099;
+}
+.button-secondary:disabled {
+  border-color: hsla(34, 100%, 68%, 0.4);
+  color: hsla(0, 0%, 100%, 0.4);
+  background-color: hsla(34, 100%, 68%, 0.4);
+}
+.button-success {
+  color: #414246;
+  border-color: hsl(103, 100%, 78%);
+  background-color: hsl(103, 100%, 78%);
+}
+button:not(:disabled) .button-success:hover,
+.button-success:not(:disabled):hover,
+[type=button]:not(:disabled) .button-success:hover,
+[type=reset]:not(:disabled) .button-success:hover,
+[type=submit]:not(:disabled) .button-success:hover,
+button:not(:disabled) .button-success:hover,
+button:not(:disabled) .button-success:active,
+.button-success:not(:disabled):active,
+[type=button]:not(:disabled) .button-success:active,
+[type=reset]:not(:disabled) .button-success:active,
+[type=submit]:not(:disabled) .button-success:active,
+button:not(:disabled) .button-success:active,
+button:not(:disabled) .button-success[data-active='true'],
+.button-success:not(:disabled)[data-active='true'],
+[type=button]:not(:disabled) .button-success[data-active='true'],
+[type=reset]:not(:disabled) .button-success[data-active='true'],
+[type=submit]:not(:disabled) .button-success[data-active='true'],
+button:not(:disabled) .button-success[data-active='true'] {
+  background-color: hsl(103, 100%, 58%);
+  border-color: hsl(103, 100%, 58%);
+  /* Set text color based on luma of background color */
+  color: #414246;
+}
+button:not(:disabled) .button-success:focus,
+.button-success:not(:disabled):focus,
+[type=button]:not(:disabled) .button-success:focus,
+[type=reset]:not(:disabled) .button-success:focus,
+[type=submit]:not(:disabled) .button-success:focus,
+button:not(:disabled) .button-success:focus {
+  -webkit-box-shadow: 0 0 0 0.16em #c2ffa9;
+          box-shadow: 0 0 0 0.16em #c2ffa9;
+}
+.button-success:disabled {
+  border-color: hsla(103, 100%, 78%, 0.4);
+  color: hsla(0, 0%, 100%, 0.4);
+  background-color: hsla(103, 100%, 78%, 0.4);
+}
+.button-clean {
+  color: hsl(207, 4%, 26%);
+  background-color: transparent;
+  border-color: transparent;
+}
+.button-clean i {
+  color: inherit !important;
+}
+@media screen and (prefers-color-scheme: dark) {
+  .button-clean {
+    color: hsl(207, 4%, 92%);
+    background-color: transparent;
+    border-color: transparent;
+  }
+}
+.button:focus {
+  outline: none;
+}
+.button::-moz-focus-inner {
+  border: 0px;
+  outline: none;
+}
+.button-icon {
+  /* For button with only an icon */
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+          justify-content: center;
+}
+.button-icon .icon {
+  margin-right: 0em;
+}
+.button .icon {
+  /* For icons inside button */
+  margin-right: 0.3em;
+  vertical-align: middle;
+}
+[direction="rtl"] .button .icon {
+  /* Support rtl langages */
+  margin-left: 0.3em;
+  margin-right: unset;
+}
+.paper {
+  background-color: white;
+  -webkit-border-radius: 50%;
+          border-radius: 50%;
+  display: block;
+  height: 100%;
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  width: 100%;
+  -webkit-transition: all 0.3s cubic-bezier(0.4, 0, 1, 1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 1, 1);
+  -webkit-transform: scale(0, 0);
+          transform: scale(0, 0);
+}
+.figure {
+  width: 100%;
+  z-index: 0;
+  margin-bottom: 3rem;
+  position: relative;
+}
+.figure-rounded {
+  -webkit-border-radius: 0.3rem;
+          border-radius: 0.3rem;
+}
+.figure-image {
+  height: auto;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  z-index: 1;
+  opacity: 1;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  /* If lazyload implemented,
+    basic fade transition. */
+}
+.figure-image.lazyload {
+  opacity: 0;
+}
+.figure-image.lazyloaded {
+  opacity: 1;
+}
+.figure figcaption,
+.figure .figcaption {
+  z-index: 3;
+  position: relative;
+  color: hsl(207, 4%, 36%);
+}
+@media screen and (prefers-color-scheme: dark) {
+  .figure figcaption,
+  .figure .figcaption {
+    color: hsl(207, 4%, 82%);
+  }
+}
+.figure figcaption::before,
+.figure .figcaption::before {
+  content: "— ";
+}
+.figure-fixed {
+  display: -webkit-box;
+  display: flex;
+  flex-wrap: wrap;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+  -webkit-box-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+          justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+.figure-fixed::before {
+  content: '';
+  display: block;
+  padding-top: 530px;
+}
+.figure-fixed-image {
+  height: 100%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+.figure-fixed figcaption,
+.figure-fixed.figcaption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  padding: 1em;
+  color: hsl(0, 0%, 100%);
+  background: -webkit-gradient(linear, left bottom, left top, from(hsla(207, 4%, 26%, 0.6)), to(hsla(207, 4%, 26%, 0)));
+  background: -webkit-linear-gradient(bottom, hsla(207, 4%, 26%, 0.6) 0%, hsla(207, 4%, 26%, 0) 100%);
+  background: linear-gradient(0deg, hsla(207, 4%, 26%, 0.6) 0%, hsla(207, 4%, 26%, 0) 100%);
+}
+/**
+ * The filter CSS property applies graphical effects
+ * like blur or color shift to an element.
+ * Filters are commonly used to adjust the rendering
+ * of images, backgrounds, and borders.
+ */
+/**
+ * @r : <length> The radius of the blur, specified as a <length>
+ * @amount : <number> | <percentage> Amont of the result
+ * @a : <angle>
+ */
+/**
+ *
+ * @ox : <lenght> that determine the shadow offset - horizontal distance
+ * @oy : <lenght> that determine the shadow offset - vertical distance
+ * @blur : <length> The shadow's blur radius
+ * @color : <color> The color of the shadow
+ */
+/**
+ * The transform CSS property lets you rotate,
+ * scale, skew, or translate an element.
+ * It modifies the coordinate space of the CSS
+ * visual formatting model.
+ *
+ * If the property has a value different than none,
+ * a stacking context will be created. In that case,
+ * the element will act as a containing block for
+ * any position: fixed; or position: absolute;
+ * elements that it contains.
+ */
+/*----------- Matrix transformation -----------*/
+/*----------- Perspective -----------*/
+/**
+ * @d : <length> distance from the user
+ * to the z=0 plane.
+ */
+/*----------- Rotation -----------*/
+/**
+ * @a : <angle> angle of the rotation
+ * @x : <number> axis of rotation (0/1) - abscissa
+ * @y : <number> axis of rotation (0/1) - ordinate
+ * @z : <number> axis of rotation (0/1) - z-coordinate
+ */
+/*----------- Scale -----------*/
+/**
+ * @sx : <number> scaling vector - abscissa
+ * @sy : <number> scaling factor - ordinate
+ * @sz : <number> scaling factor - z-coordinate
+ */
+/*----------- Skewing (distortion) -----------*/
+/**
+ * @ax : <angle> distort the element - abscissa.
+ * @ay  : <angle> distort the element - ordinate.
+ */
+/*----------- Translation (moving) -----------*/
+/**
+ * @tx : <length> | <percentage> abscissa of the translating vector
+ * @ty : <length> | <percentage> ordinate of the translating vector
+ * @tz : <length> z component of the translating vector
+ */
+button,
+input,
+optgroup,
+select,
+textarea {
+  margin: 0;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+label {
+  display: inline-block;
+  cursor: default;
+}
+input {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  display: block;
+}
+input[type=range],
+progress {
+  cursor: pointer;
+  /* Get rid of borders in FF. */
+  border: 0;
+}
+input[type=range]:focus,
+progress:focus {
+  border: 0;
+  outline: none;
+}
+input[type=range]::-moz-focus-inner,
+progress::-moz-focus-inner,
+input[type=range]::-moz-focus-outer,
+progress::-moz-focus-outer {
+  outline: none !important;
+  border: 0;
+}
+input[type=search]:focus {
+  -webkit-box-shadow: unset;
+          box-shadow: unset;
+  outline: 0;
+}
+select {
+  vertical-align: middle;
+}
+textarea {
+  display: block;
+  overflow-x: auto;
+  vertical-align: 0%;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+/*=============================================>>>>>
+= Helpers =
+===============================================>>>>>*/
+/**
+ * Based on the work of Daniel Stern
+ * CF: https://css-tricks.com/styling-cross-browser-compatible-range-inputs-css/
+ *
+ * @class : <string> class to use for the range.
+ * @main :
+ */
+body {
+  font-size: 1.125rem;
+  font-weight: normal;
+  text-rendering: geometricPrecision;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+body * {
+  /* Apply line height calculation to all descendant */
+  line-height: calc(4px + 2ex + 4px);
+}
+body.rtl {
+  direction: rtl;
+}
+body.ltr {
+  direction: ltr;
+}
+/**
+ * Get the specified font-weight number of a given font.
+ * @wheight: <string> the font-weight name to look for
+ * @font: the font name to lookup to
+ */
+/**
+ *
+ * For each fonts defined if config @fonts,
+ * and for each weights of theses fonts,
+ * build a class whith the name of the font
+ * followed by the name of the weights
+ * for it to by applied.
+ * eg: .primary-bold() class output
+ * the weight value for bold of the primary font.
+ */
+/* Call detached ruleset @fonts and call the each
+function on every children. */
+/* Remove @ from variable name */
+/* On each weights of the fonts */
+/* Remove @ from the varaible name */
+/* Build a class  */
+.primary-thin {
+  font-weight: 100;
+}
+/* Remove @ from the varaible name */
+/* Build a class  */
+.primary-extra-light {
+  font-weight: 200;
+}
+/* Remove @ from the varaible name */
+/* Build a class  */
+.primary-light {
+  font-weight: 300;
+}
+/* Remove @ from the varaible name */
+/* Build a class  */
+.primary-regular {
+  font-weight: 400;
+}
+/* Remove @ from the varaible name */
+/* Build a class  */
+.primary-bold {
+  font-weight: 500;
+}
+/* Remove @ from the varaible name */
+/* Build a class  */
+.primary-extra-bold {
+  font-weight: 700;
+}
+/* Remove @ from the varaible name */
+/* Build a class  */
+.primary-black {
+  font-weight: 900;
+}
+/* Remove @ from variable name */
+/* On each weights of the fonts */
+/* Remove @ from the varaible name */
+/* Build a class  */
+.secondary-thin {
+  font-weight: 100;
+}
+/* Remove @ from the varaible name */
+/* Build a class  */
+.secondary-extra-light {
+  font-weight: 200;
+}
+/* Remove @ from the varaible name */
+/* Build a class  */
+.secondary-light {
+  font-weight: 300;
+}
+/* Remove @ from the varaible name */
+/* Build a class  */
+.secondary-regular {
+  font-weight: 400;
+}
+/* Remove @ from the varaible name */
+/* Build a class  */
+.secondary-bold {
+  font-weight: 500;
+}
+/* Remove @ from the varaible name */
+/* Build a class  */
+.secondary-extra-bold {
+  font-weight: 700;
+}
+/* Remove @ from the varaible name */
+/* Build a class  */
+.secondary-black {
+  font-weight: 900;
+}
+details summary::-webkit-details-marker {
+  /* Hide the twisties */
+  display: none;
+}
+/* Get the font size ratio by multiplying the base font size by the chosen ratio. */
+/* Reversing the range by construction with the function 𝑓(𝑥)=𝑥+𝑦-𝑥, where 𝑦 is the reverse of 𝑥 inside the range. Alas : @reverse = (@min + @max) - @value */
+/* Raise the font ratio to the value of the reversed range. */
+.h1,
+h1 {
+  font-size: 5.0574394rem;
+}
+/* Set headings font size. */
+h1 {
+  line-height: calc(4px + 2ex + 4px);
+  margin-bottom: 0.65em;
+}
+/* Get the font size ratio by multiplying the base font size by the chosen ratio. */
+/* Reversing the range by construction with the function 𝑓(𝑥)=𝑥+𝑦-𝑥, where 𝑦 is the reverse of 𝑥 inside the range. Alas : @reverse = (@min + @max) - @value */
+/* Raise the font ratio to the value of the reversed range. */
+.h2,
+h2 {
+  font-size: 3.37246938rem;
+}
+/* Set headings font size. */
+h2 {
+  line-height: calc(4px + 2ex + 4px);
+  margin-bottom: 0.65em;
+}
+/* Get the font size ratio by multiplying the base font size by the chosen ratio. */
+/* Reversing the range by construction with the function 𝑓(𝑥)=𝑥+𝑦-𝑥, where 𝑦 is the reverse of 𝑥 inside the range. Alas : @reverse = (@min + @max) - @value */
+/* Raise the font ratio to the value of the reversed range. */
+.h3,
+h3 {
+  font-size: 2.24887514rem;
+}
+/* Set headings font size. */
+h3 {
+  line-height: calc(4px + 2ex + 4px);
+  margin-bottom: 0.65em;
+}
+/* Get the font size ratio by multiplying the base font size by the chosen ratio. */
+/* Reversing the range by construction with the function 𝑓(𝑥)=𝑥+𝑦-𝑥, where 𝑦 is the reverse of 𝑥 inside the range. Alas : @reverse = (@min + @max) - @value */
+/* Raise the font ratio to the value of the reversed range. */
+.h4,
+h4 {
+  font-size: 1.499625rem;
+}
+/* Set headings font size. */
+h4 {
+  line-height: calc(4px + 2ex + 4px);
+  margin-bottom: 0.65em;
+}
+h5,
+h6 {
+  line-height: calc(4px + 2ex + 4px);
+  margin-bottom: 0.65em;
+}
+h1 {
+  margin-top: 0.65em;
+  font-weight: bold;
+}
+h2 {
+  margin-top: 0.65em;
+  font-weight: bold;
+}
+h3 {
+  margin-top: 0.65em;
+  font-weight: bold;
+}
+h4 {
+  margin-top: 0.65em;
+  font-weight: bold;
+}
+h5 {
+  margin-top: 0.65em;
+  font-weight: bold;
+}
+h6 {
+  margin-top: 0.65em;
+  font-weight: bold;
+}
+.headings-unmarged {
+  margin-top: 0em;
+  margin-bottom: 0em;
+}
+.headings-unmarged-top {
+  margin-top: 0em;
+}
+.headings-unmarged-bottom {
+  margin-bottom: 0em;
+}
+/* Reference :
+- https://moderncss.dev/generating-font-size-css-rules-and-creating-a-fluid-type-scale/
+ */
+p {
+  /* Set base margin-bottom to all basic typo elements */
+  margin-bottom: 0.65em;
+}
+.deci {
+  font-size: 0.84396099rem;
+}
+.deca,
+.lead {
+  font-size: 1.499625rem;
+}
+.hecto,
+.headline {
+  font-size: 2.24887514rem;
+}
+small {
+  font-size: 0.84396099rem;
+  font-weight: normal;
+  text-transform: uppercase;
+}
+p,
+li,
+pre,
+h1,
+h2,
+h3,
+h4 {
+  /*  Help prevent overflow of long words/names/URLs */
+  word-break: break-word;
+  /*  Optional, not supported for all languages */
+  -webkit-hyphens: auto;
+      -ms-hyphens: auto;
+          hyphens: auto;
+  /* Set base margin-bottom to all basic typo elements */
+  margin-bottom: 0.65em;
+}
+hr {
+  border-color: hsl(0, 0%, 84%);
+  border-width: 0px;
+  border-top-width: 1px;
+  margin: 2rem 0rem;
+}
+pre {
+  padding: 1rem;
+  margin: 2rem 0rem;
+  overflow: auto;
+  background-color: hsl(0, 0%, 90%);
+}
+@media screen and (prefers-color-scheme: dark) {
+  pre {
+    background-color: hsl(0, 0%, 25%);
+  }
+}
+b,
+strong {
+  font-weight: bold;
+}
+em,
+i {
+  font-style: italic;
+}
+ins {
+  background-color: hsl(207, 81%, 58%);
+  color: hsl(0, 0%, 100%);
+  text-decoration: none;
+  padding: 0.2em;
+}
+@media screen and (prefers-color-scheme: dark) {
+  ins {
+    background-color: hsl(207, 81%, 58%);
+    color: hsl(0, 0%, 15%);
+  }
+}
+mark {
+  background-color: hsl(207, 81%, 58%);
+  color: hsl(0, 0%, 100%);
+  padding: 0.2em;
+}
+@media screen and (prefers-color-scheme: dark) {
+  mark {
+    background-color: hsl(207, 81%, 58%);
+    color: hsl(0, 0%, 15%);
+  }
+}
+del {
+  text-decoration: line-through;
+}
+u {
+  text-decoration: underline;
+}
+dfn {
+  font-style: italic;
+}
+code {
+  font-family: monospace;
+  padding: 0.2em;
+  background-color: hsl(0, 0%, 90%);
+}
+@media screen and (prefers-color-scheme: dark) {
+  code {
+    background-color: hsl(0, 0%, 25%);
+  }
+}
+blockquote {
+  font-size: 1.499625rem;
+}
+.blockquote-footer {
+  margin-top: -0.65em;
+  margin-bottom: 0.65em;
+  color: hsl(207, 4%, 36%);
+}
+@media screen and (prefers-color-scheme: dark) {
+  .blockquote-footer {
+    color: hsl(207, 4%, 82%);
+  }
+}
+.blockquote-footer::before {
+  content: "\2013 ";
+}
+ul {
+  list-style: initial;
+}
+ul,
+ol {
+  padding-left: 1em;
+  margin: 1em 0em;
+}
+ul ul,
+ol ul,
+ul ol,
+ol ol {
+  padding-left: 1em;
+  margin-top: 0.65em;
+}
+[dir="rtl"] ul,
+[dir="rtl"] ol {
+  /* rtl languages support */
+  padding-left: unset;
+  padding-right: 1em;
+}
+.list-unstyled {
+  list-style: none;
+}
+.list-inline {
+  padding: 0em;
+  position: relative;
+  display: block;
+}
+.list-inline-item {
+  display: inline-block;
+}
+.list-no-padding {
+  padding: 0em;
+}
+a,
+.link {
+  display: inline-block;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: hsl(207, 4%, 26%);
+  color: hsl(207, 4%, 26%);
+  -webkit-transition: color 0.3s ease, border-color 0.3s ease;
+  transition: color 0.3s ease, border-color 0.3s ease;
+  /* A cleaner looking link. */
+  /* Remove link border */
+}
+@media screen and (prefers-color-scheme: dark) {
+  a,
+  .link {
+    border-bottom-color: hsl(207, 4%, 92%);
+    color: hsl(207, 4%, 92%);
+  }
+}
+a:hover,
+.link:hover,
+a-hover,
+.link-hover {
+  color: hsl(207, 90%, 70%);
+  border-bottom-color: hsl(207, 90%, 70%);
+}
+a:active,
+.link:active,
+a-active,
+.link-active {
+  color: hsl(207, 90%, 90%);
+  border-bottom-color: hsl(207, 90%, 90%);
+}
+a:focus,
+.link:focus,
+a-focus,
+.link-focus {
+  color: hsl(207, 90%, 80%);
+  border-bottom-color: hsl(207, 90%, 80%);
+}
+a-secondary:hover,
+.link-secondary:hover,
+a-secondary-hover,
+.link-secondary-hover {
+  color: hsl(34, 100%, 68%);
+  border-bottom-color: hsl(34, 100%, 68%);
+}
+a-secondary:active,
+.link-secondary:active,
+a-secondary-active,
+.link-secondary-active {
+  color: hsl(34, 100%, 88%);
+  border-bottom-color: hsl(34, 100%, 88%);
+}
+a-secondary:focus,
+.link-secondary:focus,
+a-secondary-focus,
+.link-secondary-focus {
+  color: hsl(34, 100%, 78%);
+  border-bottom-color: hsl(34, 100%, 78%);
+}
+a:disabled,
+.link:disabled,
+a-disabled,
+.link-disabled {
+  color: hsla(207, 4%, 26%, 0.45) !important;
+  border-color: hsla(207, 4%, 26%, 0.33) !important;
+  cursor: default;
+  pointer-events: none;
+}
+@media screen and (prefers-color-scheme: dark) {
+  a:disabled,
+  .link:disabled,
+  a-disabled,
+  .link-disabled {
+    color: hsla(207, 4%, 92%, 0.45) !important;
+    border-color: hsla(207, 4%, 92%, 0.33) !important;
+  }
+}
+a-clean,
+.link-clean {
+  border-color: hsl(0, 0%, 100%);
+  color: hsla(207, 4%, 26%, 0.7);
+}
+@media screen and (prefers-color-scheme: dark) {
+  a-clean,
+  .link-clean {
+    border-color: hsl(0, 0%, 15%);
+    color: hsla(207, 4%, 92%, 0.7);
+  }
+}
+a-clean:hover,
+.link-clean:hover {
+  border-color: hsla(207, 4%, 26%, 0.7);
+  color: hsla(207, 4%, 26%, 0.7);
+}
+@media screen and (prefers-color-scheme: dark) {
+  a-clean:hover,
+  .link-clean:hover {
+    border-color: hsla(207, 4%, 92%, 0.7);
+    color: hsla(207, 4%, 92%, 0.7);
+  }
+}
+a-unbordered,
+.link-unbordered {
+  border-bottom: 0px;
+}
+a-unbordered:hover,
+.link-unbordered:hover {
+  border-bottom: 0px;
+}
+body {
+  background-color: hsl(0, 0%, 100%);
+  color: hsl(207, 4%, 26%);
+}
+@media screen and (prefers-color-scheme: dark) {
+  body {
+    background-color: hsl(0, 0%, 15%);
+    color: hsl(207, 4%, 92%);
+  }
+}
+@zindex {
+  dropdown: 1000;
+  sticky: 1020;
+  fixed: 1030;
+  modal-backdrop: 1040;
+  modal: 1050;
+  popover: 1060;
+  tooltip: 1070;
+}
+/**
+ * For each font used; set up the different weight
+ * and value. Each font need a new .font-weight
+ * definition.
+ */
+body {
+  width: 100%;
+  display: block;
+  /* Keep footer at the bottom */
+  min-height: 100vh;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+  font-family: 'Poppins', sans-serif;
+}
+body * {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+body *::before,
+body *::after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+body .flow {
+  width: 100%;
+  max-width: 960px;
+  margin-left: auto;
+  margin-right: auto;
+}
+body .container {
+  padding-right: 1rem;
+  padding-left: 1rem;
+}
+body .block {
+  margin: 1rem 0;
+}
+body .col-1 {
+  width: 8.33333333%;
+}
+body .col-2 {
+  width: 16.66666667%;
+}
+body .col-3 {
+  width: 25%;
+}
+body .col-4 {
+  width: 33.33333333%;
+}
+body .col-5 {
+  width: 41.66666667%;
+}
+body .col-6 {
+  width: 50%;
+}
+body .col-7 {
+  width: 58.33333333%;
+}
+body .col-8 {
+  width: 66.66666667%;
+}
+body .col-9 {
+  width: 75%;
+}
+body .col-10 {
+  width: 83.33333333%;
+}
+body .col-11 {
+  width: 91.66666667%;
+}
+body .col-12 {
+  width: 100%;
+}
+.header {
+  background-color: hsl(207, 81%, 58%);
+  border-bottom: 1px solid hsl(0, 0%, 84%);
+  position: fixed;
+  width: 100vw;
+  height: 50px;
+}
+.header-wrap,
+.header-container {
+  height: 100%;
+}
+.header-logo {
+  width: 5em;
+  padding: 0.4em;
+  display: -webkit-box;
+  display: flex;
+  flex-wrap: wrap;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+          flex-direction: row;
+  -webkit-box-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+          justify-content: center;
+}
+.header-logo img {
+  width: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.header-title {
+  font-weight: 900;
+  color: white;
+}
+.header-under {
+  height: 50px;
+  width: 100%;
+  display: block;
+}
+.home {
+  background-color: hsl(207, 81%, 58%);
+  padding: 2em 0em 0em;
+}
+.home .hero {
+  display: -webkit-box;
+  display: flex;
+  flex-wrap: wrap;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+  -webkit-box-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+          justify-content: center;
+}
+.home .hero .logo {
+  width: 20em;
+}
+
+/*# sourceMappingURL=index.css.map */

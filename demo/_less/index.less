@@ -1,0 +1,128 @@
+@import (less) "../../index.less";
+
+@base: {
+  desktop: 960px;
+  columns-name: col-;
+  columns-total: 12;
+  columns-halfgap: false;
+}
+
+@zindex {
+  dropdown: 1000;
+  sticky: 1020;
+  fixed: 1030;
+  modal-backdrop: 1040;
+  modal: 1050;
+  popover: 1060;
+  tooltip: 1070;
+}
+
+/**
+ * For each font used; set up the different weight
+ * and value. Each font need a new .font-weight
+ * definition.
+ */
+
+@fonts: {
+  @primary: {
+    @thin: 100;
+    @extra-light: 200;
+    @light: 300;
+    @regular: 400;
+    @bold: 500;
+    @extra-bold: 700;
+    @black: 900;
+  }
+
+  @secondary: {
+    @thin: 100;
+    @extra-light: 200;
+    @light: 300;
+    @regular: 400;
+    @bold: 500;
+    @extra-bold: 700;
+    @black: 900;
+  }
+}
+
+@typography: {
+  base-font-size: 1.125rem;
+  /* Calculated line height.
+  Reference : https://kittygiraudel.com/2020/05/18/using-calc-to-figure-out-optimal-line-height/ */
+  base-line-height: calc(4px + 2ex + 4px);
+  /* Margin bottom is 65% of the font size */
+  base-margin: 0.65em;
+}
+
+@type-ratios: {
+  minorSecond: 1.067;
+  majorSecond: 1.125;
+  minorThird: 1.2;
+  majorThird: 1.25;
+  perfectFourth: 1.333;
+  augmentedFourth: 1.414;
+  perfectFifth: 1.5;
+  goldenRatio: 1.618;
+}
+
+@hues: {
+  primary: 207;
+  secondary: 34;
+  success: 103;
+  danger: 358;
+  warning: 127;
+  info: 127;
+}
+
+body {
+  .layout();
+  font-family: 'Poppins', sans-serif;
+}
+
+.header {
+  background-color: @colors[@light][primary];
+  border-bottom: 1px solid @colors[@light][border];
+  position: fixed;
+  width: 100vw;
+  height: 50px;
+
+  &-wrap,
+  &-container {
+    height: 100%;
+  }
+
+  &-logo {
+    width: 5em;
+    padding: 0.4em;
+    .flex-container(wrap, row, center, center);
+
+    img {
+      width: 100%;
+      object-fit: contain;
+    }
+  }
+
+  &-title {
+    font-weight: 900;
+    color: white;
+  }
+
+  &-under {
+    height: 50px;
+    width: 100%;
+    display: block;
+  }
+}
+
+.home {
+  background-color: @colors[@light][primary];
+  padding: 2em 0em 0em;
+
+  .hero {
+    .flex-container(wrap, column, center, center);
+
+    .logo {
+      width: 20em;
+    }
+  }
+}

@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="fr">
+  {% include head.html %}
+  <body>
+    {% include header.html %}
+    <div class="home layout">
+      <div class="flow">
+        <section class="container hero">
+
+            <img class="logo" src="/assets/logo.svg" alt="coeur-de-fer logo">
+            <h1 class="headings headings-unmarged-top">{{ site.title }}</h1>
+        </section>
+      </div>
+    </div>
+    <div class="layout">
+      <div class="flow">
+        <div class="interspace"></div>
+        <section class="block container">
+          {{ content }}
+        </section>
+        <div class="rule"></div>
+        <div class="row container">
+          <div class="block col-4">
+            <h4 class="headings headings-unmarged-top">
+              Installation
+            </h4>
+            <p>Install <code>coeur-de-fer</code> source Less files via npm, git submodules, or Meteor.
+
+Package managed installs don’t include documentation or our full build scripts. You can also use our npm template repo to quickly generate a Bootstrap project via npm.</p>
+            <pre>@import (less) '{path-to-coeur-de-fer}/index.less';</pre>
+          </div>
+          <div class="block col-4">Hello</div>
+          <div class="block col-4">Hello</div>
+        </div>
+      </div>
+    </div>
+    <footer>
+    </footer>
+  </body>
+</html>
