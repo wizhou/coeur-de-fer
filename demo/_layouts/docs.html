@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="fr">
+  {% include head.html %}
+  <body>
+    <div class="docs layout">
+      {% include header.html %}
+      <div class="docs-wrap flow row">
+        <aside class="navigation col-2">
+          {% include navigation.html %}
+        </aside>
+        <main class="col-10">
+          <section class="aperture marge">
+            <h2 class=" hero-title headings">
+              {{ page.title }}
+            </h2>
+            {{ content }}
+          </section>
+        </main>
+      </div>
+      <footer>
+      </footer>
+    </div>
+  </body>
+</html>
