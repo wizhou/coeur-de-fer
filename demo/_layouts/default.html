@@ -1,21 +1,20 @@
 <!doctype html>
 <html lang="fr">
-  <head>
-    <meta charset="utf-8">
-    <title>{{ site.title }}</title>
-    <link rel="stylesheet" href="/css/style.css">
-  </head>
+  {% include head.html %}
   <body>
-    <nav>
-      <a href="/">Home</a>
-      <a href="/blog/">Blog</a>
-    </nav>
-    <h1>{{ page.title }}</h1>
-    <section>
-      {{ content }}
-    </section>
-    <footer>
-      &copy; to me
-    </footer>
+    {% include header.html %}
+    <div class="layout">
+      <div class="flow">
+        <section class="block container">
+          <h3 class=" hero-title headings">
+            {{ page.title }}
+          </h3>
+          {{ content }}
+        </section>
+      </div>
+    </div>
   </body>
+  <footer>
+  </footer>
+</body>
 </html>
