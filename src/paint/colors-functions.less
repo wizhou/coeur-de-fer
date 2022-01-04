@@ -1,0 +1,25 @@
+
+
+.color {
+  each(@set1, .(@color-value, @color-key) {
+    @color-name: replace(@color-key, '@', '');
+
+    each(@tints, .(@tint-value, @tint-key) {
+      @tint-name: replace(@tint-key, '@', '');
+      @operation: @tints[@@tint-name][operation];
+      @amount: @tints[@@tint-name][amount];
+      @method: @tints[@@tint-name][method];
+
+      &-@{color-name}-@{tint-name} {
+        background-color: .color-operation(@set1[@@color-name], @operation, @amount, @method)[]
+      }
+    });
+  });
+}
+
+.get-color(@color-name, @tint) {
+  @operation: @tints[@@tint][operation];
+  @amount: @tints[@@tint][amount];
+  @method: @tints[@@tint][method];
+  @result: .color-operation(@set1[@@color-name], @operation, @amount, @method)[]
+}

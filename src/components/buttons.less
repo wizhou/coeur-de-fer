@@ -119,14 +119,14 @@ button {
       }
 
       &:focus {
-        box-shadow: 0 0 0 0.16em .color-tint(@primary)[@mineure];
+        box-shadow: 0 0 0 0.16em tint(@primary, 60%);
       }
     }
 
     &:disabled {
-      border-color: .color-fadeout(@border)[@mineure];
-      color: .color-fadeout(@disabled-text)[@mineure];
-      background-color: .color-fadeout(@disabled-background)[@mineure];
+      border-color: fadeout(@border, 60%);
+      color: fadeout(@disabled-text, 60%);
+      background-color: fadeout(@disabled-background, 60%);
     }
 
   }
@@ -135,11 +135,11 @@ button {
   .button_state(
     @primary: @colors[@light][primary],
     @background: @colors[@light][background],
-    @text: @colors[@light][text-normal],
+    @text: @colors[@light][text],
     @light-text: @colors[@light][background],
     @border: @colors[@light][border],
     @disabled-background: @colors[@light][background],
-    @disabled-text: @colors[@light][text-normal]
+    @disabled-text: @colors[@light][text]
   );
 
   /* Dark theme state */
@@ -147,19 +147,17 @@ button {
   .button_state(
     @primary: @colors[@dark][primary],
     @background: @colors[@dark][background],
-    @text: @colors[@dark][text-normal],
+    @text: @colors[@dark][text],
     @light-text: @colors[@dark][background],
     @border: @colors[@dark][border],
     @disabled-background: @colors[@dark][background],
-    @disabled-text: @colors[@dark][text-normal]
+    @disabled-text: @colors[@dark][text]
     );
   }
 
   &-primary {
     .button_state(
-      @primary: .color-darken(
-        @colors[@light][primary]
-      )[@sensible],
+      @primary: darken(@colors[@light][primary], 20%),
       @background: @colors[@light][primary],
       @text: @colors[@light][background],
       @light-text: @colors[@light][background],
@@ -171,9 +169,7 @@ button {
 
   &-secondary {
     .button_state(
-      @primary: .color-darken(
-        @colors[@light][secondary]
-      )[@sensible],
+      @primary: darken(@colors[@light][secondary], 20%),
       @background: @colors[@light][secondary],
       @text: @colors[@light][text],
       @light-text: @colors[@light][text],
@@ -185,9 +181,7 @@ button {
 
   &-success {
     .button_state(
-      @primary: .color-darken(
-        @colors[@light][success]
-      )[@sensible],
+      @primary: darken(@colors[@light][success], 20%),
       @background: @colors[@light][success],
       @text: @colors[@light][text],
       @light-text: @colors[@light][text],
@@ -198,7 +192,7 @@ button {
   }
 
   &-clean {
-    color: @colors[@light][text-normal];
+    color: @colors[@light][text];
     background-color: transparent;
     border-color: transparent;
 
@@ -210,7 +204,7 @@ button {
   /* Dark theme state */
   @media screen and (prefers-color-scheme: dark) {
     &-clean {
-      color: @colors[@dark][text-normal];
+      color: @colors[@dark][text];
       background-color: transparent;
       border-color: transparent;
     }

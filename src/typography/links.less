@@ -1,16 +1,21 @@
 a,
 .link {
-  display: inline-block;
+  display: inline;
   border-bottom-width: 1px;
   border-bottom-style: solid;
-  border-bottom-color: @colors[@light][text-normal];
-  color: @colors[@light][text-normal];
+  border-bottom-color: @colors[@light][text];
+  color: @colors[@light][text];
   transition: color 0.3s ease, border-color 0.3s ease;
 
-  @media screen and (prefers-color-scheme: dark) {
-    border-bottom-color: @colors[@dark][text-normal];
-    color: @colors[@dark][text-normal];
+  &-inline-block {
+    display: inline-block;
   }
+
+  @media screen and (prefers-color-scheme: dark) {
+    border-bottom-color: @colors[@dark][text];
+    color: @colors[@dark][text];
+  }
+
   .link-states(@color) {
     &:hover,
     &-hover {
@@ -20,18 +25,18 @@ a,
 
     &:active,
     &-active {
-      color: .color-lighten(@color)[@sensible];
-      border-bottom-color: .color-lighten(@color)[@sensible];
+      color: lighten(@color, 20%);
+      border-bottom-color: lighten(@color, 20%);
     }
 
     &:focus,
     &-focus {
-      color: .color-lighten(@color)[@mediante];
-      border-bottom-color: .color-lighten(@color)[@mediante];
+      color: lighten(@color, 10%);
+      border-bottom-color: lighten(@color, 10%);
     }
   }
 
-  .link-states(@colors[@light][link]);
+  .link-states(@colors[@light][textOffset]);
 
   &-secondary {
     .link-states(@colors[@light][secondary]);
@@ -39,14 +44,14 @@ a,
 
   &:disabled,
   &-disabled {
-    color: fade(@colors[@light][text-normal], 45%) !important;
-    border-color: fade(@colors[@light][text-normal], 33%) !important;
+    color: fade(@colors[@light][text], 45%) !important;
+    border-color: fade(@colors[@light][text], 33%) !important;
     cursor: default;
     pointer-events: none;
 
     @media screen and (prefers-color-scheme: dark) {
-      color: fade(@colors[@dark][text-normal], 45%) !important;
-      border-color: fade(@colors[@dark][text-normal], 33%) !important;
+      color: fade(@colors[@dark][text], 45%) !important;
+      border-color: fade(@colors[@dark][text], 33%) !important;
     }
   }
 
@@ -54,20 +59,20 @@ a,
 
   &-clean {
     border-color: @colors[@light][background];
-    color: fade(@colors[@light][text-normal], 70%);
+    color: fade(@colors[@light][text], 70%);
 
     @media screen and (prefers-color-scheme: dark) {
       border-color: @colors[@dark][background];
-      color: fade(@colors[@dark][text-normal], 70%);
+      color: fade(@colors[@dark][text], 70%);
     }
 
     &:hover {
-      border-color: fade(@colors[@light][text-normal], 70%);
-      color: fade(@colors[@light][text-normal], 70%);
+      border-color: fade(@colors[@light][text], 70%);
+      color: fade(@colors[@light][text], 70%);
 
       @media screen and (prefers-color-scheme: dark) {
-        border-color: fade(@colors[@dark][text-normal], 70%);
-        color: fade(@colors[@dark][text-normal], 70%);
+        border-color: fade(@colors[@dark][text], 70%);
+        color: fade(@colors[@dark][text], 70%);
       }
     }
   }

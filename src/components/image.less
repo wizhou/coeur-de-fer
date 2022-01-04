@@ -1,7 +1,8 @@
 .figure {
   width: 100%;
   z-index: 0;
-  margin-bottom: 3rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
   position: relative;
 
   &-rounded {
@@ -34,9 +35,9 @@
     z-index: 3;
     position: relative;
 
-    color: .color-lighten(@colors[@light][text-normal])[@mediante];
+    color: lighten(@colors[@light][text], 10%);
     @media screen and (prefers-color-scheme: dark) {
-      color: .color-darken(@colors[@dark][text-normal])[@mediante];
+      color: darken(@colors[@dark][text], 10%);
     }
 
     &::before {
@@ -74,8 +75,8 @@
       color: @colors[@light][background];
       background: linear-gradient(
         0deg,
-        fade(@colors[@light][text-normal], 60%) 0%,
-        fade(@colors[@light][text-normal], 0%) 100%
+        fade(@colors[@light][text], 60%) 0%,
+        fade(@colors[@light][text], 0%) 100%
       );
     }
   }

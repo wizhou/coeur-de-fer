@@ -18,20 +18,29 @@ h4 {
 
 
 hr {
-  border-color: @colors[@light][border];
-  border-width: 0px;
-  border-top-width: 1px;
+  border: 0px;
+  border-top: 1px solid @colors[@light][border];
   margin: 2rem 0rem;
+
+  @media screen and (prefers-color-scheme: dark) {
+    border-color: @colors[@dark][border];
+  }
 }
 
 pre {
-  padding: 1rem;
-  margin: 2rem 0rem;
+  background-color: darken(@colors[@light][background], 10%);
+  border-radius: 0.2em;
+  margin: 1rem 0rem;
   overflow: auto;
-
-  background-color: .color-darken(@colors[@light][background])[@mediante];
+  padding: 1rem;
+  width: 100%;
 
   @media screen and (prefers-color-scheme: dark) {
-    background-color: .color-lighten(@colors[@dark][background])[@mediante];
+    background-color:  lighten(@colors[@dark][background], 10%);
   }
+}
+
+sup {
+  vertical-align: super;
+  font-size: 0.8em;
 }

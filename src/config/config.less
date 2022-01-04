@@ -5,7 +5,7 @@
   columns-halfgap: false;
 }
 
-@zindex {
+@zindex: {
   dropdown: 1000;
   sticky: 1020;
   fixed: 1030;
@@ -44,12 +44,24 @@
 }
 
 @typography: {
-  base-font-size: 1.125rem;
+  site-font-size: 16px;
+  base-font-size: 1.065rem;
   /* Calculated line height.
   Reference : https://kittygiraudel.com/2020/05/18/using-calc-to-figure-out-optimal-line-height/ */
   base-line-height: calc(4px + 2ex + 4px);
   /* Margin bottom is 65% of the font size */
   base-margin: 0.65em;
+  base-type-ratio: @type-ratios[perfectFourth];
+}
+
+@paragraph-sizes: {
+  pearl: -2;
+  small-print: -1;
+  cicero: 0;
+  lead: 1;
+  headline: 2;
+  parangon: 3;
+  canon: 4;
 }
 
 @type-ratios: {
@@ -73,36 +85,94 @@
 }
 
 @colors: {
+
   @light: {
     primary: hsl(@hues[primary]; 81%; 58%);
     secondary: hsl(@hues[secondary]; 100%; 68%);
+    text: hsl(@hues[primary]; 4%; 26%);
+    border: hsl(@hues[primary]; 0%; 90%);
+    background: hsl(@hues[primary]; 0%; 100%);
+    primaryOffset: hsl(@hues[primary]; 100%; 68%);
+    textOffset: hsl(@hues[primary]; 90%; 70%);
+    backgroundOffset: hsl(@hues[primary]; 6%; 100%);
+
     success: hsl(@hues[success]; 100%; 78%);
     danger: hsl(@hues[danger]; 100%; 56%);
-
-    border: hsl(@hues[primary]; 0%; 84%);
-    text: #414246;
-
-    text-normal: hsl(@hues[primary]; 4%; 26%);
-    text-light: hsl(var(--hue); 15%; 35%);
-    text-richer: hsl(var(--hue); 50%; 72%);
-    text-highlight: hsl(var(--accent-hue); 70%; 45%);
-
-    link: hsl(@hues[primary]; 90%; 70%);
-    accent: hsl(var(--accent-hue); 100%; 70%);
-    error: rgb(240; 50; 50);
-
-    button-background: hsl(var(--hue); 63%; 43%);
-    button-text: hsl(@hues[primary]; 4%; 26%);
-
-    background: hsl(@hues[primary]; 0%; 100%);
   }
 
   @dark: {
     primary: hsl(@hues[primary]; 81%; 58%);
-
+    secondary: hsl(@hues[secondary]; 100%; 68%);
+    text: hsl(@hues[primary]; 4%; 92%);
     border: hsl(@hues[primary]; 0%; 30%);
-
-    text-normal: hsl(@hues[primary]; 4%; 92%);
     background: hsl(@hues[primary]; 0%; 15%);
+    primaryOffset: hsl(@hues[primary]; 100%; 68%);
+    textOffset: hsl(@hues[primary]; 90%; 70%);
+    backgroundOffset: hsl(@hues[primary]; 6%; 100%);
+
+    success: hsl(@hues[success]; 100%; 78%);
+    danger: hsl(@hues[danger]; 100%; 56%);
+  }
+}
+
+/*----------- Colors -----------*/
+
+@set1: {
+  @primary: #3d57eb;
+  @secondary: spin(#3d57eb, -(360 / 3));
+  @thirdary: spin(#3d57eb, (360 / 3));
+}
+
+@tints: {
+
+  @tonic: {
+    operation: saturate;
+    amount: 10%;
+    method: relative;
+  }
+  @ultratonic: {
+    operation: saturate;
+    amount: 20%;
+    method: relative;
+  }
+  @dark: {
+    operation: darken;
+    amount: 80%;
+    method: relative;
+  }
+  @gloom: {
+    operation: darken;
+    amount: 60%;
+    method: relative;
+  }
+  @dusk: {
+    operation: darken;
+    amount: 40%;
+    method: relative;
+  }
+  @major: {
+    operation: tint;
+    amount: 0%;
+    method: false;
+  }
+  @mediant: {
+    operation: lighten;
+    amount: 20%;
+    method: false;
+  }
+  @sensible: {
+    operation: lighten;
+    amount: 25%;
+    method: false;
+  }
+  @minor: {
+    operation: lighten;
+    amount: 30%;
+    method: false;
+  }
+  @brittle: {
+    operation: lighten;
+    amount: 40%;
+    method: false;
   }
 }

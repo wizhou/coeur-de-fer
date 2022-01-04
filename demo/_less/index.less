@@ -1,13 +1,13 @@
 @import (less) "../../index.less";
 
 @base: {
-  desktop: 960px;
+  desktop: 1000px;
   columns-name: col-;
   columns-total: 12;
   columns-halfgap: false;
 }
 
-@zindex {
+@zindex: {
   dropdown: 1000;
   sticky: 1020;
   fixed: 1030;
@@ -17,66 +17,24 @@
   tooltip: 1070;
 }
 
-/**
- * For each font used; set up the different weight
- * and value. Each font need a new .font-weight
- * definition.
- */
-
-@fonts: {
-  @primary: {
-    @thin: 100;
-    @extra-light: 200;
-    @light: 300;
-    @regular: 400;
-    @bold: 500;
-    @extra-bold: 700;
-    @black: 900;
-  }
-
-  @secondary: {
-    @thin: 100;
-    @extra-light: 200;
-    @light: 300;
-    @regular: 400;
-    @bold: 500;
-    @extra-bold: 700;
-    @black: 900;
-  }
-}
-
 @typography: {
-  base-font-size: 1.125rem;
-  /* Calculated line height.
-  Reference : https://kittygiraudel.com/2020/05/18/using-calc-to-figure-out-optimal-line-height/ */
+  site-font-size: 16px;
+  base-font-size: 1.065rem;
   base-line-height: calc(4px + 2ex + 4px);
-  /* Margin bottom is 65% of the font size */
   base-margin: 0.65em;
-}
-
-@type-ratios: {
-  minorSecond: 1.067;
-  majorSecond: 1.125;
-  minorThird: 1.2;
-  majorThird: 1.25;
-  perfectFourth: 1.333;
-  augmentedFourth: 1.414;
-  perfectFifth: 1.5;
-  goldenRatio: 1.618;
+  base-type-ratio: @type-ratios[perfectFourth];
 }
 
 @hues: {
-  primary: 207;
-  secondary: 34;
+  primary: 228;
+  secondary: 0;
   success: 103;
   danger: 358;
-  warning: 127;
-  info: 127;
 }
 
 body {
   .layout();
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 .header {
@@ -85,6 +43,7 @@ body {
   position: fixed;
   width: 100vw;
   height: 50px;
+  z-index: @zindex[sticky];
 
   &-wrap,
   &-container {
@@ -120,9 +79,29 @@ body {
 
   .hero {
     .flex-container(wrap, column, center, center);
+      color: white;
 
     .logo {
       width: 20em;
     }
+
+    &-title {
+    }
   }
+}
+
+.docs {
+  .exemple {
+    border: 1px solid @colors[@light][border];
+    padding: 1rem;
+    margin: 1rem 0rem;
+  }
+}
+
+pre code {
+  font-size: 1rem;
+}
+
+.test {
+  color: .get-color(primary, gloom)[];
 }

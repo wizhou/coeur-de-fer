@@ -1,27 +1,44 @@
-p {
+p,
+.paragraph {
   /* Set base margin-bottom to all basic typo elements */
   margin-bottom: @typography[base-margin];
+
+  &-no-margin {
+    margin-bottom: unset;
+  }
 }
 
-@type-ratio: @type-ratios[perfectFourth];
-
-.deci {
-  font-size: @typography[base-font-size] / @type-ratio;
+.scale-type(
+  @exponent: 0,
+  @base: @typography[base-font-size],
+  @ratio: @typography[base-type-ratio]
+  ) {
+  @result: @base * pow(@ratio, @exponent);
 }
 
-.deca,
-.lead {
-  font-size: @typography[base-font-size] * @type-ratio;
+.add-paragraph(
+  @name,
+  @exponent: 0,
+  @base: @typography[base-font-size],
+  @ratio: @typography[base-type-ratio]
+  ) {
+  .@{name} {
+    font-size: .scale-type(
+      @exponent,
+      @base,
+      @ratio
+    )[@result];
+  }
 }
 
-.hecto,
-.headline {
-  @font-size: @typography[base-font-size] * @type-ratio;
-  font-size: pow(@font-size, 2);
-}
+/* Build default paragraphs with the config ruleset @paragraph-sizes */
+
+each(@paragraph-sizes, {
+  .add-paragraph(@key, @value);
+});
 
 small {
-  .deci();
+  font-size: .scale-type(-1)[@result];
   font-weight: normal;
   text-transform: uppercase;
 }

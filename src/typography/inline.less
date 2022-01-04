@@ -45,9 +45,11 @@ dfn {
 code {
   font-family: monospace;
   padding: 0.2em;
-  background-color: .color-darken(@colors[@light][background])[@mediante];
+  color: darken(@colors[@light][textOffset], 10%);
+  border-radius: 0.2em;
 
   @media screen and (prefers-color-scheme: dark) {
-    background-color: .color-lighten(@colors[@dark][background])[@mediante];
+    background-color: lighten(@colors[@dark][background], 10%);
+    color: lighten(@colors[@light][textOffset], 10%);
   }
 }

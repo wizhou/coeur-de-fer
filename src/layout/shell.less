@@ -1,10 +1,17 @@
+/* This is the outer shell. The shell is like the
+skeletton of the website. It contains the core components,
+but does not contain any data. The class present in shell
+are at root and are always visible. It's about MACRO layouting.
 
-/* Construit les classes shell de .flow et .wrap.
-Le flow centre un contenu selon la taille maximale
-utilisée. Le wrap permet d'employer le flex.
+Layout mixin should by applied into the body,
+or any root class, like '.app'. This root class contain
+he base layout of the site, like header, footer, etc.
 
-@max-width :	La taille maximale en usage.
-;*/
+  @max-width: the site max width, by default 960px.
+  @columns-name: The name of the class for columns.
+  @columns-total: Total number of columns.
+  @columns-halfgap: A numerical gap for columns, with value.
+*/
 
 .layout(
   @max-width: @base[desktop],
@@ -16,7 +23,6 @@ utilisée. Le wrap permet d'employer le flex.
   display: block;
 
   /* Keep footer at the bottom */
-
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -30,21 +36,38 @@ utilisée. Le wrap permet d'employer le flex.
     }
   }
 
+  /* The flow is a content area. It allows content
+  to be placed within the width limit of the site.
+  By default, flow is centered, but the '-uncentered'
+  modifier can be used to remove this behavior.
+
+  Flow is intended to be used multiple times within a layout. */
+
   .flow {
     width: 100%;
     max-width: @max-width;
     margin-left: auto;
     margin-right: auto;
+
+    &-uncentered {
+      margin-left: unset;
+      margin-right: unset;
+    }
   }
 
-  .container {
+  /* Aperture is a padding spacing of content,
+  it's used to create viusal gap between elements. */
+
+  .aperture {
     padding-right: 1rem;
     padding-left: 1rem;
   }
 
-  .block {
+  .marge {
     margin: 1rem 0;
   }
+
+  /* Function into layout/columns.less */
 
   .generate-columns(
     @columns-name,

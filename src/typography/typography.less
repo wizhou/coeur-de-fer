@@ -1,3 +1,7 @@
+html {
+  font-size: @typography[site-font-size];
+}
+
 body {
   font-size: @typography[base-font-size];
   font-weight: normal;
@@ -9,9 +13,7 @@ body {
     /* Apply line height calculation to all descendant */
     line-height: @typography[base-line-height];
   }
-}
 
-body {
   &.rtl {
     direction: rtl;
   }
@@ -64,7 +66,6 @@ each(@fonts, .(@weights, @font) {
     }
   });
 });
-
 
 
 details {

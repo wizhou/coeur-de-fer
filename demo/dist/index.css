@@ -1,17 +1,3 @@
-@zindex {
-  dropdown: 1000;
-  sticky: 1020;
-  fixed: 1030;
-  modal-backdrop: 1040;
-  modal: 1050;
-  popover: 1060;
-  tooltip: 1070;
-}
-/**
- * For each font used; set up the different weight
- * and value. Each font need a new .font-weight
- * definition.
- */
 /**
 * Description: Reset ! Ending navigator default styling.
 *
@@ -170,12 +156,20 @@ button::-moz-focus-inner {
 /*=============================================>>>>>
 = Colors Functions =
 ===============================================>>>>>*/
-/* Construit les classes shell de .flow et .wrap.
-Le flow centre un contenu selon la taille maximale
-utilisée. Le wrap permet d'employer le flex.
+/* This is the outer shell. The shell is like the
+skeletton of the website. It contains the core components,
+but does not contain any data. The class present in shell
+are at root and are always visible. It's about MACRO layouting.
 
-@max-width :	La taille maximale en usage.
-;*/
+Layout mixin should by applied into the body,
+or any root class, like '.app'. This root class contain
+he base layout of the site, like header, footer, etc.
+
+  @max-width: the site max width, by default 960px.
+  @columns-name: The name of the class for columns.
+  @columns-total: Total number of columns.
+  @columns-halfgap: A numerical gap for columns, with value.
+*/
 .interspace {
   margin: 0rem 0rem 4rem 0rem;
 }
@@ -198,7 +192,7 @@ utilisée. Le wrap permet d'employer le flex.
   align-content: normal;
 }
 .rule {
-  border-color: hsl(0, 0%, 84%);
+  border-color: hsl(0, 0%, 90%);
   border-width: 0px;
   border-top-width: 1px;
   border-style: solid;
@@ -381,8 +375,8 @@ button {
   /*----------- Layout -----------*/
   /*----------- Element states -----------*/
   /* Classic state */
-  color: #414246;
-  border-color: hsl(0, 0%, 84%);
+  color: hsl(228, 4%, 26%);
+  border-color: hsl(0, 0%, 90%);
   background-color: hsl(0, 0%, 100%);
   /* Dark theme state */
   /* Dark theme state */
@@ -442,8 +436,8 @@ button:not(:disabled) .button[data-active='true'],
 [type=reset]:not(:disabled) .button[data-active='true'],
 [type=submit]:not(:disabled) .button[data-active='true'],
 button:not(:disabled) .button[data-active='true'] {
-  background-color: hsl(207, 81%, 58%);
-  border-color: hsl(207, 81%, 58%);
+  background-color: hsl(228, 81%, 58%);
+  border-color: hsl(228, 81%, 58%);
   /* Set text color based on luma of background color */
   color: hsl(0, 0%, 100%);
 }
@@ -453,12 +447,12 @@ button:not(:disabled) .button:focus,
 [type=reset]:not(:disabled) .button:focus,
 [type=submit]:not(:disabled) .button:focus,
 button:not(:disabled) .button:focus {
-  -webkit-box-shadow: 0 0 0 0.16em #b1d8f7;
-          box-shadow: 0 0 0 0.16em #b1d8f7;
+  -webkit-box-shadow: 0 0 0 0.16em #b1bff7;
+          box-shadow: 0 0 0 0.16em #b1bff7;
 }
 .button:disabled {
-  border-color: hsla(0, 0%, 84%, 0.4);
-  color: hsla(207, 4%, 26%, 0.4);
+  border-color: hsla(0, 0%, 90%, 0.4);
+  color: hsla(228, 4%, 26%, 0.4);
   background-color: hsla(0, 0%, 100%, 0.4);
 }
 @media screen and (prefers-color-scheme: dark) {
@@ -485,8 +479,8 @@ button:not(:disabled) .button:focus {
   [type=reset]:not(:disabled) .button[data-active='true'],
   [type=submit]:not(:disabled) .button[data-active='true'],
   button:not(:disabled) .button[data-active='true'] {
-    background-color: hsl(207, 81%, 58%);
-    border-color: hsl(207, 81%, 58%);
+    background-color: hsl(228, 81%, 58%);
+    border-color: hsl(228, 81%, 58%);
     /* Set text color based on luma of background color */
     color: hsl(0, 0%, 100%);
   }
@@ -496,19 +490,19 @@ button:not(:disabled) .button:focus {
   [type=reset]:not(:disabled) .button:focus,
   [type=submit]:not(:disabled) .button:focus,
   button:not(:disabled) .button:focus {
-    -webkit-box-shadow: 0 0 0 0.16em #b1d8f7;
-            box-shadow: 0 0 0 0.16em #b1d8f7;
+    -webkit-box-shadow: 0 0 0 0.16em #b1bff7;
+            box-shadow: 0 0 0 0.16em #b1bff7;
   }
   .button:disabled {
     border-color: hsla(0, 0%, 30%, 0.4);
-    color: hsla(207, 4%, 92%, 0.4);
+    color: hsla(228, 4%, 92%, 0.4);
     background-color: hsla(0, 0%, 15%, 0.4);
   }
 }
 .button-primary {
   color: hsl(0, 0%, 100%);
-  border-color: hsl(207, 81%, 58%);
-  background-color: hsl(207, 81%, 58%);
+  border-color: hsl(228, 81%, 58%);
+  background-color: hsl(228, 81%, 58%);
 }
 button:not(:disabled) .button-primary:hover,
 .button-primary:not(:disabled):hover,
@@ -528,8 +522,8 @@ button:not(:disabled) .button-primary[data-active='true'],
 [type=reset]:not(:disabled) .button-primary[data-active='true'],
 [type=submit]:not(:disabled) .button-primary[data-active='true'],
 button:not(:disabled) .button-primary[data-active='true'] {
-  background-color: hsl(207, 81%, 38%);
-  border-color: hsl(207, 81%, 38%);
+  background-color: hsl(228, 81%, 38%);
+  border-color: hsl(228, 81%, 38%);
   /* Set text color based on luma of background color */
   color: hsl(0, 0%, 100%);
 }
@@ -539,18 +533,18 @@ button:not(:disabled) .button-primary:focus,
 [type=reset]:not(:disabled) .button-primary:focus,
 [type=submit]:not(:disabled) .button-primary:focus,
 button:not(:disabled) .button-primary:focus {
-  -webkit-box-shadow: 0 0 0 0.16em #a0c3df;
-          box-shadow: 0 0 0 0.16em #a0c3df;
+  -webkit-box-shadow: 0 0 0 0.16em #a0addf;
+          box-shadow: 0 0 0 0.16em #a0addf;
 }
 .button-primary:disabled {
-  border-color: hsla(207, 81%, 58%, 0.4);
+  border-color: hsla(228, 81%, 58%, 0.4);
   color: hsla(0, 0%, 100%, 0.4);
-  background-color: hsla(207, 81%, 58%, 0.4);
+  background-color: hsla(228, 81%, 58%, 0.4);
 }
 .button-secondary {
-  color: #414246;
-  border-color: hsl(34, 100%, 68%);
-  background-color: hsl(34, 100%, 68%);
+  color: hsl(0, 0%, 100%);
+  border-color: hsl(0, 100%, 68%);
+  background-color: hsl(0, 100%, 68%);
 }
 button:not(:disabled) .button-secondary:hover,
 .button-secondary:not(:disabled):hover,
@@ -570,8 +564,8 @@ button:not(:disabled) .button-secondary[data-active='true'],
 [type=reset]:not(:disabled) .button-secondary[data-active='true'],
 [type=submit]:not(:disabled) .button-secondary[data-active='true'],
 button:not(:disabled) .button-secondary[data-active='true'] {
-  background-color: hsl(34, 100%, 48%);
-  border-color: hsl(34, 100%, 48%);
+  background-color: hsl(0, 100%, 48%);
+  border-color: hsl(0, 100%, 48%);
   /* Set text color based on luma of background color */
   color: hsl(0, 0%, 100%);
 }
@@ -581,16 +575,16 @@ button:not(:disabled) .button-secondary:focus,
 [type=reset]:not(:disabled) .button-secondary:focus,
 [type=submit]:not(:disabled) .button-secondary:focus,
 button:not(:disabled) .button-secondary:focus {
-  -webkit-box-shadow: 0 0 0 0.16em #fbd099;
-          box-shadow: 0 0 0 0.16em #fbd099;
+  -webkit-box-shadow: 0 0 0 0.16em #fb9999;
+          box-shadow: 0 0 0 0.16em #fb9999;
 }
 .button-secondary:disabled {
-  border-color: hsla(34, 100%, 68%, 0.4);
+  border-color: hsla(0, 100%, 68%, 0.4);
   color: hsla(0, 0%, 100%, 0.4);
-  background-color: hsla(34, 100%, 68%, 0.4);
+  background-color: hsla(0, 100%, 68%, 0.4);
 }
 .button-success {
-  color: #414246;
+  color: hsl(228, 4%, 26%);
   border-color: hsl(103, 100%, 78%);
   background-color: hsl(103, 100%, 78%);
 }
@@ -615,7 +609,7 @@ button:not(:disabled) .button-success[data-active='true'] {
   background-color: hsl(103, 100%, 58%);
   border-color: hsl(103, 100%, 58%);
   /* Set text color based on luma of background color */
-  color: #414246;
+  color: hsl(228, 4%, 26%);
 }
 button:not(:disabled) .button-success:focus,
 .button-success:not(:disabled):focus,
@@ -632,7 +626,7 @@ button:not(:disabled) .button-success:focus {
   background-color: hsla(103, 100%, 78%, 0.4);
 }
 .button-clean {
-  color: hsl(207, 4%, 26%);
+  color: hsl(228, 4%, 26%);
   background-color: transparent;
   border-color: transparent;
 }
@@ -641,7 +635,7 @@ button:not(:disabled) .button-success:focus {
 }
 @media screen and (prefers-color-scheme: dark) {
   .button-clean {
-    color: hsl(207, 4%, 92%);
+    color: hsl(228, 4%, 92%);
     background-color: transparent;
     border-color: transparent;
   }
@@ -693,7 +687,8 @@ button:not(:disabled) .button-success:focus {
 .figure {
   width: 100%;
   z-index: 0;
-  margin-bottom: 3rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
   position: relative;
 }
 .figure-rounded {
@@ -722,12 +717,12 @@ button:not(:disabled) .button-success:focus {
 .figure .figcaption {
   z-index: 3;
   position: relative;
-  color: hsl(207, 4%, 36%);
+  color: hsl(228, 4%, 36%);
 }
 @media screen and (prefers-color-scheme: dark) {
   .figure figcaption,
   .figure .figcaption {
-    color: hsl(207, 4%, 82%);
+    color: hsl(228, 4%, 82%);
   }
 }
 .figure figcaption::before,
@@ -768,9 +763,9 @@ button:not(:disabled) .button-success:focus {
   height: auto;
   padding: 1em;
   color: hsl(0, 0%, 100%);
-  background: -webkit-gradient(linear, left bottom, left top, from(hsla(207, 4%, 26%, 0.6)), to(hsla(207, 4%, 26%, 0)));
-  background: -webkit-linear-gradient(bottom, hsla(207, 4%, 26%, 0.6) 0%, hsla(207, 4%, 26%, 0) 100%);
-  background: linear-gradient(0deg, hsla(207, 4%, 26%, 0.6) 0%, hsla(207, 4%, 26%, 0) 100%);
+  background: -webkit-gradient(linear, left bottom, left top, from(hsla(228, 4%, 26%, 0.6)), to(hsla(228, 4%, 26%, 0)));
+  background: -webkit-linear-gradient(bottom, hsla(228, 4%, 26%, 0.6) 0%, hsla(228, 4%, 26%, 0) 100%);
+  background: linear-gradient(0deg, hsla(228, 4%, 26%, 0.6) 0%, hsla(228, 4%, 26%, 0) 100%);
 }
 /**
  * The filter CSS property applies graphical effects
@@ -895,8 +890,11 @@ textarea {
  * @class : <string> class to use for the range.
  * @main :
  */
+html {
+  font-size: 16px;
+}
 body {
-  font-size: 1.125rem;
+  font-size: 1.065rem;
   font-weight: normal;
   text-rendering: geometricPrecision;
   -webkit-font-smoothing: antialiased;
@@ -1012,7 +1010,7 @@ details summary::-webkit-details-marker {
 /* Raise the font ratio to the value of the reversed range. */
 .h1,
 h1 {
-  font-size: 5.0574394rem;
+  font-size: 4.06180462rem;
 }
 /* Set headings font size. */
 h1 {
@@ -1024,7 +1022,7 @@ h1 {
 /* Raise the font ratio to the value of the reversed range. */
 .h2,
 h2 {
-  font-size: 3.37246938rem;
+  font-size: 2.86114107rem;
 }
 /* Set headings font size. */
 h2 {
@@ -1036,7 +1034,7 @@ h2 {
 /* Raise the font ratio to the value of the reversed range. */
 .h3,
 h3 {
-  font-size: 2.24887514rem;
+  font-size: 2.01539193rem;
 }
 /* Set headings font size. */
 h3 {
@@ -1048,7 +1046,7 @@ h3 {
 /* Raise the font ratio to the value of the reversed range. */
 .h4,
 h4 {
-  font-size: 1.499625rem;
+  font-size: 1.419645rem;
 }
 /* Set headings font size. */
 h4 {
@@ -1097,23 +1095,39 @@ h6 {
 /* Reference :
 - https://moderncss.dev/generating-font-size-css-rules-and-creating-a-fluid-type-scale/
  */
-p {
+p,
+.paragraph {
   /* Set base margin-bottom to all basic typo elements */
   margin-bottom: 0.65em;
 }
-.deci {
-  font-size: 0.84396099rem;
+p-no-margin,
+.paragraph-no-margin {
+  margin-bottom: unset;
 }
-.deca,
+/* Build default paragraphs with the config ruleset @paragraph-sizes */
+.pearl {
+  font-size: 0.59936214rem;
+}
+.small-print {
+  font-size: 0.79894974rem;
+}
+.cicero {
+  font-size: 1.065rem;
+}
 .lead {
-  font-size: 1.499625rem;
+  font-size: 1.419645rem;
 }
-.hecto,
 .headline {
-  font-size: 2.24887514rem;
+  font-size: 1.89238679rem;
+}
+.parangon {
+  font-size: 2.52255158rem;
+}
+.canon {
+  font-size: 3.36256126rem;
 }
 small {
-  font-size: 0.84396099rem;
+  font-size: 0.79894974rem;
   font-weight: normal;
   text-transform: uppercase;
 }
@@ -1134,21 +1148,32 @@ h4 {
   margin-bottom: 0.65em;
 }
 hr {
-  border-color: hsl(0, 0%, 84%);
-  border-width: 0px;
-  border-top-width: 1px;
+  border: 0px;
+  border-top: 1px solid hsl(0, 0%, 90%);
   margin: 2rem 0rem;
 }
+@media screen and (prefers-color-scheme: dark) {
+  hr {
+    border-color: hsl(0, 0%, 30%);
+  }
+}
 pre {
-  padding: 1rem;
-  margin: 2rem 0rem;
-  overflow: auto;
   background-color: hsl(0, 0%, 90%);
+  -webkit-border-radius: 0.2em;
+          border-radius: 0.2em;
+  margin: 1rem 0rem;
+  overflow: auto;
+  padding: 1rem;
+  width: 100%;
 }
 @media screen and (prefers-color-scheme: dark) {
   pre {
     background-color: hsl(0, 0%, 25%);
   }
+}
+sup {
+  vertical-align: super;
+  font-size: 0.8em;
 }
 b,
 strong {
@@ -1159,25 +1184,25 @@ i {
   font-style: italic;
 }
 ins {
-  background-color: hsl(207, 81%, 58%);
+  background-color: hsl(228, 81%, 58%);
   color: hsl(0, 0%, 100%);
   text-decoration: none;
   padding: 0.2em;
 }
 @media screen and (prefers-color-scheme: dark) {
   ins {
-    background-color: hsl(207, 81%, 58%);
+    background-color: hsl(228, 81%, 58%);
     color: hsl(0, 0%, 15%);
   }
 }
 mark {
-  background-color: hsl(207, 81%, 58%);
+  background-color: hsl(228, 81%, 58%);
   color: hsl(0, 0%, 100%);
   padding: 0.2em;
 }
 @media screen and (prefers-color-scheme: dark) {
   mark {
-    background-color: hsl(207, 81%, 58%);
+    background-color: hsl(228, 81%, 58%);
     color: hsl(0, 0%, 15%);
   }
 }
@@ -1193,24 +1218,27 @@ dfn {
 code {
   font-family: monospace;
   padding: 0.2em;
-  background-color: hsl(0, 0%, 90%);
+  color: hsl(228, 90%, 60%);
+  -webkit-border-radius: 0.2em;
+          border-radius: 0.2em;
 }
 @media screen and (prefers-color-scheme: dark) {
   code {
     background-color: hsl(0, 0%, 25%);
+    color: hsl(228, 90%, 80%);
   }
 }
 blockquote {
-  font-size: 1.499625rem;
+  font-size: 1.419645rem;
 }
 .blockquote-footer {
   margin-top: -0.65em;
   margin-bottom: 0.65em;
-  color: hsl(207, 4%, 36%);
+  color: hsl(228, 4%, 36%);
 }
 @media screen and (prefers-color-scheme: dark) {
   .blockquote-footer {
-    color: hsl(207, 4%, 82%);
+    color: hsl(228, 4%, 82%);
   }
 }
 .blockquote-footer::before {
@@ -1253,71 +1281,75 @@ ol ol {
 }
 a,
 .link {
-  display: inline-block;
+  display: inline;
   border-bottom-width: 1px;
   border-bottom-style: solid;
-  border-bottom-color: hsl(207, 4%, 26%);
-  color: hsl(207, 4%, 26%);
+  border-bottom-color: hsl(228, 4%, 26%);
+  color: hsl(228, 4%, 26%);
   -webkit-transition: color 0.3s ease, border-color 0.3s ease;
   transition: color 0.3s ease, border-color 0.3s ease;
   /* A cleaner looking link. */
   /* Remove link border */
 }
+a-inline-block,
+.link-inline-block {
+  display: inline-block;
+}
 @media screen and (prefers-color-scheme: dark) {
   a,
   .link {
-    border-bottom-color: hsl(207, 4%, 92%);
-    color: hsl(207, 4%, 92%);
+    border-bottom-color: hsl(228, 4%, 92%);
+    color: hsl(228, 4%, 92%);
   }
 }
 a:hover,
 .link:hover,
 a-hover,
 .link-hover {
-  color: hsl(207, 90%, 70%);
-  border-bottom-color: hsl(207, 90%, 70%);
+  color: hsl(228, 90%, 70%);
+  border-bottom-color: hsl(228, 90%, 70%);
 }
 a:active,
 .link:active,
 a-active,
 .link-active {
-  color: hsl(207, 90%, 90%);
-  border-bottom-color: hsl(207, 90%, 90%);
+  color: hsl(228, 90%, 90%);
+  border-bottom-color: hsl(228, 90%, 90%);
 }
 a:focus,
 .link:focus,
 a-focus,
 .link-focus {
-  color: hsl(207, 90%, 80%);
-  border-bottom-color: hsl(207, 90%, 80%);
+  color: hsl(228, 90%, 80%);
+  border-bottom-color: hsl(228, 90%, 80%);
 }
 a-secondary:hover,
 .link-secondary:hover,
 a-secondary-hover,
 .link-secondary-hover {
-  color: hsl(34, 100%, 68%);
-  border-bottom-color: hsl(34, 100%, 68%);
+  color: hsl(0, 100%, 68%);
+  border-bottom-color: hsl(0, 100%, 68%);
 }
 a-secondary:active,
 .link-secondary:active,
 a-secondary-active,
 .link-secondary-active {
-  color: hsl(34, 100%, 88%);
-  border-bottom-color: hsl(34, 100%, 88%);
+  color: hsl(0, 100%, 88%);
+  border-bottom-color: hsl(0, 100%, 88%);
 }
 a-secondary:focus,
 .link-secondary:focus,
 a-secondary-focus,
 .link-secondary-focus {
-  color: hsl(34, 100%, 78%);
-  border-bottom-color: hsl(34, 100%, 78%);
+  color: hsl(0, 100%, 78%);
+  border-bottom-color: hsl(0, 100%, 78%);
 }
 a:disabled,
 .link:disabled,
 a-disabled,
 .link-disabled {
-  color: hsla(207, 4%, 26%, 0.45) !important;
-  border-color: hsla(207, 4%, 26%, 0.33) !important;
+  color: hsla(228, 4%, 26%, 0.45) !important;
+  border-color: hsla(228, 4%, 26%, 0.33) !important;
   cursor: default;
   pointer-events: none;
 }
@@ -1326,32 +1358,32 @@ a-disabled,
   .link:disabled,
   a-disabled,
   .link-disabled {
-    color: hsla(207, 4%, 92%, 0.45) !important;
-    border-color: hsla(207, 4%, 92%, 0.33) !important;
+    color: hsla(228, 4%, 92%, 0.45) !important;
+    border-color: hsla(228, 4%, 92%, 0.33) !important;
   }
 }
 a-clean,
 .link-clean {
   border-color: hsl(0, 0%, 100%);
-  color: hsla(207, 4%, 26%, 0.7);
+  color: hsla(228, 4%, 26%, 0.7);
 }
 @media screen and (prefers-color-scheme: dark) {
   a-clean,
   .link-clean {
     border-color: hsl(0, 0%, 15%);
-    color: hsla(207, 4%, 92%, 0.7);
+    color: hsla(228, 4%, 92%, 0.7);
   }
 }
 a-clean:hover,
 .link-clean:hover {
-  border-color: hsla(207, 4%, 26%, 0.7);
-  color: hsla(207, 4%, 26%, 0.7);
+  border-color: hsla(228, 4%, 26%, 0.7);
+  color: hsla(228, 4%, 26%, 0.7);
 }
 @media screen and (prefers-color-scheme: dark) {
   a-clean:hover,
   .link-clean:hover {
-    border-color: hsla(207, 4%, 92%, 0.7);
-    color: hsla(207, 4%, 92%, 0.7);
+    border-color: hsla(228, 4%, 92%, 0.7);
+    color: hsla(228, 4%, 92%, 0.7);
   }
 }
 a-unbordered,
@@ -1362,30 +1394,130 @@ a-unbordered:hover,
 .link-unbordered:hover {
   border-bottom: 0px;
 }
+dl dt {
+  margin-bottom: 1em;
+}
+dl dd {
+  padding-left: 1em;
+  font-weight: 400;
+  margin-bottom: 1em;
+}
+table {
+  margin: 1rem 0rem;
+  border-collapse: collapse;
+  border-spacing: 0;
+  text-align: left;
+  width: 100%;
+}
+table thead tr th {
+  padding: 1em;
+  font-weight: bold;
+  border: 1px solid #b9b9b9;
+}
+table tbody tr td {
+  padding: 1em;
+  border: 1px solid #b9b9b9;
+}
+.color-primary-tonic {
+  background-color: #3451f4;
+}
+.color-primary-ultratonic {
+  background-color: #2c4bfc;
+}
+.color-primary-dark {
+  background-color: #060d36;
+}
+.color-primary-gloom {
+  background-color: #0b196b;
+}
+.color-primary-dusk {
+  background-color: #1126a1;
+}
+.color-primary-major {
+  background-color: #3d57eb;
+}
+.color-primary-mediant {
+  background-color: #99a7f5;
+}
+.color-primary-sensible {
+  background-color: #b1bbf7;
+}
+.color-primary-minor {
+  background-color: #c8cff9;
+}
+.color-primary-brittle {
+  background-color: #f6f7fe;
+}
+.color-secondary-tonic {
+  background-color: #51f434;
+}
+.color-secondary-ultratonic {
+  background-color: #4bfc2c;
+}
+.color-secondary-dark {
+  background-color: #0d3606;
+}
+.color-secondary-gloom {
+  background-color: #196b0b;
+}
+.color-secondary-dusk {
+  background-color: #26a111;
+}
+.color-secondary-major {
+  background-color: #57eb3d;
+}
+.color-secondary-mediant {
+  background-color: #a7f599;
+}
+.color-secondary-sensible {
+  background-color: #bbf7b1;
+}
+.color-secondary-minor {
+  background-color: #cff9c8;
+}
+.color-secondary-brittle {
+  background-color: #f7fef6;
+}
+.color-thirdary-tonic {
+  background-color: #f43451;
+}
+.color-thirdary-ultratonic {
+  background-color: #fc2c4b;
+}
+.color-thirdary-dark {
+  background-color: #36060d;
+}
+.color-thirdary-gloom {
+  background-color: #6b0b19;
+}
+.color-thirdary-dusk {
+  background-color: #a11126;
+}
+.color-thirdary-major {
+  background-color: #eb3d57;
+}
+.color-thirdary-mediant {
+  background-color: #f599a7;
+}
+.color-thirdary-sensible {
+  background-color: #f7b1bb;
+}
+.color-thirdary-minor {
+  background-color: #f9c8cf;
+}
+.color-thirdary-brittle {
+  background-color: #fef6f7;
+}
 body {
   background-color: hsl(0, 0%, 100%);
-  color: hsl(207, 4%, 26%);
+  color: hsl(228, 4%, 26%);
 }
 @media screen and (prefers-color-scheme: dark) {
   body {
     background-color: hsl(0, 0%, 15%);
-    color: hsl(207, 4%, 92%);
+    color: hsl(228, 4%, 92%);
   }
 }
-@zindex {
-  dropdown: 1000;
-  sticky: 1020;
-  fixed: 1030;
-  modal-backdrop: 1040;
-  modal: 1050;
-  popover: 1060;
-  tooltip: 1070;
-}
-/**
- * For each font used; set up the different weight
- * and value. Each font need a new .font-weight
- * definition.
- */
 body {
   width: 100%;
   display: block;
@@ -1396,7 +1528,16 @@ body {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
           flex-direction: column;
-  font-family: 'Poppins', sans-serif;
+  /* The flow is a content area. It allows content
+  to be placed within the width limit of the site.
+  By default, flow is centered, but the '-uncentered'
+  modifier can be used to remove this behavior.
+
+  Flow is intended to be used multiple times within a layout. */
+  /* Aperture is a padding spacing of content,
+  it's used to create viusal gap between elements. */
+  /* Function into layout/columns.less */
+  font-family: 'Roboto', sans-serif;
 }
 body * {
   -webkit-box-sizing: border-box;
@@ -1409,15 +1550,19 @@ body *::after {
 }
 body .flow {
   width: 100%;
-  max-width: 960px;
+  max-width: 1000px;
   margin-left: auto;
   margin-right: auto;
 }
-body .container {
+body .flow-uncentered {
+  margin-left: unset;
+  margin-right: unset;
+}
+body .aperture {
   padding-right: 1rem;
   padding-left: 1rem;
 }
-body .block {
+body .marge {
   margin: 1rem 0;
 }
 body .col-1 {
@@ -1457,11 +1602,12 @@ body .col-12 {
   width: 100%;
 }
 .header {
-  background-color: hsl(207, 81%, 58%);
-  border-bottom: 1px solid hsl(0, 0%, 84%);
+  background-color: hsl(228, 81%, 58%);
+  border-bottom: 1px solid hsl(0, 0%, 90%);
   position: fixed;
   width: 100vw;
   height: 50px;
+  z-index: 1020;
 }
 .header-wrap,
 .header-container {
@@ -1496,7 +1642,7 @@ body .col-12 {
   display: block;
 }
 .home {
-  background-color: hsl(207, 81%, 58%);
+  background-color: hsl(228, 81%, 58%);
   padding: 2em 0em 0em;
 }
 .home .hero {
@@ -1510,9 +1656,21 @@ body .col-12 {
           align-items: center;
   -webkit-box-pack: center;
           justify-content: center;
+  color: white;
 }
 .home .hero .logo {
   width: 20em;
+}
+.docs .exemple {
+  border: 1px solid hsl(0, 0%, 90%);
+  padding: 1rem;
+  margin: 1rem 0rem;
+}
+pre code {
+  font-size: 1rem;
+}
+.test {
+  color: #0b196b;
 }
 
 /*# sourceMappingURL=index.css.map */

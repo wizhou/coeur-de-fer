@@ -1,0 +1,54 @@
+.color-operation(@color, @operation, @amount, @method)
+  when (@operation = saturate) {
+  @result: saturate(@color, @amount, @method);
+}
+
+.color-operation(@color, @operation, @amount, @method)
+  when (@operation = desaturate) {
+  @result: desaturate(@color, @amount, @method);
+}
+
+.color-operation(@color, @operation, @amount, @method)
+  when (@operation = lighten) {
+  @result: lighten(@color, @amount, @method);
+}
+
+.color-operation(@color, @operation, @amount, @method)
+  when (@operation = darken) {
+  @result: darken(@color, @amount, @method);
+}
+
+.color-operation(@color, @operation, @amount, @method)
+  when (@operation = fadein) {
+  @result: fadein(@color, @amount, @method);
+}
+
+.color-operation(@color, @operation, @amount, @method)
+  when (@operation = fadeout) {
+  @result: fadeout(@color, @amount, @method);
+}
+
+.color-operation(@color, @operation, @amount, @method)
+  when (@operation = fade) {
+  @result: fade(@color, @amount);
+}
+
+.color-operation(@color, @operation, @amount, @method)
+  when (@operation = spin) {
+  @result: spin(@color, @amount);
+}
+
+.color-operation(@color, @operation, @amount, @method)
+  when (@operation = tint) {
+  @result: tint(@color, @amount);
+}
+
+.color-operation(@color, @operation, @amount, @method)
+  when (@operation = shade) {
+  @result: shade(@color, @amount);
+}
+
+.color-operation(@color, @operation, @amount, @method)
+  when (default()) {
+  @result: unset;
+}
