@@ -1,8 +1,8 @@
 ---
-layout: docs
 title: Introduction
-category: documentation
 permalink: /docs/introduction
+layout: docs
+nav_order: 1
 ---
 
 Hello world

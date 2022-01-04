@@ -1,50 +1,78 @@
 ---
-layout: post
 title: Typography
-category: documentation
+permalink: /docs/typography
+layout: docs
+nav_order: 3
+has_children: true
 ---
 
+*Cœur-de-fer* type handling is based upon the work of **Tim Brown** with it's article [More Meaningful Typography](https://alistapart.com/article/more-meaningful-typography/) and **Stephanie Eckles** article [Generating font-size CSS Rules and Creating a Fluid Type Scale](https://moderncss.dev/generating-font-size-css-rules-and-creating-a-fluid-type-scale/).
 
-Typography sets default styles for headings, paragraphs, semantic text, blockquote and lists elements.
+***
+
+### Forewords
+
+*Cœur-de-fer* has typography at it's core and aim to make type consitant, precise and robust across interfaces and devices.
+
+Type scaling is based upon the `rem` unit for consitant spacing between and around elements. The font size will not change, no matter how deeply it is nested.
+
+By default, all typographic parameters are regrouped inside the `@typography` ruleset inside the `config.less` file.
+
+``` less
+@typography: {
+  base-font-size: 16px;
+  base-site-font-size: 1.125rem;
+  base-line-height: calc(4px + 2ex + 4px);
+  base-margin: 0.65em;
+  base-type-ratio: @type-ratios[perfectFourth];
+}
+```
+
+| Name | Type | Default | Description |
+|------|------|---------|------------ |
+| `site-font-size` | rem unit | `16px` | A fixed unit font size used for scaling. |
+| `base-font-size` | rem unit | `1.065rem` | The base font size of the site. |
+
+
 
 ****
 
 ### Headings
 
-# Presque sans le savoir, nous avions quitté terre. <small>Heading 1</small>
+#  Quelle contrée, homme de bien, est celle-ci ? <small>Heading 1</small>
 
 ````
-<h1>Presque sans le savoir, nous avions quitté terre. <small>Heading 1</small></h1>
+<h1>Vraiment cestui n’est pas à tort renommé l’un des meilleurs chevalier du monde.. <small>Heading 1</small></h1>
 ````
 
-## Presque sans le savoir, nous avions quitté terre. <small>Heading 2</small>
+## Vraiment cestui n’est pas à tort renommé l’un des meilleurs chevalier du monde. <small>Heading 2</small>
 
 ````
-<h2>Presque sans le savoir, nous avions quitté terre. <small>Heading 2</small></h2>
+<h2>Vraiment cestui n’est pas à tort renommé l’un des meilleurs chevalier du monde. <small>Heading 2</small></h2>
 ````
 
-### Presque sans le savoir, nous avions quitté terre. <small>Heading 3</small>
+### Vraiment cestui n’est pas à tort renommé l’un des meilleurs chevalier du monde. <small>Heading 3</small>
 
 ````
-<h3>Presque sans le savoir, nous avions quitté terre. <small>Heading 3</small></h3>
+<h3>Vraiment cestui n’est pas à tort renommé l’un des meilleurs chevalier du monde. <small>Heading 3</small></h3>
 ````
 
-#### Presque sans le savoir, nous avions quitté terre. <small>Heading 4</small>
+#### Vraiment cestui n’est pas à tort renommé l’un des meilleurs chevalier du monde. <small>Heading 4</small>
 
 ````
-<h4>Presque sans le savoir, nous avions quitté terre. <small>Heading 4</small></h4>
+<h4>Vraiment cestui n’est pas à tort renommé l’un des meilleurs chevalier du monde. <small>Heading 4</small></h4>
 ````
 
-##### Presque sans le savoir, nous avions quitté terre. <small>Heading 5</small>
+##### Vraiment cestui n’est pas à tort renommé l’un des meilleurs chevalier du monde. <small>Heading 5</small>
 
 ````
-<h5>Presque sans le savoir, nous avions quitté terre. <small>Heading 5</small></h5>
+<h5>Vraiment cestui n’est pas à tort renommé l’un des meilleurs chevalier du monde. <small>Heading 5</small></h5>
 ````
 
-###### Presque sans le savoir, nous avions quitté terre. <small>Heading 6</small>
+###### Vraiment cestui n’est pas à tort renommé l’un des meilleurs chevalier du monde. <small>Heading 6</small>
 
 ````
-<h6>Presque sans le savoir, nous avions quitté terre. <small>Heading 6</small></h6>
+<h6>Vraiment cestui n’est pas à tort renommé l’un des meilleurs chevalier du monde. <small>Heading 6</small></h6>
 ````
 
 #### Class headings
@@ -57,11 +85,11 @@ h1, h2, h3, h4
 
 #### Unmarged headings
 
-Headings can be displayed without margins with the following classes : 
+Headings can be displayed without margins with the following classes :
 
-- `headings-unmarged` remove both top and bottom margins of the heading. 
-- `headings-unmarged-top` remove top margin of the heading. 
-- `headings-unmarged-bottom` remove bottom margin of the heading. 
+- `headings-unmarged` remove both top and bottom margins of the heading.
+- `headings-unmarged-top` remove top margin of the heading.
+- `headings-unmarged-bottom` remove bottom margin of the heading.
 
 
 ****
@@ -70,9 +98,8 @@ Headings can be displayed without margins with the following classes :
 
 #### Base paragraph
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent risus leo, dictum in vehicula sit amet, feugiat tempus tellus. Duis quis sodales risus. Etiam euismod ornare consequat.
-
-Le chat se prépare à faire une sieste sous le lit pour le reste de la journée. Les souris, attentives, s'en frottent les mains et bondissent de joie, l'occasion est belle de gambader dans la cuisine.
+« Quelle contrée, homme de bien, est celle-ci, en laquelle les chevaliers errants sont assailli par tels brigands ?
+— Ah seigneur ! Répondit-il, ne vous en ébahissez : car en ce pays, comme aux autres, s’en trouve de bons et mauvais.
 
 ****
 
@@ -86,7 +113,8 @@ Small prints are made with the `deci` class on a paragraph.
 <p class="deci">…</p>
 ````
 
-<p class="deci">Le chat se prépare à faire une sieste sous le lit pour le reste de la journée. Les souris, attentives, s'en frottent les mains et bondissent de joie, l'occasion est belle de gambader dans la cuisine. <small>deci</small></p>
+<p class="deci">« Quelle contrée, homme de bien, est celle-ci, en laquelle les chevaliers errants sont assailli par tels brigands ?
+— Ah seigneur ! Répondit-il, ne vous en ébahissez : car en ce pays, comme aux autres, s’en trouve de bons et mauvais. <small>deci</small></p>
 
 ##### Lead
 
@@ -96,7 +124,8 @@ Lead text are made with the `deca` class on a paragraph.
 <p class="deca">…</p>
 ````
 
-<p class="deca">Le chat se prépare à faire une sieste sous le lit pour le reste de la journée. Les souris, attentives, s'en frottent les mains et bondissent de joie, l'occasion est belle de gambader dans la cuisine. <small>deca</small></p>
+<p class="deca">« Quelle contrée, homme de bien, est celle-ci, en laquelle les chevaliers errants sont assailli par tels brigands ?
+— Ah seigneur ! Répondit-il, ne vous en ébahissez : car en ce pays, comme aux autres, s’en trouve de bons et mauvais. <small>deca</small></p>
 
 ##### Headline
 
@@ -106,7 +135,8 @@ Headline text are made with the `hecto` class on a paragraph.
 <p class="hecto">…</p>
 ````
 
-<p class="hecto">Le chat se prépare à faire une sieste sous le lit pour le reste de la journée. Les souris, attentives, s'en frottent les mains et bondissent de joie, l'occasion est belle de gambader dans la cuisine. <small>hecto</small></p>
+<p class="hecto">« Quelle contrée, homme de bien, est celle-ci, en laquelle les chevaliers errants sont assailli par tels brigands ?
+— Ah seigneur ! Répondit-il, ne vous en ébahissez : car en ce pays, comme aux autres, s’en trouve de bons et mauvais. <small>hecto</small></p>
 
 *****
 
@@ -245,7 +275,7 @@ You can make a inline list with the `list-inline` class on the `<ul>` tag.
 
 ****
 
-#### No padding list 
+#### No padding list
 
 ````
 
