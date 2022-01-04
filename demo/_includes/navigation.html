@@ -1,0 +1,40 @@
+<nav class="container">
+  <ul class="list list-unstyled list-no-padding">
+    {% assign pages_list = site.docs | sort: "nav_order" %}
+    {% for page in pages_list %}
+      {% if page.nav_exclude == nil %}
+        {% if page.parent == nil %}
+
+          {% if page.has_children == nil %}
+
+          <li class="list-item menu-item">
+            <a class="link" href="{{ page.url }}">
+              {{ page.title }}
+            </a>
+          </li>
+
+          {% else %}
+
+            <li class="list-item menu-item">
+              <a class="link" href="{{ page.url }}">
+                {{ page.title }}
+              </a>
+            </li>
+
+            {%- assign children_list = pages_list | where: "parent", page.title -%}
+            <ul class="list list-unstyled">
+              {% for child in children_list %}
+                <li class="list-item menu-item">
+                  <a class="link" href="{{ child.url }}">
+                    {{ child.title }}
+                  </a>
+                </li>
+              {% endfor %}
+            </ul>
+
+          {% endif %}
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+  </ul>
+</nav>
