@@ -22,6 +22,10 @@
 			padding-right: @halfgap;
 		}
 	}
+
+  .offset-@{i} {
+    margin-left: (@i * 100% / @total);
+  }
 	.generate-columns(@name, @total, @halfgap, (@i + 1));
 }
 
