@@ -18,25 +18,25 @@ a,
 
   .link-states(@color) {
     &:hover,
-    &-hover {
+    &.is-hover {
       color: @color;
       border-bottom-color: @color;
     }
 
     &:active,
-    &-active {
+    &.is-active {
       color: lighten(@color, 20%);
       border-bottom-color: lighten(@color, 20%);
     }
 
     &:focus,
-    &-focus {
+    &.is-focus {
       color: lighten(@color, 10%);
       border-bottom-color: lighten(@color, 10%);
     }
   }
 
-  .link-states(@colors[@light][textOffset]);
+  .link-states(@colors[@light][primary]);
 
   &-secondary {
     .link-states(@colors[@light][secondary]);
@@ -67,14 +67,16 @@ a,
     }
 
     &:hover {
-      border-color: fade(@colors[@light][text], 70%);
-      color: fade(@colors[@light][text], 70%);
+      border-color: fade(@colors[@light][textOffset], 70%);
+      color: @colors[@light][textOffset];
 
       @media screen and (prefers-color-scheme: dark) {
-        border-color: fade(@colors[@dark][text], 70%);
-        color: fade(@colors[@dark][text], 70%);
+        border-color: fade(@colors[@dark][textOffset], 70%);
+        color: @colors[@dark][textOffset];
       }
     }
+
+
   }
 
   /* Remove link border */
