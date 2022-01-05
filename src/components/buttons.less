@@ -1,3 +1,5 @@
+/* Add pointer to button */
+
 button:not(:disabled),
 .button:not(:disabled),
 [type=button]:not(:disabled),
@@ -7,43 +9,55 @@ button:not(:disabled) {
   cursor: pointer;
 }
 
+/* Reset margins */
+
 [type=button],
 button {
   margin: 0;
 }
 
+/* Main button class */
+
 .button {
   text-decoration: none;
   vertical-align: middle;
   user-select: none;
-}
 
-.button {
   display: block;
+  position: relative;
+
   background-color: transparent;
+
   border-width: 1px;
   border-style: solid;
   border-radius: 0.2em;
-  font-size: 1rem;
+
+  font-size: 1em;
   white-space: nowrap;
+
   margin: 0.25em;
   padding: 0.3em 0.5em;
+
   transition:
     background-color 0.3s ease,
     border-color 0.3s ease,
     color 0.3s ease;
+
   line-height: @typography[base-line-height];
   font-weight: bold;
 
-  /*----------- Layout -----------*/
+  /*----------- Utilities -----------*/
 
   &-inline {
     display: inline-block;
+    vertical-align: baseline;
   }
 
   &-unmarged {
     margin: 0px;
   }
+
+  /*----------- Shapes -----------*/
 
   &-square {
     border-radius: 0px;
@@ -74,13 +88,16 @@ button {
     }
   }
 
-  &-link {
-    display: inline-block;
-  }
-
   /*----------- Element states -----------*/
 
-  .button_state(
+  &:disabled,
+  &[data-disabled="true"],
+  &.is-disabled {
+    /* Disable all status styles */
+    pointer-events: none;
+  }
+
+  .button-theme(
     @primary,
     @background,
     @text,
@@ -106,7 +123,9 @@ button {
     button:not(:disabled) & {
 
       &:hover,
+      &.is-hover,
       &:active,
+      &.is-active,
       &[data-active='true'] {
         background-color: @primary;
         border-color: @primary;
@@ -118,21 +137,30 @@ button {
         );
       }
 
-      &:focus {
+      &:focus,
+      &.is-focus {
         box-shadow: 0 0 0 0.16em tint(@primary, 60%);
       }
     }
 
-    &:disabled {
+    &:disabled,
+    &[data-disabled="true"],
+    &.is-disabled {
       border-color: fadeout(@border, 60%);
-      color: fadeout(@disabled-text, 60%);
+      color: @disabled-text;
       background-color: fadeout(@disabled-background, 60%);
+      color: if(
+        luma($background-color) < 50,
+        fade(@colors[@light][text], 60%),
+        fade(@colors[@light][background], 60%)
+      );
     }
 
   }
 
   /* Classic state */
-  .button_state(
+
+  .button-theme(
     @primary: @colors[@light][primary],
     @background: @colors[@light][background],
     @text: @colors[@light][text],
@@ -143,20 +171,23 @@ button {
   );
 
   /* Dark theme state */
+
   @media screen and (prefers-color-scheme: dark) {
-  .button_state(
-    @primary: @colors[@dark][primary],
-    @background: @colors[@dark][background],
-    @text: @colors[@dark][text],
-    @light-text: @colors[@dark][background],
-    @border: @colors[@dark][border],
-    @disabled-background: @colors[@dark][background],
-    @disabled-text: @colors[@dark][text]
+    .button-theme(
+      @primary: @colors[@dark][primary],
+      @background: @colors[@dark][background],
+      @text: @colors[@dark][text],
+      @light-text: @colors[@dark][background],
+      @border: @colors[@dark][border],
+      @disabled-background: @colors[@dark][background],
+      @disabled-text: @colors[@dark][text]
     );
   }
 
+  /* Primary state */
+
   &-primary {
-    .button_state(
+    .button-theme(
       @primary: darken(@colors[@light][primary], 20%),
       @background: @colors[@light][primary],
       @text: @colors[@light][background],
@@ -167,8 +198,10 @@ button {
     );
   }
 
+  /* Secondary state */
+
   &-secondary {
-    .button_state(
+    .button-theme(
       @primary: darken(@colors[@light][secondary], 20%),
       @background: @colors[@light][secondary],
       @text: @colors[@light][text],
@@ -179,14 +212,30 @@ button {
     );
   }
 
+  /* Success states */
+
   &-success {
-    .button_state(
+    .button-theme(
       @primary: darken(@colors[@light][success], 20%),
       @background: @colors[@light][success],
       @text: @colors[@light][text],
       @light-text: @colors[@light][text],
       @border: @colors[@light][success],
       @disabled-background: @colors[@light][success],
+      @disabled-text: @colors[@light][background]
+    );
+  }
+
+  /* Danger states */
+
+  &-danger {
+    .button-theme(
+      @primary: darken(@colors[@light][danger], 20%),
+      @background: @colors[@light][danger],
+      @text: @colors[@light][text],
+      @light-text: @colors[@light][text],
+      @border: @colors[@light][danger],
+      @disabled-background: @colors[@light][danger],
       @disabled-text: @colors[@light][background]
     );
   }
@@ -201,6 +250,22 @@ button {
     }
   }
 
+  &-link {
+    color: @colors[@light][text];
+    background-color: transparent;
+    border-color: transparent;
+
+    &:hover,
+    &:active,
+    &.is-active,
+    &[data-active='true'] {
+      text-decoration: underline;
+        color: @colors[@light][textOffset] !important;
+      background-color: transparent !important;
+      border-color: transparent !important;
+    }
+  }
+
   /* Dark theme state */
   @media screen and (prefers-color-scheme: dark) {
     &-clean {
@@ -210,7 +275,8 @@ button {
     }
   }
 
-  &:focus {
+  &:focus,
+  &.is-focus {
     outline: none;
   }
 
@@ -219,16 +285,34 @@ button {
     outline: none;
   }
 
-  /*----------- Utilitaries -----------*/
+  /*----------- Icons -----------*/
 
   &-icon {
     /* For button with only an icon */
     display: flex;
     align-items: center;
     justify-content: center;
+    height: 2.3em;
+    width: 2.3em;
 
     .icon {
-      margin-right: 0em;
+      margin-right: 0em !important;
+      font-size: 1.5em !important;
+      vertical-align: inherit !important;
+    }
+
+    .icon.loading {
+      display: none;
+    }
+
+    &.is-loading {
+      .icon {
+        display: none;
+      }
+      .icon.icon-loading {
+        display: block;
+        animation: rotate360 1.2s linear infinite;
+      }
     }
   }
 
@@ -236,6 +320,7 @@ button {
     /* For icons inside button */
     margin-right: 0.3em;
     vertical-align: middle;
+    font-size: 1em;
 
     [direction="rtl"] & {
       /* Support rtl langages */
@@ -244,235 +329,3 @@ button {
     }
   }
 }
-
-//
-//   &_terciary {
-//     background-color: @vert-active;
-//     border-color: @vert-active;
-//     color: @labeur;
-//     font-weight: 900;
-//     letter-spacing: 0.01em;
-//
-//     &:hover,
-//     &:focus,
-//     &.button_active {
-//       background-color: @vert-mineure;
-//       border-color: @vert-mineure;
-//       color: @labeur;
-//       i {
-//         color: @labeur;;
-//       }
-//     }
-//
-//     &:active {
-//       background-color: @vert-mineure;
-//       border-color: @vert-mineure;
-//     }
-//   }
-//
-//   &_clean {
-//     background-color: transparent;
-//     border: 0px;
-//     border-color: none;
-//     color: @labeur;
-//
-//     &:hover {
-//       background-color: transparent;
-//       border: 0px;
-//       border-color: none;
-//       color: @nuit-mediante;
-//     }
-//
-//     &:focus,
-//     &:active {
-//       background-color: transparent;
-//       border: 0px;
-//       color: @nuit-majeure;
-//       .box-shadow(0 0 0 .125em fade(@filet, 40%));
-//       outline: none;
-//     }
-//
-//     i {
-//       color: inherit !important;
-//     }
-//   }
-//
-//   &_green {
-//     border-color: @vert-mediante;
-//     color: @vert-majeure;
-//
-//     &:hover {
-//       background-color: @rouge-majeure;
-//       border-color: @rouge-majeure;
-//       color: @vert-mineure;
-//     }
-//
-//     &:focus {
-//       .box-shadow(0 0 0 .125em @vert-sensible);
-//     }
-//   }
-//
-//   &_success {
-//     background-color: @vert-mineure;
-//     border-color: @vert-mineure;
-//     color: @labeur;
-//
-//     &:hover,
-//     &:focus {
-//       background-color: @vert-sensible;
-//       border-color: @vert-sensible;
-//       color: @labeur;
-//     }
-//
-//     &:active {
-//       border-color: @vert-majeure;
-//       color: @nuit-majeure;
-//     }
-//   }
-//
-//   &_error {
-//     background-color: @rouge-mineure;
-//     border-color: @rouge-mineure;
-//     color: @labeur;
-//
-//     &:hover,
-//     &:focus {
-//       background-color: @rouge-sensible;
-//       border-color: @rouge-sensible;
-//       color: @labeur;
-//     }
-//
-//     &:active {
-//       border-color: @rouge-majeure;
-//       color: @nuit-majeure;
-//     }
-//   }
-//
-//   i {
-//     font-size: 1.4em;
-//     vertical-align: middle;
-//   }
-//
-//   .icon-mic_none {
-//     font-size: 1.25em;
-//     margin-right: 0.15em;
-//     vertical-align: -14%;
-//   }
-//
-//   &.tournoiement {
-//     color: transparent;
-//     pointer-events: none;
-//     position: relative;
-//   }
-//
-//   i.loading {
-//     display: none;
-//   }
-//
-//   &.loading {
-//     i {
-//       display: none;
-//     }
-//     .loading {
-//       display: block;
-//       animation: loading 1.2s linear infinite;
-//     }
-//   }
-//
-//
-// /* 3.5 Boutons / Tailles
-//    ================================================================== */
-//
-//   &_big {
-//     .mega;
-//   }
-//
-//   &_small {
-//    .milli;
-//   }
-//
-//   &_fullsize {
-//     width: 100%;
-//   }
-//
-//   &_active {
-//     pointer-events: visible;
-//   }
-//
-//   &_desactive,
-//   &[disabled] {
-//     pointer-events: none;
-//     cursor: default;
-//     background-color: white;
-//     border-color: @filet;
-//     color: @filet;
-//   }
-//
-//   &_empty::after {
-//     content: '' !important;
-//   }
-// }
-//
-// i {
-//   .transition(unset) !important;
-// }
-//
-// .button_assemblee {
-//   display: inline-flex;
-//   margin: 0.5em 0em;
-//
-//   .button {
-//     margin: 0.2em 0em;
-//
-//     &:first-child:not(:last-child) {
-//       border-bottom-right-radius: 0px;
-//       border-top-right-radius: 0px;
-//     }
-//
-//     &:not(:first-child):not(:last-child) {
-//       border-left: 0px;
-//       border-radius: 0px;
-//       border-right: 0px;
-//     }
-//
-//     &:last-child:not(:first-child) {
-//       border-bottom-left-radius: 0px;
-//       border-top-left-radius: 0px;
-//     }
-//   }
-//
-//   &.button_assemblee_fullsize {
-//     width: 100%;
-//
-//     .button {
-//       width: 100%;
-//     }
-//   }
-// }
-//
-// .tooltip() {
-//   border-radius: 2px;
-//   display: inline;
-//   font-size: 0.8em;
-//   padding: 0.2em 0.4em;
-//   position: absolute;
-//   white-space: nowrap;
-//   z-index: 1;
-//   .opacity(0);
-//   .transition(opacity 0.3s ease);
-// }
-//
-//
-// .loading() {
-//   animation: loading 1.2s linear infinite;
-//   border: 2px solid white;
-//   border-color: @labeur @labeur transparent;
-//   border-radius: 50%;
-//   box-sizing: border-box;
-//   content: '';
-//   font-size: 1em;
-//   height: 1em;
-//   margin: 0px;
-//   padding: 0px;
-//   width: 1em;
-// }
