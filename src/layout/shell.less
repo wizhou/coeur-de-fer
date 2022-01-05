@@ -18,6 +18,8 @@ he base layout of the site, like header, footer, etc.
   @columns-name: @base[columns-name],
   @columns-total: @base[columns-total],
   @columns-halfgap: @base[columns-halfgap],
+  @aperture: @base[aperture],
+  @marge: @base[marge]
 ) {
   width: 100%;
   display: block;
@@ -55,16 +57,20 @@ he base layout of the site, like header, footer, etc.
     }
   }
 
-  /* Aperture is a padding spacing of content,
+  /* Aperture is a horizontal spacing of content,
   it's used to create viusal gap between elements. */
 
   .aperture {
-    padding-right: 1rem;
-    padding-left: 1rem;
+    padding-right: @aperture;
+    padding-left: @aperture;
   }
 
+  /* Marge is a verticlal spacing of content,
+  it's used to create viusal gap between elements. */
+
   .marge {
-    margin: 1rem 0;
+    margin-top: @marge;
+    margin-bottom: @marge;
   }
 
   /* Function into layout/columns.less */
@@ -74,33 +80,35 @@ he base layout of the site, like header, footer, etc.
     @columns-total,
     @columns-halfgap
   );
-}
 
-.interspace {
-  margin: 0rem 0rem 4rem 0rem;
-}
+  /* A row is a simple flex container for grid usage */
 
-.row {
-  width: 100%;
-  margin-left: 0rem;
-  margin-right: 0rem;
-  padding-left: 0rem;
-  padding-right: 0rem;
-  .flex-normal(wrap, row);
-}
+  .row {
+    width: 100%;
+    .flex-container(wrap, row, 0, 0, 0);
+  }
 
-.rule {
-  border-color: @colors[@light][border];
-  border-width: 0px;
-  border-top-width: 1px;
-  border-style: solid;
-  margin: 2rem 0rem;
-  width: 100%;
-  display: block;
-  height: 1px;
-  padding: 0em;
-}
+  /* A blank divider */
 
+  .interspace {
+    margin: 0rem 0rem 4rem 0rem;
+  }
+
+  /* A divider with a colored line */
+
+  .rule {
+    border-color: @colors[@light][border];
+    border-width: 0px;
+    border-top-width: 1px;
+    border-style: solid;
+    margin: 2rem 0rem;
+    width: 100%;
+    display: block;
+    height: 1px;
+    padding: 0em;
+  }
+
+}
 
 /* Construit la classe shell de .section.
 @total :	Le padding de base des section.
