@@ -1,37 +1,24 @@
-<nav class="container">
+<nav>
   <ul class="list list-unstyled list-no-padding">
-    {% assign pages_list = site.docs | sort: "nav_order" %}
-    {% for page in pages_list %}
-      {% if page.nav_exclude == nil %}
-        {% if page.parent == nil %}
 
-          {% if page.has_children == nil %}
-
-          <li class="list-item menu-item">
-            <a class="link" href="{{ page.url }}">
-              {{ page.title }}
-            </a>
-          </li>
-
+    {% assign pages_list = site[page.collection] | sort: "nav_order" %}
+    {% for nav_page in pages_list %}
+      {% if nav_page.nav_exclude == nil %}
+        {% if nav_page.parent == nil %}
+          {% if nav_page.has_children == nil %}
+            {% comment %}
+            If the page doesn't have children, only show the link.
+            {% endcomment %}
+            {% include navigation_item.html item=nav_page %}
           {% else %}
+            {% include navigation_item.html item=nav_page %}
 
-            <li class="list-item menu-item">
-              <a class="link" href="{{ page.url }}">
-                {{ page.title }}
-              </a>
-            </li>
-
-            {%- assign children_list = pages_list | where: "parent", page.title -%}
+            {%- assign children_list = pages_list | where: "parent", nav_page.title -%}
             <ul class="list list-unstyled">
               {% for child in children_list %}
-                <li class="list-item menu-item">
-                  <a class="link" href="{{ child.url }}">
-                    {{ child.title }}
-                  </a>
-                </li>
+                {% include navigation_item.html item=child %}
               {% endfor %}
             </ul>
-
           {% endif %}
         {% endif %}
       {% endif %}
