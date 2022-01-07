@@ -62,8 +62,10 @@ In order to fix a common footer problem and to properly display it at the page b
 <p class="lead">The flow is a first level container used for content. It has a fixed max width and is centered inside its parent.</p>
 
 <figure class="figure">
-  <img class="figure-image" src="flow@2x.png" alt="">
+  <img class="figure-image" src="{{ page.url | append: '/flow@2x.png' | relative_url }}" alt="">
 </figure>
+
+{{ page.url }}
 
 It is sized to the `@max-width` of the layout. It is intended to be used with base structural elements like *main* or *article*, but it may apply on other elements if needed. Within is parent, multiple flows can be appear, but they are not built to be nested.
 
@@ -90,7 +92,7 @@ Non centered flow.
 <p class="lead">The grid system uses a containers, rows and columns to organise content. It's builded over flexbox for an effective and straight forward use.</p>
 
 <figure class="figure">
-  <img class="figure-image" src="row@2x.png" alt="">
+  <img class="figure-image" src="{{ page.url | append: '/row@2x.png' | relative_url }}" alt="">
 </figure>
 
 A `row` is a horizontal part of the grid, here reduced to a simple `flex` element. It's a wrapper for columns. Thus, it contains multiples columns elements as direct children, themselves containing content.
@@ -128,7 +130,7 @@ Following variables allow to configure the columns in the `config.less` file..
 Columns can be moved to the right with the `offset-*` classes. Theses increase the left margin of a column by * columns. Thus, `.offset-6` will push a column over six columns.
 
 <figure class="figure">
-  <img class="figure-image" src="offset@2x.png" alt="">
+  <img class="figure-image" src="{{ page.url | append: '/offset@2x.png' | relative_url }}" alt="">
 </figure>
 
 
@@ -140,7 +142,7 @@ Columns can be moved to the right with the `offset-*` classes. Theses increase t
 <p class="lead">Aperture and marge are positionning for elements</p>
 
 <figure class="figure">
-  <img class="figure-image" src="aperture@2x.png" alt="">
+  <img class="figure-image" src="{{ page.url | append: '/aperture@2x.png' | relative_url }}" alt="">
 </figure>
 
 **Aperture** is used to create a gap between elements and is set with left and right `paddings`.
