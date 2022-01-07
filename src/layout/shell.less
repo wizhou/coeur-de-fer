@@ -14,7 +14,7 @@ he base layout of the site, like header, footer, etc.
 */
 
 .layout(
-  @max-width: @base[desktop],
+  @max-width: @base[max-width],
   @columns-name: @base[columns-name],
   @columns-total: @base[columns-total],
   @columns-halfgap: @base[columns-halfgap],
@@ -80,6 +80,18 @@ he base layout of the site, like header, footer, etc.
     @columns-total,
     @columns-halfgap
   );
+
+  each(@media, .(@media-size, @media-name) {
+    @class-name: @{columns-name}@{media-name}-;
+
+    @media screen and (max-width: @media-size) {
+      .generate-columns(
+        @class-name,
+        @columns-total,
+        @columns-halfgap
+      );
+    }
+  });
 
   /* A row is a simple flex container for grid usage */
 
