@@ -151,9 +151,17 @@ button {
       background-color: fadeout(@disabled-background, 60%);
       color: if(
         luma($background-color) < 50,
-        fade(@colors[@light][text], 60%),
-        fade(@colors[@light][background], 60%)
+        lighten(@text, 40%),
+        lighten(@background, 40%)
       );
+
+      @media screen and (prefers-color-scheme: dark) {
+        color: if(
+          luma($background-color) < 50,
+          darken(@text, 40%),
+          darken(@background, 40%)
+        );
+      }
     }
 
   }
