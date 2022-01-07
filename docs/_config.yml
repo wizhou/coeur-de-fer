@@ -24,6 +24,7 @@ description: >- # this means to ignore newlines until "baseurl:"
   Coeur-de-fer is a tool written in LESS intended to concieve customized CSS frameworks.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://wizhou.github.io/coeur-de-fer" # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: "coeur-de-fer"
 # twitter_username: jekyllrb
 github_username:  wizhou
 
