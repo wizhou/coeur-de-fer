@@ -1,0 +1,62 @@
+pre code {
+  display: block;
+  overflow-x: auto;
+  padding: 1em;
+  background: darken(@colors[@light][background], 3%);
+  color: @colors[@light][text];
+
+  @media screen and (prefers-color-scheme: dark) {
+    background: darken(@colors[@dark][background], 3%);
+    color: @colors[@dark][text];
+  }
+}
+
+pre {
+  background-color: darken(@colors[@light][background], 10%);
+  border-radius: 0.2em;
+  margin: 1rem 0rem;
+  overflow: auto;
+  padding: 1rem;
+  width: 100%;
+
+  @media screen and (prefers-color-scheme: dark) {
+    background-color:  lighten(@colors[@dark][background], 10%);
+  }
+}
+
+code {
+  font-family: monospace;
+  padding: 0.2em;
+  color: darken(@colors[@light][textOffset], 10%);
+  border-radius: 0.2em;
+
+  @media screen and (prefers-color-scheme: dark) {
+    background-color: lighten(@colors[@dark][background], 10%);
+    color: lighten(@colors[@light][textOffset], 10%);
+  }
+}
+
+var {
+  font-style: italic;
+}
+
+kbd {
+  padding: .1em .2em;
+  border-radius: 2px;
+  background: @colors[@light][text];
+  color: darken(@colors[@light][background], 3%);
+
+  @media screen and (prefers-color-scheme: dark) {
+    background: @colors[@dark][text];
+    color: darken(@colors[@dark][background], 3%);
+  }
+}
+
+samp {
+  font-family: monospace;
+  color: fade(@colors[@light][text], 90%);
+
+  @media screen and (prefers-color-scheme: dark) {
+    color: fade(@colors[@dark][text], 90%);
+  }
+}
