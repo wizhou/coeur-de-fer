@@ -1,6 +1,10 @@
+/* Set base site font size */
+
 html {
   font-size: @typography[site-font-size];
 }
+
+/* Set font size for the site */
 
 body {
   font-size: @typography[base-font-size];
@@ -20,6 +24,36 @@ body {
 
   &.ltr {
     direction: ltr;
+  }
+}
+
+/* Add typo features to common text elements */
+
+p,
+li,
+pre,
+h1,
+h2,
+h3,
+h4 {
+  /*  Help prevent overflow of long words/names/URLs */
+  word-break: break-word;
+
+  /*  Optional, not supported for all languages */
+  hyphens: auto;
+
+  /* Set base margin-bottom to all basic typo elements */
+  margin-bottom: @typography[base-margin];
+}
+
+/* Tweek summary for webkit */
+
+details {
+  summary {
+    &::-webkit-details-marker {
+      /* Hide the twisties */
+      display: none
+    }
   }
 }
 
@@ -66,13 +100,3 @@ each(@fonts, .(@weights, @font) {
     }
   });
 });
-
-
-details {
-  summary {
-    &::-webkit-details-marker {
-      /* Hide the twisties */
-      display: none
-    }
-  }
-}
