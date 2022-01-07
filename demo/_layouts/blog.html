@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="fr">
+  {% include head.html %}
+  <body>
+    {% include header.html %}
+    <div class="content flow row">
+      <main class="col-12 docs">
+        <div class="aperture marge">
+          <h2 class=" hero-title headings">{{ page.title }}</h2>
+          {{ content }}
+        </div>
+      </main>
+    </div>
+    {% include footer.html %}
+  </body>
+</html>
