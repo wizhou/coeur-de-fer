@@ -3,7 +3,8 @@
   {% include head.html %}
   <body>
     {% include header.html %}
-    <div class="home layout">
+    <div class="home">
+      <div class="shadow"></div>
       <div class="flow">
         <section class="aperture hero">
           <img class="logo" src="/assets/logo.svg" alt="coeur-de-fer logo">
@@ -20,7 +21,6 @@
         {{ content | markdownify }}
       </div>
     </div>
-    <footer>
-    </footer>
+    {% include footer.html %}
   </body>
 </html>
