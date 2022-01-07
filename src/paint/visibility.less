@@ -1,0 +1,16 @@
+each(@media, .(@media-size, @media-name) {
+
+  /* Hide element based on media definition */
+
+  @media screen and (min-width: @media-size) {
+    .show-@{media-name} {
+      display: none !important;
+    }
+  }
+
+  @media screen and (max-width: @media-size) {
+    .hide-@{media-name} {
+      display: none !important;
+    }
+  }
+});
