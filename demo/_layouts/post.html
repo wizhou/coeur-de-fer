@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="fr">
+  {% include head.html %}
+  <body>
+    {% include header.html %}
+    <div class="content flow row">
+      <aside class="navigation col-2">
+        <nav>
+          <ul class="list list-unstyled list-no-padding">
+            {% assign posts = site.posts | sort: "date" %}
+            {% for post in posts %}
+              {% include navigation_item.html item=post %}
+            {% endfor %}
+          </ul>
+        </nav>
+      </aside>
+      <main class="col-10 docs">
+        <section class="aperture marge">
+          <h2 class=" hero-title headings">{{ page.title }}</h2>
+          {{ content }}
+        </section>
+      </main>
+    </div>
+    {% include footer.html %}
+  </body>
+</html>
