@@ -7,7 +7,7 @@
     "dev": "bash shell/dev.sh",
     "build": "bash shell/build.sh",
     "demo": "bash shell/demo.sh",
-    "test": "echo \"No test specified\""
+    "build-demo": "bash shell/build-demo.sh"
   },
   "repository": {
     "type": "git",
