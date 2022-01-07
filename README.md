@@ -8,6 +8,8 @@ It's not assuming which component you will be using, on the contrary, this tool 
 
 On a practical level, `Coeur-de-fer` is a library of Less `mixins` and `function` to be used during framework creation. They handle common and precise CSS processing for **layout**, **paint** and **composite** stage of building.
 
+Documentation : (https://wizhou.github.io/coeur-de-fer/)
+
 ## Installation
 
 Install **coeur-de-fer** source Less files via `npm` or `git submodule`. The shipped package will be ready to be use directly on your project.
