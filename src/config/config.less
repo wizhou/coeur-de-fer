@@ -1,10 +1,15 @@
 @base: {
-  desktop: 960px;
+  max-width: 960px;
   columns-name: col-;
   columns-total: 12;
   columns-halfgap: false;
   aperture: 1rem;
   marge: 1rem;
+}
+
+@media: {
+  tablet: 760px;
+  mobile: 500px;
 }
 
 @zindex: {
@@ -25,23 +30,29 @@
 
 @fonts: {
   @primary: {
-    @thin: 100;
-    @extra-light: 200;
-    @light: 300;
-    @regular: 400;
-    @bold: 500;
-    @extra-bold: 700;
-    @black: 900;
+    @name: 'Sans-serif';
+    @weight: {
+      @thin: 100;
+      @extra-light: 200;
+      @light: 300;
+      @regular: 400;
+      @bold: 500;
+      @extra-bold: 700;
+      @black: 900;
+    }
   }
 
   @secondary: {
-    @thin: 100;
-    @extra-light: 200;
-    @light: 300;
-    @regular: 400;
-    @bold: 500;
-    @extra-bold: 700;
-    @black: 900;
+    @name: 'monospace';
+    @weight: {
+      @thin: 100;
+      @extra-light: 200;
+      @light: 300;
+      @regular: 400;
+      @bold: 500;
+      @extra-bold: 700;
+      @black: 900;
+    }
   }
 }
 
