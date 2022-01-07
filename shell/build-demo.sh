@@ -5,7 +5,7 @@ echo "----------------------------"
 # Look for files in a dist folder and remove them.
 # Change the folder location if needed.
 
-DISTFOLDER='./demo/dist/*'
+DISTFOLDER='./docs/dist/*'
 
 if rm -rf $DISTFOLDER
 then
@@ -30,4 +30,4 @@ echo "----------------------"
 echo "⚙️: Build demo"
 echo "----------------------"
 
-parcel build './demo/_less/index.less' --dist-dir './demo/dist'
+parcel build './docs/_less/index.less' --dist-dir './demo/dist'
