@@ -46,7 +46,7 @@ layout: home
       Documentation
     </h4>
     <p>Dig deeper into <strong>our documentation</strong> to know how Cœur-de-fer work and what you can do with it.</p>
-    <a class="button button-inline-block button-primary button-unmarged" href="/docs/introduction">Check the docs</a>
+    <a class="button button-inline-block button-primary button-unmarged" href="./docs/introduction">Check the docs</a>
   </div>
   <div class="rule show-tablet"></div>
   <div class="aperture col-4 col-tablet-12">
@@ -54,7 +54,7 @@ layout: home
       References
     </h4>
     <p>Check the cheatsheet of all <strong>mixin</strong> and <strong>function</strong> of Cœur-de-fer to a fast yet documented usage.</p>
-    <a class="button button-inline-block button-primary button-unmarged" href="/docs">See the references</a>
+    <a class="button button-inline-block button-primary button-unmarged" href="./docs/introduction">See the references</a>
   </div>
   <div class="rule show-tablet"></div>
   <div class="aperture col-4 col-tablet-12">
@@ -62,6 +62,6 @@ layout: home
       Blog
     </h4>
     <p>Check out the news and where the developpement of Coeur-de-fer is heading.</p>
-    <a class="button button-inline-block button-primary button-unmarged" href="/docs">Read the blog</a>
+    <a class="button button-inline-block button-primary button-unmarged" href="./blog">Read the blog</a>
   </div>
 </div>
