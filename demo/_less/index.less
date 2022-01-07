@@ -1,10 +1,12 @@
 @import (less) "../../index.less";
 
 @base: {
-  desktop: 1000px;
+  max-width: 1000px;
   columns-name: col-;
   columns-total: 12;
   columns-halfgap: false;
+  aperture: 1rem;
+  marge: 1rem;
 }
 
 @zindex: {
@@ -27,23 +29,48 @@
 
 @hues: {
   primary: 228;
-  secondary: 0;
+  secondary: 50;
   success: 103;
   danger: 358;
 }
 
+
+@fonts: {
+  @primary: {
+    @name: 'Roboto', sans-serif;
+    @weight: {
+      @light: 300;
+      @regular: 400;
+      @bold: 500;
+      @extra-bold: 700;
+      @black: 900;
+    }
+  }
+
+  @secondary: {
+    @name: monospace;
+    @weight: {
+      @regular: 400;
+    }
+  }
+}
+
 body {
   .layout();
-  font-family: 'Roboto', sans-serif;
+  font-family: @fonts[@primary][@name];
 }
+
+@header-height: 60px;
 
 .header {
   background-color: @colors[@light][primary];
-  border-bottom: 1px solid @colors[@light][border];
+  border-bottom: 1px solid lighten(@colors[@light][primary], 10%);
   position: fixed;
   width: 100vw;
-  height: 50px;
+  height: @header-height;
   z-index: @zindex[sticky];
+  left: 0;
+  top: 0;
 
   &-wrap,
   &-container {
@@ -67,7 +94,7 @@ body {
   }
 
   &-under {
-    height: 50px;
+    height: @header-height;
     width: 100%;
     display: block;
   }
@@ -76,25 +103,21 @@ body {
 .home {
   background-color: @colors[@light][primary];
   padding: 2em 0em 0em;
+  position: relative;
 
   .hero {
     .flex-container(wrap, column, center, center);
       color: white;
+      position: relative;
+      z-index: 1;
 
     .logo {
-      width: 20em;
+      width: 100%;
+      max-width: 20em;
     }
 
     &-title {
     }
-  }
-}
-
-.docs {
-  .exemple {
-    border: 1px solid @colors[@light][border];
-    padding: 1rem;
-    margin: 1rem 0rem;
   }
 }
 
@@ -104,4 +127,64 @@ pre code {
 
 .test {
   color: .get-color(primary, gloom)[];
+}
+
+.navigation {
+  border-right: 1px solid @colors[@light][border];
+  position: sticky;
+  top: @header-height;
+  height: 100vh;
+
+  .container {
+    height: calc(100vh - @header-height);
+    overflow-y: auto;
+  }
+
+  ul {
+    padding: 0;
+    font-weight: bold;
+    margin-top: .scale-type(2)[@result];
+
+    &:first-of-type {
+      margin-bottom: 2em;
+    }
+
+    li {
+      margin-bottom: 1em;
+    }
+
+    ul {
+      margin-top: -0.65em;
+      font-size: .scale-type(-0.5)[@result];
+      font-weight: normal;
+
+      li {
+        margin-bottom: 0.65em;
+      }
+    }
+  }
+}
+
+.docs {
+  padding-left: 2rem;
+
+  @media screen and (max-width: @media[tablet]) {
+    padding-left: 0;
+  }
+
+  .exemple {
+    border: 1px solid @colors[@light][border];
+    padding: 1rem;
+    margin: 1rem 0rem;
+    font-size: 1rem;
+  }
+}
+
+.summary {
+  .link {
+    padding-bottom: 0.65em;
+    margin-right: 0.4em;
+    border-color: @colors[@light][border];
+    font-family: @fonts[@secondary][@name];
+  }
 }
