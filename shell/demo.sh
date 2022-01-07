@@ -30,4 +30,4 @@ echo "----------------------"
 echo "👀 Parcel is watching"
 echo "----------------------"
 
-parcel watch './docs/_less/index.less' --dist-dir './demo/dist'
+parcel watch './docs/_less/index.less' --dist-dir './docs/dist'

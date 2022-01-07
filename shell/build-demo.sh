@@ -30,4 +30,4 @@ echo "----------------------"
 echo "⚙️: Build demo"
 echo "----------------------"
 
-parcel build './docs/_less/index.less' --dist-dir './demo/dist'
+parcel build './docs/_less/index.less' --dist-dir './docs/dist'
