@@ -1,5 +1,5 @@
 <li class="list-item menu-item">
-  <a class="link link-clean {% if include.item.url == page.url %}is-active{% endif %}" href="{{ include.item.url }}">
+  <a class="link link-clean {% if include.item.url == page.url %}is-active{% endif %}" href="{{ include.item.url | relative_url }}">
     {{ include.item.title }}
   </a>
 </li>

@@ -5,7 +5,7 @@
   {%- assign children_list = include.collection | where: "parent", page.title | sort: "title" -%}
   {% for child in children_list %}
   <div class="col-4 marge">
-    <a href="{{ child.url }}" class="link link-clean link-block">{{ child.title }}
+    <a href="{{ child.url | relative_url }}" class="link link-clean link-block">{{ child.title }}
     </a>
   </div>
   {% endfor %}
