@@ -68,7 +68,7 @@ details {
   @font: primary
 ) {
   @selected-font: @fonts[@@font];
-  font-weight: @selected-font[@@weight];
+  font-weight: @selected-font[@weight][@@weight];
 }
 
 /**
@@ -90,7 +90,7 @@ each(@fonts, .(@weights, @font) {
   @font-name: replace(@font, '@', '');
 
   /* On each weights of the fonts */
-  each(@weights, {
+  each(@weights[@weight], {
     /* Remove @ from the varaible name */
     @weight: replace(@key, '@', '');
 
