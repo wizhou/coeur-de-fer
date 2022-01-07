@@ -6,7 +6,7 @@ nav_order: 2
 parent: Typography
 ---
 
-<p class="lead">Paragraphs are interconnections of small sections of texts. They can be rythmed based on a <em>type scale</em>, defined by a parametric <em>ratio</em>.</p>
+<p class="headline">Paragraphs are interconnections of small sections of texts. They can be rythmed based on a <em>type scale</em>, defined by a parametric <em>ratio</em>.</p>
 
 You can setup your own paragraphs or use pre-built ones detailled below. There is two way for setting up paragraphs for your framework.
 - The first is by defining scales in the ruleset `@paragraph-sizes` inside your `config` file.

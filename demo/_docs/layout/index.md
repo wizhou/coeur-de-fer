@@ -3,8 +3,8 @@ title: Layout
 layout: docs
 permalink: /docs/layout
 nav_order: 2
-has_children: true
 ---
+
 <p class="headline">Simple and basic classes to build efficent <em>macro</em> and <em>micro</em> layouts.</p>
 
 The intent of theses classes is to provide basic styles to use on layout creation. They can either be directed uppon macro or micro layout, organising elements on the page or guiding components.
@@ -33,10 +33,12 @@ Layout can take few arguments to drive its construction.
 ```` less
 body {
   .layout(
-    @max-width: @base[desktop], // 960px
+    @max-width: @base[max-width], // 960px
     @columns-name: @base[columns-name], // .col-
     @columns-total: @base[columns-total], // 12
     @columns-halfgap: @base[columns-halfgap], // false
+    @aprture: @base[aprture], // 1rem
+    @marge: @base[marge], // 1rem
   );
 }
 ````
@@ -113,13 +115,22 @@ The total columns number is set to 12 by default. The column class name is compo
 
 Columns may have a gap separating them. However, it is disabled by default. Whenever set, the gap is a numeric value added to the left and right `padding` of the column.
 
-Following variables allow to configure the columns.
+Following variables allow to configure the columns in the `config.less` file..
 
 | Varibale name | Default value | Type |
 | ------------- | ------------- | ---- |
 | `@columns-name` | `col-` | String |
 | `@columns-total` | `12` | Number  |
 | `@columns-halfgap` | `false` | Number with unit or False  |
+
+#### Offseting columns
+
+Columns can be moved to the right with the `offset-*` classes. Theses increase the left margin of a column by * columns. Thus, `.offset-6` will push a column over six columns.
+
+<figure class="figure">
+  <img class="figure-image" src="offset@2x.png" alt="">
+</figure>
+
 
 ****
 
@@ -145,6 +156,14 @@ Aperture and Marge can be used simultaneously on any element.
   </div>
 </main>
 ````
+
+Aperture and Marge can be configured with the following variables in the `config.less` file.
+
+| Varibale name | Default value | Type |
+| ------------- | ------------- | ---- |
+| `@aperture` | `1rem` | Number with unit |
+| `@marge` | `1rem` | Number with unit  |
+
 
 ****
 

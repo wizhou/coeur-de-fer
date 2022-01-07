@@ -1,8 +1,9 @@
 ---
 title: Medias
-permalink: /docs/medias
+permalink: /docs/components/medias
 layout: docs
-nav_order: 4
+nav_order: 5
+parent: Components
 ---
 
 ````
@@ -13,7 +14,7 @@ nav_order: 4
 ````
 
 <figure class="figure figure-rounded">
-  <img class="figure-image" src="./media/dummy_960x530_000000_9fef7a.png" alt="placeholder image">
+  <img class="figure-image" src="./dummy.png" alt="placeholder image">
   <figcaption>A placeholder image</figcaption>
 </figure>
 
@@ -27,6 +28,6 @@ nav_order: 4
 ````
 
 <figure class="figure figure-fixed figure-rounded">
-  <img class="figure-image figure-fixed-image" src="./media/dummy_960x530_000000_9fef7a.png" alt="placeholder image">
+  <img class="figure-image figure-fixed-image" src="./dummy.png" alt="placeholder image">
   <figcaption>A placeholder image</figcaption>
 </figure>

@@ -4,6 +4,7 @@ permalink: /docs/paint/colors
 layout: docs
 nav_order: 1
 parent: Paint
+published: false
 ---
 
 <p class="test">HEY</p>
