@@ -29,13 +29,20 @@ github_username:  wizhou
 
 # Build settings
 collections:
+  posts:
+    output: true
   docs:
     output: true
-  staff_members:
+  references:
     output: true
+    sort_by: title
 # include:
 plugins:
   - jekyll-feed
+  - jekyll-paginate
+
+paginate: 6
+paginate_path: "/blog/page:num/"
 
 # Exclude from processing.
 # The following items will not be processed, by default.
