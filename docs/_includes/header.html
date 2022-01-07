@@ -2,13 +2,13 @@
   <div class="header-wrap flow">
     <div class="header-container row justify-content-between align-items-center aperture">
       <div class="header-title">
-        <a class="button button-unmarged button-primary" href="/coeur-de-fer/">{{ site.title }}</a>
+        <a class="button button-unmarged button-primary" href="{{ '/' | relative_url }}">{{ site.title }}</a>
       </div>
       <nav class="header-nav">
         <div class="row hide-tablet">
-          <a class="button button-icons button-primary" href="/coeur-de-fer/docs/introduction"><span class="material-icons icon">library_books</span> Docs</a>
-          <a class="button button-icons button-primary" href="/coeur-de-fer/references"><span class="material-icons icon">format_list_numbered</span> References</a>
-          <a class="button button-icons button-primary" href="/coeur-de-fer/blog/"><span class="material-icons icon">notes</span> Blog</a>
+          <a class="button button-icons button-primary" href="{{ '/docs/introduction' | relative_url }}"><span class="material-icons icon">library_books</span> Docs</a>
+          <a class="button button-icons button-primary" href="{{ '/references' | relative_url }}"><span class="material-icons icon">format_list_numbered</span> References</a>
+          <a class="button button-icons button-primary" href="{{ '/blog' | relative_url }}"><span class="material-icons icon">notes</span> Blog</a>
         </div>
         <div class="row nav-mobile show-tablet">
           <a class="button button-icons button-primary is-disabled"><span class="material-icons icon">menu</span> Menu</a>
