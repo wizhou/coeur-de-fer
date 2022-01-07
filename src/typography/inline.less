@@ -3,23 +3,13 @@ strong {
   font-weight: bold;
 }
 
-em, i {
+em,
+i {
   font-style: italic;
 }
 
-ins {
-  background-color: @colors[@light][primary];
-  color: @colors[@light][background];
-  text-decoration: none;
-  padding: 0.2em;
-
-  @media screen and (prefers-color-scheme: dark) {
-    background-color: @colors[@dark][primary];
-    color: @colors[@dark][background];
-  }
-}
-
-mark {
+mark,
+.mark {
   background-color: @colors[@light][primary];
   color: @colors[@light][background];
   padding: 0.2em;
@@ -34,7 +24,8 @@ del {
   text-decoration: line-through;
 }
 
-u {
+u,
+ins {
   text-decoration: underline;
 }
 
@@ -42,14 +33,22 @@ dfn {
   font-style: italic;
 }
 
-code {
-  font-family: monospace;
-  padding: 0.2em;
-  color: darken(@colors[@light][textOffset], 10%);
-  border-radius: 0.2em;
+sup {
+  vertical-align: super;
+  font-size: .scale-type(-1)[@result];
+}
+
+sub {
+  vertical-align: sub;
+  font-size: .scale-type(-1)[@result];
+}
+
+hr {
+  border: 0px;
+  border-top: 1px solid @colors[@light][border];
+  margin: 2rem 0rem;
 
   @media screen and (prefers-color-scheme: dark) {
-    background-color: lighten(@colors[@dark][background], 10%);
-    color: lighten(@colors[@light][textOffset], 10%);
+    border-color: @colors[@dark][border];
   }
 }
