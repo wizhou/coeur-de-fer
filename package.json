@@ -1,6 +1,6 @@
 {
   "name": "@wizhou/coeur-de-fer",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Less framework for building website with an iron heart",
   "homepage": "https://github.com/wizhou/coeur-de-fer#readme",
   "scripts": {
