@@ -1,3 +1,23 @@
+img {
+  object-fit: cover;
+  max-width: 100%;
+  height: auto;
+  z-index: 1;
+  opacity: 1;
+  transition: all 0.3s ease;
+
+  /* If lazyload implemented,
+  basic fade transition. */
+
+  &.lazyload {
+    opacity: 0;
+  }
+
+  &.lazyloaded {
+    opacity: 1;
+  }
+}
+
 .figure {
   width: 100%;
   z-index: 0;
@@ -9,25 +29,9 @@
     .border-radius(null, 0.3rem);
   }
 
-  &-image {
-    height: auto;
+  img,
+  .img {
     width: 100%;
-
-    object-fit: cover;
-    z-index: 1;
-    opacity: 1;
-    transition: all 0.3s ease;
-
-    /* If lazyload implemented,
-    basic fade transition. */
-
-    &.lazyload {
-      opacity: 0;
-    }
-
-    &.lazyloaded {
-      opacity: 1;
-    }
   }
 
   figcaption,
