@@ -1,20 +1,24 @@
 each(range(4), {
-  /* Get the font size ratio by multiplying the base font size by the chosen ratio. */
-  @base-font-size: @typography[base-font-size];
-  @type-ratio: @typography[base-type-ratio];
-  @ratio: @base-font-size * @type-ratio;
-
   /* Reversing the range by construction with the function 𝑓(𝑥)=𝑥+𝑦-𝑥, where 𝑦 is the reverse of 𝑥 inside the range. Alas : @reverse = (@min + @max) - @value */
   @min: min(range(4));
   @max: max(range(4));
   @reverse-value: (@min + @max) - @value;
 
-  /* Raise the font ratio to the value of the reversed range. */
-  @level-size: pow(@ratio, @reverse-value);
-
   .h@{value},
   h@{value} {
-    font-size: @level-size;
+    font-size: .scale-type(
+      @reverse-value,
+      @typography[base-font-size],
+      @typography[base-type-ratio]
+    )[@result];
+
+    @media screen and (max-width: @media[mobile]) {
+      font-size: .scale-type(
+        @reverse-value,
+        @typography[base-font-size],
+        @typography[mobile-type-ratio]
+      )[@result];
+    }
   }
 
   /* Set headings font size. */
@@ -22,7 +26,6 @@ each(range(4), {
     line-height: @typography[base-line-height];
     margin-bottom: @typography[base-margin];
   };
-
 });
 
 h5,

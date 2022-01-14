@@ -35,6 +35,15 @@ p,
 
 each(@paragraph-sizes, {
   .add-paragraph(@key, @value);
+
+  @media screen and (max-width: @media[mobile]) {
+    .add-paragraph(
+      @key,
+      @value,
+      @typography[base-font-size],
+      @typography[mobile-type-ratio]
+    );
+  }
 });
 
 small,
