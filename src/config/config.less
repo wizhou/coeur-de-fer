@@ -1,3 +1,7 @@
+/*----------- Layout -----------*/
+
+/* Layout construction */
+
 @base: {
   max-width: 960px;
   columns-name: col-;
@@ -6,6 +10,8 @@
   aperture: 1rem;
   marge: 1rem;
 }
+
+/* Media definition for media queries and grid. */
 
 @media: {
   tablet: 760px;
@@ -56,6 +62,13 @@
   }
 }
 
+/*----------- Typography -----------*/
+
+/**
+ * About line height : Reference : https://kittygiraudel.com/2020/05/18/using-calc-to-figure-out-optimal-line-height
+ *
+ */
+
 @typography: {
   site-font-size: 16px;
   base-font-size: 1.065rem;
@@ -65,6 +78,7 @@
   /* Margin bottom is 65% of the font size */
   base-margin: 0.65em;
   base-type-ratio: @type-ratios[perfectFourth];
+  mobile-type-ratio: @type-ratios[majorThird];
 }
 
 @paragraph-sizes: {
@@ -87,6 +101,8 @@
   perfectFifth: 1.5;
   goldenRatio: 1.618;
 }
+
+/*----------- Colors -----------*/
 
 @hues: {
   primary: 0;
@@ -128,7 +144,7 @@
   }
 }
 
-/*----------- Colors -----------*/
+/*----------- Color Sets -----------*/
 
 @set1: {
   @primary: #3d57eb;
