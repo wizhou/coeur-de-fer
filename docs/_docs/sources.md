@@ -12,3 +12,4 @@ nav_order: 6
 - [RTL Styling 101](https://rtlstyling.com) - An extensive guide on how to style for RTL in CSS.
 - [Defensive CSS](https://ishadeed.com/article/defensive-css/) Defensive CSS is a collection of snippets that can help you in writing CSS that is protected.
 - [opt-in-typography](https://css-tricks.com/opt-in-typography/)
+- [Using calc to figure out optimal line-height](https://kittygiraudel.com/2020/05/18/using-calc-to-figure-out-optimal-line-height/)
