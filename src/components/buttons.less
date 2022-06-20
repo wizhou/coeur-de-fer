@@ -165,7 +165,7 @@ button {
         lighten(@background, 40%)
       );
 
-      @media screen and (prefers-color-scheme: dark) {
+      @media (prefers-color-scheme: dark) {
         color: if(
           luma($background-color) < 50,
           darken(@text, 40%),
@@ -190,7 +190,7 @@ button {
 
   /* Dark theme state */
 
-  @media screen and (prefers-color-scheme: dark) {
+  @media (prefers-color-scheme: dark) {
     .button-theme(
       @primary: @colors[@dark][primary],
       @background: @colors[@dark][background],
@@ -285,7 +285,7 @@ button {
   }
 
   /* Dark theme state */
-  @media screen and (prefers-color-scheme: dark) {
+  @media (prefers-color-scheme: dark) {
     &-clean {
       color: @colors[@dark][text];
       background-color: transparent;

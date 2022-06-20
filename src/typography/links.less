@@ -15,7 +15,7 @@ a,
     display: block;
   }
 
-  @media screen and (prefers-color-scheme: dark) {
+  @media (prefers-color-scheme: dark) {
     border-bottom-color: @colors[@dark][text];
     color: @colors[@dark][text];
   }
@@ -31,7 +31,7 @@ a,
       );
       border-bottom-color: @color;
 
-      @media screen and (prefers-color-scheme: dark) {
+      @media (prefers-color-scheme: dark) {
         /* Lighten color is not enough contrast */
         color: if(
           luma(@color) > 50,
@@ -68,7 +68,7 @@ a,
     cursor: default;
     pointer-events: none;
 
-    @media screen and (prefers-color-scheme: dark) {
+    @media (prefers-color-scheme: dark) {
       color: fade(@colors[@dark][text], 45%) !important;
       border-color: fade(@colors[@dark][text], 33%) !important;
     }
@@ -80,7 +80,7 @@ a,
     border-color: @colors[@light][background];
     color: fade(@colors[@light][text], 70%);
 
-    @media screen and (prefers-color-scheme: dark) {
+    @media (prefers-color-scheme: dark) {
       border-color: @colors[@dark][background];
       color: fade(@colors[@dark][text], 70%);
     }
@@ -90,7 +90,7 @@ a,
       border-color: fade(@colors[@light][textOffset], 70%);
       color: @colors[@light][textOffset];
 
-      @media screen and (prefers-color-scheme: dark) {
+      @media (prefers-color-scheme: dark) {
         border-color: fade(@colors[@dark][textOffset], 70%);
         color: @colors[@dark][textOffset];
       }
