@@ -1,3 +1,73 @@
+/* Button theme function */
+
+.button-theme(
+  @primary,
+  @background,
+  @text,
+  @light-text,
+  @border,
+  @disabled-background,
+  @disabled-text
+  ) {
+
+  color: if(
+    luma($background-color) < 50,
+    @colors[@light][background],
+    @colors[@light][text]
+  );
+  border-color: @border;
+  background-color: @background;
+
+  button:not(:disabled) &,
+  &:not(:disabled),
+  [type=button]:not(:disabled) &,
+  [type=reset]:not(:disabled) &,
+  [type=submit]:not(:disabled) &,
+  button:not(:disabled) & {
+
+    &:hover,
+    &.is-hover,
+    &:active,
+    &.is-active,
+    &[data-active='true'] {
+      background-color: @primary;
+      border-color: @primary;
+      /* Set text color based on luma of background color */
+      color: if(
+        luma($background-color) < 50,
+        @colors[@light][background],
+        @colors[@light][text]
+      );
+    }
+
+    &:focus,
+    &.is-focus {
+      box-shadow: 0 0 0 0.16em tint(@primary, 60%);
+    }
+  }
+
+  &:disabled,
+  &[data-disabled="true"],
+  &.is-disabled {
+    border-color: fadeout(@border, 60%);
+    color: @disabled-text;
+    background-color: fadeout(@disabled-background, 60%);
+    color: if(
+      luma($background-color) < 50,
+      lighten(@text, 40%),
+      lighten(@background, 40%)
+    );
+
+    @media (prefers-color-scheme: dark) {
+      color: if(
+        luma($background-color) < 50,
+        darken(@text, 40%),
+        darken(@background, 40%)
+      );
+    }
+  }
+}
+
 /* Add pointer to button */
 
 button:not(:disabled),
@@ -105,75 +175,6 @@ button {
   &.is-disabled {
     /* Disable all status styles */
     pointer-events: none;
-  }
-
-  .button-theme(
-    @primary,
-    @background,
-    @text,
-    @light-text,
-    @border,
-    @disabled-background,
-    @disabled-text
-    ) {
-
-    color: if(
-      luma($background-color) < 50,
-      @colors[@light][background],
-      @colors[@light][text]
-    );
-    border-color: @border;
-    background-color: @background;
-
-    button:not(:disabled) &,
-    &:not(:disabled),
-    [type=button]:not(:disabled) &,
-    [type=reset]:not(:disabled) &,
-    [type=submit]:not(:disabled) &,
-    button:not(:disabled) & {
-
-      &:hover,
-      &.is-hover,
-      &:active,
-      &.is-active,
-      &[data-active='true'] {
-        background-color: @primary;
-        border-color: @primary;
-        /* Set text color based on luma of background color */
-        color: if(
-          luma($background-color) < 50,
-          @colors[@light][background],
-          @colors[@light][text]
-        );
-      }
-
-      &:focus,
-      &.is-focus {
-        box-shadow: 0 0 0 0.16em tint(@primary, 60%);
-      }
-    }
-
-    &:disabled,
-    &[data-disabled="true"],
-    &.is-disabled {
-      border-color: fadeout(@border, 60%);
-      color: @disabled-text;
-      background-color: fadeout(@disabled-background, 60%);
-      color: if(
-        luma($background-color) < 50,
-        lighten(@text, 40%),
-        lighten(@background, 40%)
-      );
-
-      @media (prefers-color-scheme: dark) {
-        color: if(
-          luma($background-color) < 50,
-          darken(@text, 40%),
-          darken(@background, 40%)
-        );
-      }
-    }
-
   }
 
   /* Classic state */
