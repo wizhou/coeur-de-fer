@@ -1,6 +1,6 @@
 {
   "name": "@wizhou/coeur-de-fer",
-  "version": "0.3.5",
+  "version": "0.4.0",
   "description": "Less framework for building website with an iron heart",
   "homepage": "https://github.com/wizhou/coeur-de-fer#readme",
   "scripts": {
@@ -33,10 +33,10 @@
     "main": false
   },
   "devDependencies": {
-    "autoprefixer": "^8.6.5",
-    "cssnano": "^4.1.10",
-    "less": "^3.12.2",
-    "parcel": "^2.0.0-beta.1",
-    "postcss": "^8.2.4"
+    "@parcel/transformer-less": "^2.8.2",
+    "autoprefixer": "^10.4.13",
+    "cssnano": "^5.1.14",
+    "less": "^4.1.3",
+    "parcel": "^2.8.2"
   }
 }
