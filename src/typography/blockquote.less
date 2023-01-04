@@ -8,8 +8,10 @@ blockquote {
   margin-bottom: @typography[base-margin];
 
   color: lighten(@colors[@light][text], 10%);
-  @media (prefers-color-scheme: dark) {
-    color: darken(@colors[@dark][text], 10%);
+  & when (@color-scheme[dark] = true) {
+    @media (prefers-color-scheme: dark) {
+      color: darken(@colors[@dark][text], 10%);
+    }
   }
 
   &::before {

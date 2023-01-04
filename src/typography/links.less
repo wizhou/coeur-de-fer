@@ -15,9 +15,11 @@ a,
     display: block;
   }
 
-  @media (prefers-color-scheme: dark) {
-    border-bottom-color: @colors[@dark][text];
-    color: @colors[@dark][text];
+  & when (@color-scheme[dark] = true) {
+    @media (prefers-color-scheme: dark) {
+      border-bottom-color: @colors[@dark][text];
+      color: @colors[@dark][text];
+    }
   }
 
   .link-theme(@color) {
@@ -31,14 +33,16 @@ a,
       );
       border-bottom-color: @color;
 
-      @media (prefers-color-scheme: dark) {
-        /* Lighten color is not enough contrast */
-        color: if(
-          luma(@color) > 50,
-          @color,
-          lighten(@color, 30%)
-        );
-        border-bottom-color: @color;
+      & when (@color-scheme[dark] = true) {
+        @media (prefers-color-scheme: dark) {
+          /* Lighten color is not enough contrast */
+          color: if(
+            luma(@color) > 50,
+            @color,
+            lighten(@color, 30%)
+          );
+          border-bottom-color: @color;
+        }
       }
     }
 
@@ -68,9 +72,11 @@ a,
     cursor: default;
     pointer-events: none;
 
-    @media (prefers-color-scheme: dark) {
-      color: fade(@colors[@dark][text], 45%) !important;
-      border-color: fade(@colors[@dark][text], 33%) !important;
+    & when (@color-scheme[dark] = true) {
+      @media (prefers-color-scheme: dark) {
+        color: fade(@colors[@dark][text], 45%) !important;
+        border-color: fade(@colors[@dark][text], 33%) !important;
+      }
     }
   }
 
@@ -80,9 +86,11 @@ a,
     border-color: @colors[@light][background];
     color: fade(@colors[@light][text], 70%);
 
-    @media (prefers-color-scheme: dark) {
-      border-color: @colors[@dark][background];
-      color: fade(@colors[@dark][text], 70%);
+    & when (@color-scheme[dark] = true) {
+      @media (prefers-color-scheme: dark) {
+        border-color: @colors[@dark][background];
+        color: fade(@colors[@dark][text], 70%);
+      }
     }
 
     &:hover,
@@ -90,9 +98,11 @@ a,
       border-color: fade(@colors[@light][textOffset], 70%);
       color: @colors[@light][textOffset];
 
-      @media (prefers-color-scheme: dark) {
-        border-color: fade(@colors[@dark][textOffset], 70%);
-        color: @colors[@dark][textOffset];
+      & when (@color-scheme[dark] = true) {
+        @media (prefers-color-scheme: dark) {
+          border-color: fade(@colors[@dark][textOffset], 70%);
+          color: @colors[@dark][textOffset];
+        }
       }
     }
   }

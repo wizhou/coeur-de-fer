@@ -58,12 +58,14 @@
       lighten(@background, 40%)
     );
 
-    @media (prefers-color-scheme: dark) {
-      color: if(
-        luma($background-color) < 50,
-        darken(@text, 40%),
-        darken(@background, 40%)
-      );
+    & when (@color-scheme[dark] = true) {
+      @media (prefers-color-scheme: dark) {
+        color: if(
+          luma($background-color) < 50,
+          darken(@text, 40%),
+          darken(@background, 40%)
+        );
+      }
     }
   }
 }
@@ -190,17 +192,18 @@ button {
   );
 
   /* Dark theme state */
-
-  @media (prefers-color-scheme: dark) {
-    .button-theme(
-      @primary: @colors[@dark][primary],
-      @background: @colors[@dark][background],
-      @text: @colors[@dark][text],
-      @light-text: @colors[@dark][background],
-      @border: @colors[@dark][border],
-      @disabled-background: @colors[@dark][background],
-      @disabled-text: @colors[@dark][text]
-    );
+  & when (@color-scheme[dark] = true) {
+    @media (prefers-color-scheme: dark) {
+      .button-theme(
+        @primary: @colors[@dark][primary],
+        @background: @colors[@dark][background],
+        @text: @colors[@dark][text],
+        @light-text: @colors[@dark][background],
+        @border: @colors[@dark][border],
+        @disabled-background: @colors[@dark][background],
+        @disabled-text: @colors[@dark][text]
+      );
+    }
   }
 
   /* Primary state */
@@ -286,11 +289,13 @@ button {
   }
 
   /* Dark theme state */
-  @media (prefers-color-scheme: dark) {
-    &-clean {
-      color: @colors[@dark][text];
-      background-color: transparent;
-      border-color: transparent;
+  & when (@color-scheme[dark] = true) {
+    @media (prefers-color-scheme: dark) {
+      &-clean {
+        color: @colors[@dark][text];
+        background-color: transparent;
+        border-color: transparent;
+      }
     }
   }
 

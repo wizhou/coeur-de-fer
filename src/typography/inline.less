@@ -14,9 +14,11 @@ mark,
   color: @colors[@light][background];
   padding: 0.2em;
 
-  @media (prefers-color-scheme: dark) {
-    background-color: @colors[@dark][primary];
-    color: @colors[@dark][background];
+  & when (@color-scheme[dark] = true) {
+    @media (prefers-color-scheme: dark) {
+      background-color: @colors[@dark][primary];
+      color: @colors[@dark][background];
+    }
   }
 }
 
@@ -48,7 +50,9 @@ hr {
   border-top: 1px solid @colors[@light][border];
   margin: 2rem 0rem;
 
-  @media (prefers-color-scheme: dark) {
-    border-color: @colors[@dark][border];
+  & when (@color-scheme[dark] = true) {
+    @media (prefers-color-scheme: dark) {
+      border-color: @colors[@dark][border];
+    }
   }
 }

@@ -5,9 +5,11 @@ pre code {
   background: darken(@colors[@light][background], 3%);
   color: @colors[@light][text];
 
-  @media (prefers-color-scheme: dark) {
-    background: darken(@colors[@dark][background], 3%);
-    color: @colors[@dark][text];
+  & when (@color-scheme[dark] = true) {
+    @media (prefers-color-scheme: dark) {
+      background: darken(@colors[@dark][background], 3%);
+      color: @colors[@dark][text];
+    }
   }
 }
 
@@ -19,8 +21,10 @@ pre {
   padding: 1rem;
   width: 100%;
 
-  @media (prefers-color-scheme: dark) {
-    background-color:  lighten(@colors[@dark][background], 10%);
+  & when (@color-scheme[dark] = true) {
+    @media (prefers-color-scheme: dark) {
+      background-color:  lighten(@colors[@dark][background], 10%);
+    }
   }
 }
 
@@ -30,9 +34,11 @@ code {
   color: darken(@colors[@light][textOffset], 10%);
   border-radius: 0.2em;
 
-  @media (prefers-color-scheme: dark) {
-    background-color: lighten(@colors[@dark][background], 10%);
-    color: lighten(@colors[@light][textOffset], 10%);
+  & when (@color-scheme[dark] = true) {
+    @media (prefers-color-scheme: dark) {
+      background-color: lighten(@colors[@dark][background], 10%);
+      color: lighten(@colors[@light][textOffset], 10%);
+    }
   }
 }
 
@@ -46,9 +52,11 @@ kbd {
   background: @colors[@light][text];
   color: darken(@colors[@light][background], 3%);
 
-  @media (prefers-color-scheme: dark) {
-    background: @colors[@dark][text];
-    color: darken(@colors[@dark][background], 3%);
+  & when (@color-scheme[dark] = true) {
+    @media (prefers-color-scheme: dark) {
+      background: @colors[@dark][text];
+      color: darken(@colors[@dark][background], 3%);
+    }
   }
 }
 
@@ -56,7 +64,9 @@ samp {
   font-family: monospace;
   color: fade(@colors[@light][text], 90%);
 
-  @media (prefers-color-scheme: dark) {
-    color: fade(@colors[@dark][text], 90%);
+  & when (@color-scheme[dark] = true) {
+    @media (prefers-color-scheme: dark) {
+      color: fade(@colors[@dark][text], 90%);
+    }
   }
 }

@@ -3,9 +3,11 @@ body {
   color: @colors[@light][text];
 }
 
-@media (prefers-color-scheme: dark) {
-  body {
-    background-color: @colors[@dark][background];
-    color: @colors[@dark][text];
+& when (@color-scheme[dark] = true) {
+  @media (prefers-color-scheme: dark) {
+    body {
+      background-color: @colors[@dark][background];
+      color: @colors[@dark][text];
+    }
   }
 }
