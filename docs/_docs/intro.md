@@ -42,6 +42,12 @@ The easiest way to use *Coeur-de-fer* within your project is by importing it int
 
 `{path-to-coeur-de-fer}` is the path where *Cœur-de-fer* is in your project.
 
+If you use npm and a package manager like Parcel
+
+```` less
+@import (less) '@wizhou/coeur-de-fer/index.less';
+````
+
 You can also import the library inside a JS framework like **Vue** or **React** to be used on scoped CSS inside components.
 
 Then you will have access to every mixins and functions to use directly in your own file. No, really, that it. There is nothing more to import.
