@@ -37,7 +37,7 @@ body {
     @columns-name: @base[columns-name], // .col-
     @columns-total: @base[columns-total], // 12
     @columns-halfgap: @base[columns-halfgap], // false
-    @aprture: @base[aprture], // 1rem
+    @aperture: @base[aperture], // 1rem
     @marge: @base[marge], // 1rem
   );
 }
