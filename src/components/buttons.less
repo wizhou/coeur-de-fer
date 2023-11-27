@@ -35,8 +35,8 @@
       /* Set text color based on luma of background color */
       color: if(
         luma($background-color) < 50,
-        @colors[@light][background],
-        @colors[@light][text]
+        @light-text,
+        @text
       );
     }
 
