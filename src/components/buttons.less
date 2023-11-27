@@ -1,19 +1,19 @@
 /* Button theme function */
 
 .button-theme(
-  @primary,
-  @background,
-  @text,
-  @light-text,
-  @border,
-  @disabled-background,
-  @disabled-text
+  @primary, // Border and Hover background color.
+  @background, // Background color
+  @text, // Text color (on light background),
+  @light-text, // Light text color (on dark background),
+  @border, // Border color
+  @disabled-background, // Disabled background color
+  @disabled-text // Disabled text color.
   ) {
 
   color: if(
     luma($background-color) < 50,
-    @colors[@light][background],
-    @colors[@light][text]
+    @light-text,
+    @text
   );
   border-color: @border;
   background-color: @background;
@@ -92,7 +92,8 @@ button {
 
 .button {
   text-decoration: none;
-  vertical-align: middle;
+  // Property is ignored due to the display. With 'display: block', vertical-align should not be used.less(propertyIgnoredDueToDisplay)
+  // //vertical-align: middle;
   user-select: none;
 
   display: block;
@@ -132,7 +133,8 @@ button {
 
   &-block {
     display: block;
-    vertical-align: baseline;
+    // Property is ignored due to the display. With 'display: block', vertical-align should not be used.
+    // //vertical-align: baseline;
   }
 
   &-unmarged {
