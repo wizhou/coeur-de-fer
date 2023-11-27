@@ -81,6 +81,38 @@
   mobile-type-ratio: @type-ratios[majorThird];
 }
 
+@headings: {
+  margin-top: 1em;
+  margin-bottom: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  font-weight: bold;
+
+  @h1: {
+    font-weight: @headings[font-weight];
+  }
+
+  @h2: {
+    font-weight: @headings[font-weight];
+  }
+
+  @h3: {
+    font-weight: @headings[font-weight];
+  }
+
+  @h4: {
+    font-weight: @headings[font-weight];
+  }
+
+  @h5: {
+    font-weight: @headings[font-weight];
+  }
+
+  @h6: {
+    font-weight: normal;
+  }
+}
+
 @paragraph-sizes: {
   pearl: -2;
   small-print: -1;
@@ -104,9 +136,13 @@
 
 /*----------- Colors -----------*/
 
+// Remove color scheme managment
+
 @color-scheme: {
   dark: false
 }
+
+// Depreciated
 
 @hues: {
   primary: 0;
@@ -117,7 +153,31 @@
   info: 127;
 }
 
+// These has to be rethinked
+
+/*
+  New disp =
+
+  @colors: {
+    Main site colors like:
+    blue: blue;
+    red: red;
+  }
+
+  @monochromatic: {
+    primary: hsl(@hues[primary]; 81%; 58%);
+    secondary: hsl(@hues[secondary]; 100%; 68%);
+    text: hsl(@hues[primary]; 4%; 26%);
+    border: hsl(@hues[primary]; 0%; 90%);
+    background: hsl(@hues[primary]; 0%; 100%);
+    primaryOffset: hsl(@hues[primary]; 100%; 68%);
+    textOffset: hsl(@hues[primary]; 90%; 70%);
+    backgroundOffset: hsl(@hues[primary]; 6%; 100%);
+  }
+*/
+
 @colors: {
+    // switch to "monochromatic"
 
   @light: {
     primary: hsl(@hues[primary]; 81%; 58%);
