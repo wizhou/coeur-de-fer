@@ -2,8 +2,13 @@
 * Description: Reset ! Ending navigator default styling.
 *
 * Version : 2.1
-* Last update: 2020/01/06
+* Last update: 2023/11/27
 * Author: Wizhou
+
+Inspired by :
+  http://meyerweb.com/eric/tools/css/reset/
+  v2.0 | 20110126
+  License: none (public domain)
 */
 
 i,
@@ -76,14 +81,16 @@ fieldset,
 figcaption,
 blockquote {
   background: transparent;
-  border: 0em;
+  border: 0;
   font-size: 100%;
-  margin: 0em;
-  outline: 0em;
-  padding: 0em;
+	font: inherit;
+  margin: 0;
+  outline: 0;
+  padding: 0;
   vertical-align: baseline;
 }
 
+/* HTML5 display-role reset for older browsers */
 nav,
 menu,
 aside,
@@ -94,10 +101,11 @@ hgroup,
 section,
 article,
 details,
-figcaption, {
+figcaption {
   display:block;
 }
 
+ol,
 ul {
   list-style: none;
 }
@@ -107,6 +115,7 @@ blockquote {
   quotes: none;
 
   &::before {
+    content: '';
     content: none;
   }
 }
@@ -114,9 +123,9 @@ blockquote {
 a {
   background: transparent;
   font-size: 100%;
-  margin: 0em;
+  margin: 0;
   outline: 0px;
-  padding: 0em;
+  padding: 0;
   vertical-align: baseline;
   text-decoration: none;
   color: unset;
@@ -135,13 +144,13 @@ dfn[title] {
 
 table {
   border-collapse: collapse;
-  border-spacing: 0em;
+  border-spacing: 0;
 }
 
 hr {
   display: block;
   height: 1px;
-  padding: 0em;
+  padding: 0;
 }
 
 input,
